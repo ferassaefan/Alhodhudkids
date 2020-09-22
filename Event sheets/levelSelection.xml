@@ -1,0 +1,2169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>levelSelection</name>
+    <events>
+        <variable constant="0" name="tmplessonBackIID" sid="162073773103658" static="0" type="number">0</variable>
+        <variable constant="0" name="globalLevelMoe" sid="602182986987025" static="0" type="number">0</variable>
+        <variable constant="0" name="tmpMoeSem" sid="892262985751427" static="0" type="number">-1</variable>
+        <include>globalSheet</include>
+        <variable constant="0" name="moeLessonIndex" sid="148634739203712" static="0" type="number">0</variable>
+        <variable constant="0" name="added500" sid="981090184080993" static="0" type="number">0</variable>
+        <variable constant="0" name="locksCreated" sid="188675930435694" static="0" type="number">0</variable>
+        <variable constant="0" name="tempVar" sid="565977659000441" static="0" type="number">0</variable>
+        <variable constant="0" name="firstFound" sid="705563414413033" static="0" type="number">-1</variable>
+        <variable constant="0" name="revisited" sid="889342201147685" static="0" type="number">0</variable>
+        <variable constant="0" name="accumulated" sid="310373800061243" static="0" type="number">0</variable>
+        <event-block sid="869398386740389">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="252751079839491" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="143333282748188" type="lessonBack" />
+                <action id="-9" name="Set value" sid="491381169311749" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">900</param>
+                </action>
+                <action id="-9" name="Set value" sid="595468718493116" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">500</param>
+                </action>
+                <action id="-9" name="Set value" sid="395481243696594" type="System">
+                    <param id="0" name="Variable">tempCount1</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="875106073253840" type="System">
+                    <param id="0" name="Variable">firstFound</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-9" name="Set value" sid="108828680630472" type="System">
+                    <param id="0" name="Variable">letterIndex</param>
+                    <param id="1" name="Value">random(28)</param>
+                </action>
+                <action id="-12" name="Set group active" sid="512150864314808" type="System">
+                    <param id="0" name="Group name">&quot;checkAnswer&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="2" name="Set font face" sid="226485171446720" type="Texts">
+                    <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                    <param id="1" name="Style">0</param>
+                </action>
+                <action id="0" name="Set text" sid="307835566214808" type="greeting2">
+                    <param id="0" name="Text">first_name &amp; &quot;  &quot;&amp; last_name</param>
+                </action>
+                <action id="0" name="Set text" sid="592647602832498" type="greeting3">
+                    <param id="0" name="Text">school</param>
+                </action>
+                <action id="0" name="Call function" sid="640819304771495" type="Function">
+                    <param id="0" name="Name">&quot;grabLevelMoe&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="0" name="Track Event" sid="530389256417685" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;Channel&quot;</param>
+                    <param id="1" name="Name">&quot;اختيار الدرس&quot;</param>
+                </action>
+                <action id="-12" name="Set group active" sid="254134612215156" type="System">
+                    <param id="0" name="Group name">&quot;Remove&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="930391642584599" type="System">
+                    <param id="0" name="Group name">&quot;movement&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="446415674256214" type="System">
+                    <param id="0" name="Variable">loginTime</param>
+                    <param id="1" name="Value">clock</param>
+                </action>
+                <action id="7" name="Add item" sid="915368930693994" type="cirruculumCountry">
+                    <param id="0" name="Text">&quot;🇯🇴&quot;</param>
+                </action>
+                <action id="7" name="Add item" sid="810766092242254" type="cirruculumCountry">
+                    <param id="0" name="Text">&quot;🇸🇦&quot;</param>
+                </action>
+                <action id="7" name="Add item" sid="155583051212191" type="cirruculumCountry">
+                    <param id="0" name="Text">&quot;🇦🇪&quot;</param>
+                </action>
+                <action id="3" name="Set enabled" sid="986061727530487" type="cirruculumCountry">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="599284087032887">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="975209694803986" type="System">
+                            <param id="0" name="Variable">tmpMoeSem</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="131298540847941" type="System">
+                            <param id="0" name="Variable">schoolID</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">130</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="110933059095954" type="Function">
+                            <param id="0" name="Name">&quot;addTmpMoeSem&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="162691555489888">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="293607606459005" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="615081566025499" type="System">
+                            <param id="0" name="Variable">tmpMoeSem</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="137940085034199">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="611210191444234" type="System">
+                            <param id="0" name="Variable">gender</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Female&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="682962966311287" type="greeting">
+                            <param id="0" name="Text">&quot;أهلًا بِكِ&quot; </param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="174084713003219">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="535820416646678" type="System">
+                            <param id="0" name="Variable">classID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">str(3)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="124567227567313" type="greeting4">
+                            <param id="0" name="Text">&quot;الصف الأول&quot;</param>
+                        </action>
+                        <action disabled="1" id="-10" name="Add to" sid="826454531354698" type="System">
+                            <param id="0" name="Variable">tmpMoeSem</param>
+                            <param id="1" name="Value">7</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="525576614879060">
+                            <conditions>
+                                <condition id="6" name="Is empty" sid="931735098412803" type="lessonRelatQues" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Request project file" sid="982868170861724" type="AJAX">
+                                    <param id="0" name="Tag">&quot;lessonRelat&quot;</param>
+                                    <param id="1" name="File">lessonRelatQues3.txt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="340927366126478">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="892261114156924" type="System">
+                            <param id="0" name="Variable">classID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">str(4)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="824821513645711" type="greeting4">
+                            <param id="0" name="Text">&quot;الصف الثاني&quot;</param>
+                        </action>
+                        <action disabled="1" id="-10" name="Add to" sid="861245815725859" type="System">
+                            <param id="0" name="Variable">tmpMoeSem</param>
+                            <param id="1" name="Value">8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="771586592188503">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="244619657444516" type="System">
+                            <param id="0" name="Variable">classID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">str(5)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="941254489651776" type="greeting4">
+                            <param id="0" name="Text">&quot;الصف الثالث&quot;</param>
+                        </action>
+                        <action disabled="1" id="-10" name="Add to" sid="855781952658313" type="System">
+                            <param id="0" name="Variable">tmpMoeSem</param>
+                            <param id="1" name="Value">8</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="247560018662249">
+                            <conditions>
+                                <condition id="6" name="Is empty" sid="463399246507451" type="lessonRelatQues" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Request project file" sid="866416746906755" type="AJAX">
+                                    <param id="0" name="Tag">&quot;lessonRelat&quot;</param>
+                                    <param id="1" name="File">lessonRelatQues5.txt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="781395198852162">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="673967115414655" type="System">
+                            <param id="0" name="Variable">className</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="263557738743493" type="greeting4">
+                            <param id="0" name="Text">className</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="722257124050087">
+                    <conditions>
+                        <condition id="-10" name="For" sid="959021535283622" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">exercises.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="376753541844304" type="fullExercises">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">exercises.At(loopindex)</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="890471483332741">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="591470321585144" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="573727169167801">
+                            <conditions>
+                                <condition id="7" name="Compare size" sid="950624348311916" type="finishedQuestions">
+                                    <param id="0" name="Axis">0</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="337930334727679">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="820724890547221" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="872426112779297" type="System">
+                                    <param id="0" name="Variable">globalLevel</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="433166105820072">
+                            <conditions />
+                            <actions>
+                                <action disabled="1" id="0" name="Call function" sid="357814302214645" type="Function">
+                                    <param id="0" name="Name">&quot;createLocks&quot;</param>
+                                    <param id="1" name="Parameter {n}">globalLevel</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="693172246034170">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="979860941030494" type="System">
+                            <param id="0" name="First value">globalLevel + 1 </param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">numberOfLessons</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="426720012232453" type="System">
+                            <param id="0" name="Group name">&quot;CreateLocks&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="649899606572045">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Call function" sid="475761020154073" type="Function">
+                            <param id="0" name="Name">&quot;createLessons&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="121694393206125">
+                    <conditions>
+                        <condition id="6" name="Is empty" sid="588969308569496" type="moeLesTxt" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Request URL" sid="866282917077012" type="AJAX">
+                            <param id="0" name="Tag">&quot;lessonRequest&quot;</param>
+                            <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/Storiesjmoe&quot;&amp;classID&amp;&quot;up.csv&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="903578823558072">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="839049956119413" type="System">
+                            <param id="0" name="Variable">country</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;jo&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set selection" sid="794156840128906" type="cirruculumCountry">
+                            <param id="0" name="Index">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="929587811427315">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="456674939669457" type="System">
+                            <param id="0" name="Variable">country</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;sa&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set selection" sid="890610950401859" type="cirruculumCountry">
+                            <param id="0" name="Index">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="235201583834571">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="281004946724895" type="System">
+                            <param id="0" name="Variable">country</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;ae&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set selection" sid="556380708151061" type="cirruculumCountry">
+                            <param id="0" name="Index">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="903886029358617">
+            <conditions>
+                <condition id="-20" name="Is on mobile device" sid="577470466853969" type="System" />
+            </conditions>
+            <actions>
+                <action id="3" name="Set font size" sid="956035044700465" type="titleOfLessons">
+                    <param id="0" name="Size (pt)">36</param>
+                </action>
+                <action id="-7" name="Set size" sid="271214681135360" type="semester1">
+                    <param id="0" name="Width">185</param>
+                    <param id="1" name="Height">80</param>
+                </action>
+                <action id="-7" name="Set size" sid="949776677364245" type="semester2">
+                    <param id="0" name="Width">205</param>
+                    <param id="1" name="Height">80</param>
+                </action>
+                <action id="-7" name="Set size" sid="708530624728983" type="semester1Txt">
+                    <param id="0" name="Width">185</param>
+                    <param id="1" name="Height">80</param>
+                </action>
+                <action id="-7" name="Set size" sid="915667919139137" type="semester2Txt">
+                    <param id="0" name="Width">205</param>
+                    <param id="1" name="Height">80</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="378901821074576" title="selectLesson">
+            <sub-events>
+                <event-block sid="531905773192633">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="378655608413079" type="Touch">
+                            <param id="0" name="Object">lessonBack</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="275301803855842" type="System">
+                            <param id="0" name="Group name">&quot;selectLesson&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="604547151059014" type="System">
+                            <param id="0" name="Group name">&quot;semester&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="116219143696444" type="lessonBack">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="950166903808745" type="System">
+                            <param id="0" name="Variable">questionNumber</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="333558871108092" type="System">
+                            <param id="0" name="Variable">tmplessonBackIID</param>
+                            <param id="1" name="Value">lessonBack.IID</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="145399373166449">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="156922033898433" type="System">
+                                    <param id="0" name="Variable">semester</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="836876040528191" type="System">
+                                    <param id="0" name="Variable">currLesson</param>
+                                    <param id="1" name="Value">lessonTitle.At(lessonBack.IID)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="737726265270756" type="System">
+                                    <param id="0" name="Variable">moeLessonIndex</param>
+                                    <param id="1" name="Value">lessonBack.IID</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="938280523620711" type="System">
+                                    <param id="0" name="Variable">tmpMoeSem</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="713905073149753" type="Function">
+                                    <param id="0" name="Name">&quot;match_white&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="944505332875698">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="941840386114263" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="238337833917838" type="System">
+                                    <param id="0" name="Variable">currLesson</param>
+                                    <param id="1" name="Value">lessonTitle2.At(lessonBack.IID)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="956015156889617" type="System">
+                                    <param id="0" name="Variable">moeLessonIndex</param>
+                                    <param id="1" name="Value">tmpMoeSem + lessonBack.IID</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Set value" sid="558740788640699" type="System">
+                                    <param id="0" name="Variable">tmpMoeSem</param>
+                                    <param id="1" name="Value">lessonTitle.Width</param>
+                                </action>
+                                <action id="0" name="Call function" sid="870355840304520" type="Function">
+                                    <param id="0" name="Name">&quot;match_white&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="360634110070220">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="861876116412626" type="System">
+                                            <param id="0" name="Variable">classID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">str(3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="783875716507538" type="System">
+                                            <param id="0" name="Variable">moeLessonIndex</param>
+                                            <param id="1" name="Value">tmpMoeSem + lessonBack.IID-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="536891648469490">
+                            <conditions />
+                            <actions>
+                                <action disabled="1" id="0" name="Alert" sid="704432774419566" type="Browser">
+                                    <param id="0" name="Message">moeLessonIndex</param>
+                                </action>
+                                <action id="0" name="Call function" sid="542832751416564" type="Function">
+                                    <param id="0" name="Name">&quot;currentLessonProgress&quot;</param>
+                                    <param id="1" name="Parameter {n}">moeLessonIndex</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="785088993981158">
+                            <conditions>
+                                <condition disabled="1" id="-8" name="Compare two values" sid="902845166295191" type="System">
+                                    <param id="0" name="First value">lessonBack.IID +1</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">globalLevel +1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="863673298427173" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="645545211103221">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="260509296978304" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">fullExercises.Width-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-9" name="Set value" sid="939847144816289" type="System">
+                                            <param id="0" name="Variable">tempCount2</param>
+                                            <param id="1" name="Value">loopindex</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="236392596173816">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="142660127639305" type="System">
+                                                    <param id="0" name="First value">int(tokenat(fullExercises.At(loopindex) , 0 , &quot;,&quot;))</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">lessonBack.IID + 1 + tmpMoeSem</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="221050139365219" type="System">
+                                                    <param id="0" name="Variable">tempVar</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="856221028238620">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="197607007716928" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="275805737771080" type="System">
+                                                    <param id="0" name="Variable">tempVar</param>
+                                                    <param id="1" name="Value">-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="114334049341025">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="915536642993725" type="System">
+                                                    <param id="0" name="Variable">tempVar</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="655924552227281" type="System">
+                                                    <param id="0" name="Variable">tempCount1</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="444268497684081">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="350931824227430" type="System">
+                                                            <param id="0" name="Variable">firstFound</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">-1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="219255328868281" type="System">
+                                                            <param id="0" name="Variable">firstFound</param>
+                                                            <param id="1" name="Value">loopindex</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block disabled="1" sid="530817392300070">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="669909043369993" type="System">
+                                                            <param id="0" name="First value">tempString2</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">-1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="784630155969662">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="595629816322507" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">firstFound</param>
+                                            <param id="2" name="End index">tempCount1+firstFound-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="415282014178533" type="exercises">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">fullExercises.At(loopindex)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block disabled="1" sid="902269001028665">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="277037387950246" type="System">
+                                            <param id="0" name="Name">&quot;less&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">lessonRelatQues.Width-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block disabled="1" sid="569660209716690">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="838316733370722" type="System">
+                                                    <param id="0" name="Name">&quot;exe&quot;</param>
+                                                    <param id="1" name="Start index">0</param>
+                                                    <param id="2" name="End index">exercises.Width -1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block disabled="1" sid="145517499601088">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="669770987389038" type="System">
+                                                            <param id="0" name="First value">int(tokenat(exercises.At(loopindex(&quot;exe&quot;)) , 5  , &quot;,&quot;))</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">int(lessonRelatQues.At(loopindex(&quot;less&quot;)))</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="9" name="Delete" sid="586588307531854" type="exercises">
+                                                            <param id="0" name="Index">loopindex(&quot;exe&quot;)</param>
+                                                            <param id="1" name="Axis">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block disabled="1" sid="796397925698110">
+                                            <conditions />
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="567628117550947">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="189917322614335" type="System">
+                                            <param id="0" name="Variable">questionCount</param>
+                                            <param id="1" name="Value">exercises.Width</param>
+                                        </action>
+                                        <action id="-2" name="Go to layout" sid="811079638290993" type="System">
+                                            <param id="0" name="Layout">load7</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="256081752255840">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="437643935165837" type="System">
+                                    <param id="0" name="First value">lessonBack.IID +1</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">globalLevel</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="370979014517075" type="System">
+                                    <param id="0" name="Variable">revisited</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="235187632030066">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="776229863102826" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="785469045643111" type="System">
+                                    <param id="0" name="Variable">revisited</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="767101255337491">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="331582056855614" type="Touch">
+                            <param id="0" name="Object">sw_let</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="147497298439536">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="612172285492371" type="System">
+                                    <param id="0" name="First value">sw_let.IID</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">globalLevelMoe</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="553665927194143" type="System">
+                                    <param id="0" name="Group name">&quot;selectLesson&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="453684955756949" type="lessonBack">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="567848550632071" type="System">
+                                    <param id="0" name="Variable">questionNumber</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="814704990167579" type="System">
+                                    <param id="0" name="Variable">tmplessonBackIID</param>
+                                    <param id="1" name="Value">sw_let.IID</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="112011074202660" type="System">
+                                    <param id="0" name="Variable">currLesson</param>
+                                    <param id="1" name="Value">lessonAll.At(sw_let.IID)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="815203921174156" type="System">
+                                    <param id="0" name="Variable">moeLessonIndex</param>
+                                    <param id="1" name="Value">sw_let.IID</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="425983120939272" type="sw_let">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block disabled="1" sid="877280105351688">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="231298685689660" type="System">
+                                            <param id="0" name="Variable">classID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">str(3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="877836484662391" type="System">
+                                            <param id="0" name="Variable">moeLessonIndex</param>
+                                            <param id="1" name="Value"> sw_let.IID-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="285349146162537">
+                                    <conditions />
+                                    <actions>
+                                        <action disabled="1" id="0" name="Alert" sid="949309878859438" type="Browser">
+                                            <param id="0" name="Message">moeLessonIndex</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="767426620124075" type="Function">
+                                            <param id="0" name="Name">&quot;currentLessonProgress&quot;</param>
+                                            <param id="1" name="Parameter {n}">moeLessonIndex</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="885618805160123" type="Function">
+                                            <param id="0" name="Name">&quot;match_white2&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="345159644023333">
+                                    <conditions>
+                                        <condition disabled="1" id="-8" name="Compare two values" sid="980867138253889" type="System">
+                                            <param id="0" name="First value">lessonBack.IID +1</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Second value">globalLevel +1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="820442770001978" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="813718403440334">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="690915723873015" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">0</param>
+                                                    <param id="2" name="End index">fullExercises.Width-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action disabled="1" id="-9" name="Set value" sid="549940304440904" type="System">
+                                                    <param id="0" name="Variable">tempCount2</param>
+                                                    <param id="1" name="Value">loopindex</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="220211930059074">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="812890060335883" type="System">
+                                                            <param id="0" name="First value">int(tokenat(fullExercises.At(loopindex) , 0 , &quot;,&quot;))</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">sw_let.IID + 1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="293343745133895" type="System">
+                                                            <param id="0" name="Variable">tempVar</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="976791973175535">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="454069368079504" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="681324722263107" type="System">
+                                                            <param id="0" name="Variable">tempVar</param>
+                                                            <param id="1" name="Value">-1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="763295038739684">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="886419029768620" type="System">
+                                                            <param id="0" name="Variable">tempVar</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Add to" sid="600702152947001" type="System">
+                                                            <param id="0" name="Variable">tempCount1</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block sid="629564192929956">
+                                                            <conditions>
+                                                                <condition id="-14" name="Compare variable" sid="671404815032754" type="System">
+                                                                    <param id="0" name="Variable">firstFound</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">-1</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-9" name="Set value" sid="919205183301835" type="System">
+                                                                    <param id="0" name="Variable">firstFound</param>
+                                                                    <param id="1" name="Value">loopindex</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block disabled="1" sid="987896364163731">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="348646997147658" type="System">
+                                                                    <param id="0" name="First value">tempString2</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Second value">-1</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="468746670129011">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="949175291292516" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">firstFound</param>
+                                                    <param id="2" name="End index">tempCount1+firstFound-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="650260955339813" type="exercises">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">fullExercises.At(loopindex)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="754058185114823">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="954363346843622" type="System">
+                                                    <param id="0" name="Name">&quot;less&quot;</param>
+                                                    <param id="1" name="Start index">0</param>
+                                                    <param id="2" name="End index">lessonRelatQues.Width-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="136797556888420">
+                                                    <conditions>
+                                                        <condition id="-10" name="For" sid="766420296853532" type="System">
+                                                            <param id="0" name="Name">&quot;exe&quot;</param>
+                                                            <param id="1" name="Start index">0</param>
+                                                            <param id="2" name="End index">exercises.Width -1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="250069504447680">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="948017617453929" type="System">
+                                                                    <param id="0" name="First value">int(tokenat(exercises.At(loopindex(&quot;exe&quot;)) , 5  , &quot;,&quot;))</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Second value">int(lessonRelatQues.At(loopindex(&quot;less&quot;)))</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="9" name="Delete" sid="680612291633690" type="exercises">
+                                                                    <param id="0" name="Index">loopindex(&quot;exe&quot;)</param>
+                                                                    <param id="1" name="Axis">0</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="207535565469112">
+                                                    <conditions />
+                                                    <actions />
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="931438184297608">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="731575563178369" type="System">
+                                                    <param id="0" name="Variable">questionCount</param>
+                                                    <param id="1" name="Value">exercises.Width</param>
+                                                </action>
+                                                <action id="-2" name="Go to layout" sid="473576422661000" type="System">
+                                                    <param id="0" name="Layout">load7</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="300284551836108">
+            <conditions>
+                <condition id="0" name="On function" sid="610371361419261" type="Function">
+                    <param id="0" name="Name">&quot;grabLevel&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Uncomment Grabbing current level</comment>
+                <event-block sid="263184390841197">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="897252520742512" type="System">
+                            <param id="0" name="Variable">globalLevel</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">-2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="342064592049518" type="System">
+                            <param id="0" name="Variable">lastQuesNo</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="199323698999991" type="System">
+                            <param id="0" name="Variable">globalLevel</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="818217076645930">
+                            <conditions>
+                                <condition id="-10" name="For" sid="542193302844187" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">fullExercises.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="390524779986965">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="920901996917751" type="System">
+                                            <param id="0" name="First value">int(tokenat(fullExercises.At(loopindex) , 5, &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">int(lastQuesNo)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="923542452251066" type="System">
+                                            <param id="0" name="Variable">globalLevel</param>
+                                            <param id="1" name="Value">int(tokenat(fullExercises.At(loopindex) , 0 , &quot;,&quot;))-1</param>
+                                        </action>
+                                        <action id="-24" name="Stop loop" sid="122404646268401" type="System" />
+                                    </actions>
+                                </event-block>
+                                <event-block sid="672996005210296">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="852577121931216" type="System">
+                                            <param id="0" name="First value">int(tokenat(fullExercises.At(loopindex +1)  , 0 , &quot;,&quot;))-1</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">globalLevel</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="389294782511437" type="System">
+                                            <param id="0" name="Variable">globalLevel</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="297218940792764">
+                                    <conditions />
+                                    <actions>
+                                        <action id="5" name="Push" sid="881815023761589" type="skills">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">tokenat(fullExercises.At(loopindex) , 7 , &quot;,&quot;)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="392396315022624">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="151066917438518" type="System">
+                                    <param id="0" name="First value">globalLevel + 1 </param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">numberOfLessons</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="0" name="Call function" sid="543014588435022" type="Function">
+                                    <param id="0" name="Name">&quot;createLocks&quot;</param>
+                                    <param id="1" name="Parameter {n}">globalLevel</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="676138581504245">
+            <conditions>
+                <condition id="0" name="On function" sid="176067091625639" type="Function">
+                    <param id="0" name="Name">&quot;createLessons&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="378585868114424" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">900</param>
+                </action>
+                <action id="-9" name="Set value" sid="919109065094562" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">500</param>
+                </action>
+                <action id="-45" name="Reset persisted objects" sid="566998156067975" type="System" />
+            </actions>
+            <sub-events>
+                <event-block sid="849454408490236">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="688134903003085" type="System">
+                            <param id="0" name="Variable">schoolID</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">130</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="867178203422194" type="lessonBack" />
+                        <action id="-9" name="Destroy" sid="849852705696021" type="titleOfLessons" />
+                        <action id="-9" name="Destroy" sid="222909198473385" type="trueIcon" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="978111723933942">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="853624448983529" type="System">
+                                    <param id="0" name="Variable">semester</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="688004461661193" type="semester2">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="926388484945251" type="semester2Txt">
+                                    <param id="0" name="Color">rgb(0, 0, 0)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="582674586611883" type="semester1">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="605710137716432" type="semester1Txt">
+                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Destroy" sid="519870808535851" type="semester2" />
+                                <action disabled="1" id="-9" name="Destroy" sid="760850456899974" type="semester2Txt" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="167535185558265">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                                <event-block sid="299161749395870">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="493788817495663" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">lessonTitle.Width -1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="956078463154712" type="System">
+                                            <param id="0" name="Object to create">lessonBack</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">xInitial</param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="392998134820795" type="System">
+                                            <param id="0" name="Object to create">titleOfLessons</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">xInitial </param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="320532152299687" type="titleOfLessons">
+                                            <param id="0" name="Text">lessonTitle.At(loopindex)</param>
+                                        </action>
+                                        <action disabled="1" id="-11" name="Subtract from" sid="569676273236906" type="System">
+                                            <param id="0" name="Variable">xInitial</param>
+                                            <param id="1" name="Value">250</param>
+                                        </action>
+                                        <action id="2" name="Set font face" sid="962498084662760" type="titleOfLessons">
+                                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                                            <param id="1" name="Style">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="430002490594360">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="267978114166715" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">globalLevelMoe</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="338631723578538" type="lessonBack">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="4" name="Set font color" sid="482872320991796" type="titleOfLessons">
+                                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="836331775221952" type="System">
+                                                    <param id="0" name="Object to create">trueIcon</param>
+                                                    <param id="1" name="Layer">1</param>
+                                                    <param id="2" name="X">titleOfLessons.X -180</param>
+                                                    <param id="3" name="Y">yInitial </param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="213246618518382">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="382160743799930" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">110</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="783674505122817">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="464161513399516" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Subtract from" sid="349786024990303" type="System">
+                                                    <param id="0" name="Variable">xInitial</param>
+                                                    <param id="1" name="Value">450</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="248128725382022" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">500</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="901980216870695">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="353842005149661" type="System">
+                                    <param id="0" name="Variable">semester</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="962601669186752" type="semester1">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="414235865481880" type="semester1Txt">
+                                    <param id="0" name="Color">rgb(0, 0, 0)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="791111138894844" type="semester2">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="341857679293343" type="semester2Txt">
+                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Destroy" sid="979958174954435" type="semester1" />
+                                <action disabled="1" id="-9" name="Destroy" sid="937338859394028" type="semester1Txt" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="836039000847039">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                                <event-block sid="663943152241549">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="122585478242801" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">lessonTitle2.Width -1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="294431434403156" type="System">
+                                            <param id="0" name="Object to create">lessonBack</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">xInitial</param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="930394695286371" type="System">
+                                            <param id="0" name="Object to create">titleOfLessons</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">xInitial </param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="692627431962866" type="titleOfLessons">
+                                            <param id="0" name="Text">lessonTitle2.At(loopindex)</param>
+                                        </action>
+                                        <action id="2" name="Set font face" sid="105510138155140" type="titleOfLessons">
+                                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                                            <param id="1" name="Style">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block any="1" sid="463166623407171">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="874374314943666" type="System">
+                                                    <param id="0" name="First value">loopindex + tmpMoeSem</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">globalLevelMoe</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="895034233082135" type="lessonBack">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="4" name="Set font color" sid="177458143362926" type="titleOfLessons">
+                                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="925096839230063" type="System">
+                                                    <param id="0" name="Object to create">trueIcon</param>
+                                                    <param id="1" name="Layer">1</param>
+                                                    <param id="2" name="X">titleOfLessons.X -180</param>
+                                                    <param id="3" name="Y">yInitial </param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="837843192771958">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="824506656231907" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">110</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="414993260480457">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="452372149053841" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Subtract from" sid="194191318053750" type="System">
+                                                    <param id="0" name="Variable">xInitial</param>
+                                                    <param id="1" name="Value">450</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="325630175889515" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">500</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="282925734484064">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="916934575818755" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="596244097460665" type="greenBar2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="994525664108253" type="chooseLesson">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="590735935619807" type="semester1" />
+                        <action id="-9" name="Destroy" sid="769869397915689" type="semester2" />
+                        <action id="-9" name="Destroy" sid="920889693437412" type="semester1Txt" />
+                        <action id="-9" name="Destroy" sid="966193821547771" type="semester2Txt" />
+                        <action id="-9" name="Set value" sid="325130806320415" type="System">
+                            <param id="0" name="Variable">xInitial</param>
+                            <param id="1" name="Value">1140</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="958835089613309" type="System">
+                            <param id="0" name="Variable">yInitial</param>
+                            <param id="1" name="Value">345</param>
+                        </action>
+                        <action id="1" name="Set size" sid="964990140697387" type="lessonAll">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="370746060690018">
+                            <conditions>
+                                <condition id="-10" name="For" sid="791090433699569" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">lessonTitle.Width -1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="290137962179814" type="lessonAll">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">lessonTitle.At(loopindex)</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="138180853184985">
+                            <conditions>
+                                <condition id="-10" name="For" sid="330388969037397" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">lessonTitle2.Width -1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="181552739290837" type="lessonAll">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">lessonTitle2.At(loopindex)</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="897764709722618">
+                            <conditions>
+                                <condition id="-10" name="For" sid="634794761413868" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">lessonAll.Width -1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="304841557124713">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="714984693526427" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">5</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="343663587383375" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">10</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="209393735607938" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">15</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="267164877434744" type="System">
+                                            <param id="0" name="Variable">xInitial</param>
+                                            <param id="1" name="Value">1140</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="888148486625060" type="System">
+                                            <param id="0" name="Variable">yInitial</param>
+                                            <param id="1" name="Value">180</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="604218446587709">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="961353228227337" type="System">
+                                            <param id="0" name="Object to create">sw_let</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">xInitial</param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="727544069912744" type="System">
+                                            <param id="0" name="Object to create">titleOfLessons</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">xInitial  -100</param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="584309481328045" type="titleOfLessons">
+                                            <param id="0" name="Text">loopindex +1</param>
+                                        </action>
+                                        <action id="2" name="Set font face" sid="110178451242626" type="titleOfLessons">
+                                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                                            <param id="1" name="Style">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="150109839240893">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="268068300799906" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">globalLevelMoe</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="852169359317658" type="System">
+                                            <param id="0" name="Object to create">lock</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">xInitial-100</param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="9" name="Set scale" sid="274559475223861" type="lock">
+                                            <param id="0" name="Scale">0.5</param>
+                                        </action>
+                                        <action id="-24" name="Move to top" sid="307419428255199" type="lock" />
+                                        <action id="-16" name="Set opacity" sid="637972672226334" type="lock">
+                                            <param id="0" name="Opacity">80</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="834558694274199">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="618053884816339" type="System">
+                                            <param id="0" name="Variable">xInitial</param>
+                                            <param id="1" name="Value">200</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="638859722578697" title="semester">
+            <sub-events>
+                <event-block sid="375972301672022">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="155812684849184" type="Touch">
+                            <param id="0" name="Object">semester1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="871945668750505" type="System">
+                            <param id="0" name="Variable">semester</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="937355908049178" type="Function">
+                            <param id="0" name="Name">&quot;createLessons&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="5" name="Set frame" sid="168760389646749" type="semester2">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="4" name="Set font color" sid="751162310176402" type="semester2Txt">
+                            <param id="0" name="Color">rgb(0, 0, 0)</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="232678772299452" type="semester1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="4" name="Set font color" sid="854202130443711" type="semester1Txt">
+                            <param id="0" name="Color">rgb(255, 255, 255)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="674990562987028">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="721233410346501" type="Touch">
+                            <param id="0" name="Object">semester2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="782925327860270" type="System">
+                            <param id="0" name="Variable">semester</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="553453241681813" type="semester1">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="4" name="Set font color" sid="855980343121213" type="semester1Txt">
+                            <param id="0" name="Color">rgb(0, 0, 0)</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="372926166122973" type="semester2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="4" name="Set font color" sid="781933214680616" type="semester2Txt">
+                            <param id="0" name="Color">rgb(255, 255, 255)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="721597787463765">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="163274428089334" type="System">
+                                    <param id="0" name="Variable">tmpMoeSem</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="438471650724442" type="Function">
+                                    <param id="0" name="Name">&quot;addTmpMoeSem&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="871864215022545">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="728975593445535" type="Function">
+                                    <param id="0" name="Name">&quot;createLessons&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="659132233052048">
+            <conditions>
+                <condition id="0" name="On function" sid="135542515683273" type="Function">
+                    <param id="0" name="Name">&quot;addTmpMoeSem&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="667052849208092">
+                    <conditions />
+                    <actions />
+                    <sub-events>
+                        <event-block sid="333507022101306">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="227977051913920" type="System">
+                                    <param id="0" name="Variable">semester</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="640078533867278" type="System">
+                                    <param id="0" name="Variable">tmpMoeSem</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="825323177731919">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="462243409681463" type="System">
+                                            <param id="0" name="Variable">classID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">str(3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="783859678661015" type="System">
+                                            <param id="0" name="Variable">tmpMoeSem</param>
+                                            <param id="1" name="Value">7</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="428760705358008">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="492811001203323" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="381951481160231" type="System">
+                                            <param id="0" name="Variable">tmpMoeSem</param>
+                                            <param id="1" name="Value">8</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="466331817591407">
+            <conditions>
+                <condition id="0" name="On completed" sid="994152250661808" type="AJAX">
+                    <param id="0" name="Tag">&quot;lessonRelat&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="255370867960796">
+                    <conditions>
+                        <condition id="-10" name="For" sid="687776723183003" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">tokencount(AJAX.LastData , newline)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="977030264079706" type="lessonRelatQues">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">tokenat(AJAX.LastData , loopindex , newline)</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="293167695670239">
+            <conditions>
+                <condition id="0" name="On completed" sid="413140966293189" type="AJAX">
+                    <param id="0" name="Tag">&quot;lessonRequest&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="14" name="Log" sid="433471338360987" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">AJAX.LastData</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="120363191832267">
+                    <conditions>
+                        <condition id="-10" name="For" sid="464165932221003" type="System">
+                            <param id="0" name="Name">&quot;x&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">tokencount(AJAX.LastData , newline)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="467218195813817">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="720206957924059" type="System">
+                                    <param id="0" name="First value">loopindex(&quot;x&quot;)%2</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="349490749220539" type="System">
+                                    <param id="0" name="First value">tokenat(AJAX.LastData , loopindex(&quot;x&quot;) , newline)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="604241534659428" type="moeLesTxt">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">tokenat(AJAX.LastData , loopindex(&quot;x&quot;) , newline)</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="347462397042451">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="402241673502972" type="System">
+                                    <param id="0" name="First value">loopindex(&quot;x&quot;)%2</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="454395924620371" type="System">
+                                    <param id="0" name="First value">tokenat(AJAX.LastData , loopindex(&quot;x&quot;) , newline)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="670052218320611" type="moeLesTxtQues">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">tokenat(AJAX.LastData , loopindex(&quot;x&quot;) , newline)</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block disabled="1" sid="292595992340624">
+                    <conditions>
+                        <condition id="-10" name="For" sid="391162895210528" type="System">
+                            <param id="0" name="Name">&quot;fin&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">finishedStory.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block disabled="1" sid="775403145107024">
+                            <conditions>
+                                <condition id="-10" name="For" sid="981471759465338" type="System">
+                                    <param id="0" name="Name">&quot;story&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">storyArr.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block disabled="1" sid="350252206968507">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="967767157478533" type="System">
+                                            <param id="0" name="First value">trim(finishedStory.At(loopindex(&quot;fin&quot;)))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">trim(tokenat(storyArr.At(loopindex(&quot;story&quot;)) , 0 , &quot;,&quot;))</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="9" name="Delete" sid="821024157132583" type="storyArr">
+                                            <param id="0" name="Index">loopindex(&quot;story&quot;)</param>
+                                            <param id="1" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block disabled="1" sid="216578031163357">
+                    <conditions />
+                    <actions>
+                        <action id="-16" name="Wait" sid="297798530027239" type="System">
+                            <param id="0" name="Seconds">4.0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="448363005385306" type="System">
+                            <param id="0" name="Layout">Load6</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="789630856931666">
+            <conditions>
+                <condition id="0" name="On function" sid="317796435680833" type="Function">
+                    <param id="0" name="Name">&quot;match_white&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="264487547870073">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Destroy" sid="601431072047643" type="titleOfLessons" />
+                        <action id="-9" name="Set value" sid="605525092420930" type="System">
+                            <param id="0" name="Variable">xInitial</param>
+                            <param id="1" name="Value">900</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="272974912303959" type="System">
+                            <param id="0" name="Variable">yInitial</param>
+                            <param id="1" name="Value">500</param>
+                        </action>
+                        <action id="-45" name="Reset persisted objects" sid="163145365224141" type="System" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="517282001434982">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="618158456262227" type="System">
+                                    <param id="0" name="Variable">semester</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="509624032046787" type="semester2">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="766660450447856" type="semester2Txt">
+                                    <param id="0" name="Color">rgb(0, 0, 0)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="525905741553017" type="semester1">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="343480227534721" type="semester1Txt">
+                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Destroy" sid="222279476344426" type="semester2" />
+                                <action disabled="1" id="-9" name="Destroy" sid="564806354999424" type="semester2Txt" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="570095402879383">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                                <event-block sid="936280357806175">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="126861144512711" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">lessonTitle.Width -1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-3" name="Create object" sid="999262803746641" type="System">
+                                            <param id="0" name="Object to create">lessonBack</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">xInitial</param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="389934824537107" type="System">
+                                            <param id="0" name="Object to create">titleOfLessons</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">xInitial </param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="146611610590844" type="titleOfLessons">
+                                            <param id="0" name="Text">lessonTitle.At(loopindex)</param>
+                                        </action>
+                                        <action disabled="1" id="-11" name="Subtract from" sid="660282844931697" type="System">
+                                            <param id="0" name="Variable">xInitial</param>
+                                            <param id="1" name="Value">250</param>
+                                        </action>
+                                        <action id="2" name="Set font face" sid="338835127896029" type="titleOfLessons">
+                                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                                            <param id="1" name="Style">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block any="1" sid="780010621166769">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="687289502505056" type="System">
+                                                    <param id="0" name="First value">currLesson</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">lessonTitle.At(loopindex)</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="828546011517123" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">globalLevelMoe</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set font color" sid="777949828273131" type="titleOfLessons">
+                                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="399661443011434">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="452121689667422" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">110</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="854306909153430">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="872821646072688" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Subtract from" sid="435043836290486" type="System">
+                                                    <param id="0" name="Variable">xInitial</param>
+                                                    <param id="1" name="Value">450</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="532895470728600" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">500</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="267708862473961">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="715563231036140" type="System">
+                                    <param id="0" name="Variable">semester</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="839818986570472" type="semester1">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="569157455278671" type="semester1Txt">
+                                    <param id="0" name="Color">rgb(0, 0, 0)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="199270635645354" type="semester2">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set font color" sid="614638844861719" type="semester2Txt">
+                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Destroy" sid="817758935471703" type="semester1" />
+                                <action disabled="1" id="-9" name="Destroy" sid="823456539131540" type="semester1Txt" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="550219295949641">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                                <event-block sid="317235389777979">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="716876619758566" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">lessonTitle2.Width -1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-3" name="Create object" sid="903068388474986" type="System">
+                                            <param id="0" name="Object to create">lessonBack</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">xInitial</param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="139769778067955" type="System">
+                                            <param id="0" name="Object to create">titleOfLessons</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">xInitial </param>
+                                            <param id="3" name="Y">yInitial</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="639920821932655" type="titleOfLessons">
+                                            <param id="0" name="Text">lessonTitle2.At(loopindex)</param>
+                                        </action>
+                                        <action id="2" name="Set font face" sid="969456589145232" type="titleOfLessons">
+                                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                                            <param id="1" name="Style">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block any="1" sid="601012839595749">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="751810254813365" type="System">
+                                                    <param id="0" name="First value">currLesson</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">lessonTitle2.At(loopindex)</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="349105524578132" type="System">
+                                                    <param id="0" name="First value">loopindex + tmpMoeSem</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">globalLevelMoe</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set font color" sid="390461725118858" type="titleOfLessons">
+                                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="441544907893547">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="395755995500117" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">110</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="138526415981640">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="795446039665803" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Subtract from" sid="188171522123446" type="System">
+                                                    <param id="0" name="Variable">xInitial</param>
+                                                    <param id="1" name="Value">450</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="645365738021676" type="System">
+                                                    <param id="0" name="Variable">yInitial</param>
+                                                    <param id="1" name="Value">500</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="754324660764983">
+            <conditions>
+                <condition id="0" name="On function" sid="393861832148356" type="Function">
+                    <param id="0" name="Name">&quot;match_white2&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="678855074488110" type="titleOfLessons" />
+                <action id="-9" name="Destroy" sid="743331405441734" type="lock" />
+                <action id="-9" name="Set value" sid="447883285724740" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">1140</param>
+                </action>
+                <action id="-9" name="Set value" sid="280825808117777" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">345</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="451730678083195">
+                    <conditions>
+                        <condition id="-10" name="For" sid="206548121627700" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">lessonAll.Width -1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="784091929152522">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="912748094598562" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="892633991344223" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">10</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="278188584629156" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="186933581168937" type="System">
+                                    <param id="0" name="Variable">xInitial</param>
+                                    <param id="1" name="Value">1140</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="606010905320495" type="System">
+                                    <param id="0" name="Variable">yInitial</param>
+                                    <param id="1" name="Value">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="408627094078211">
+                            <conditions />
+                            <actions>
+                                <action disabled="1" id="-3" name="Create object" sid="678491324844345" type="System">
+                                    <param id="0" name="Object to create">sw_let</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">xInitial</param>
+                                    <param id="3" name="Y">yInitial</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="439653558223649" type="System">
+                                    <param id="0" name="Object to create">titleOfLessons</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">xInitial  -100</param>
+                                    <param id="3" name="Y">yInitial</param>
+                                </action>
+                                <action id="0" name="Set text" sid="766366967680179" type="titleOfLessons">
+                                    <param id="0" name="Text">loopindex +1</param>
+                                </action>
+                                <action id="2" name="Set font face" sid="673661981608448" type="titleOfLessons">
+                                    <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                                    <param id="1" name="Style">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="422808276821392">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="562675028320973" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">globalLevelMoe</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="925694933222104" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">sw_let.IID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set font color" sid="847354799226390" type="titleOfLessons">
+                                    <param id="0" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="640483889385286">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="279419593712567" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">globalLevelMoe</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="212838794602733" type="System">
+                                    <param id="0" name="Object to create">lock</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">xInitial-100</param>
+                                    <param id="3" name="Y">yInitial</param>
+                                </action>
+                                <action id="-24" name="Move to top" sid="974377766875251" type="lock" />
+                                <action id="9" name="Set scale" sid="901093321140971" type="lock">
+                                    <param id="0" name="Scale">0.5</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="741963386817320" type="lock">
+                                    <param id="0" name="Opacity">80</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="501501619195008">
+                            <conditions />
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="515738667299509" type="System">
+                                    <param id="0" name="Variable">xInitial</param>
+                                    <param id="1" name="Value">200</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="227721901213647">
+            <conditions>
+                <condition id="17" name="On back button" sid="728191045078478" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="1" name="Close" sid="341298700399893" type="Browser" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

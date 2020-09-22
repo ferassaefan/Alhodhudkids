@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>signUpcheck</name>
+    <events>
+        <include>globalSheet</include>
+        <event-block sid="771448440905352">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="744499075542166" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="969330033220715" type="greenBar">
+                    <param id="0" name="X">960</param>
+                    <param id="1" name="Y">-174</param>
+                </action>
+                <action id="6" name="Set focused" sid="552534728855181" type="first_name" />
+                <action id="-16" name="Set opacity" sid="280883802047233" type="hitArea">
+                    <param id="0" name="Opacity">20</param>
+                </action>
+                <action id="0" name="Track Event" sid="213246580023509" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;Channel&quot;</param>
+                    <param id="1" name="Name">LayoutName</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="702731848256732">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="313063016517991" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set font size" sid="262585176089114" type="nPhone">
+                            <param id="0" name="Size (pt)">28</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="320614730620746">
+            <conditions>
+                <condition id="3" name="On touched object" sid="662538933213548" type="Touch">
+                    <param id="0" name="Object">hitArea</param>
+                </condition>
+                <condition id="0" name="Compare text" sid="422567763136153" type="nxtBtn">
+                    <param id="0" name="Text to compare">&quot;التالي&quot;</param>
+                    <param id="1" name="Case sensitivity">0</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="880977212847782" type="System">
+                    <param id="0" name="First value">first_name.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="810482811791865" type="System">
+                    <param id="0" name="First value">last_name.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="636997478811362" type="System">
+                    <param id="0" name="First value">phoneNo.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set enabled" sid="454471401483746" type="first_name">
+                    <param id="0" name="Mode">0</param>
+                </action>
+                <action id="4" name="Set enabled" sid="341433332957731" type="last_name">
+                    <param id="0" name="Mode">0</param>
+                </action>
+                <action id="4" name="Set enabled" sid="484591460800203" type="phoneNo">
+                    <param id="0" name="Mode">0</param>
+                </action>
+                <action id="4" name="Set enabled" sid="296413906273049" type="email">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="323181818637104">
+                    <conditions>
+                        <condition disabled="1" id="-8" name="Compare two values" sid="300293077268273" type="System">
+                            <param id="0" name="First value">trim(first_name)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">trim(first_name.Text)</param>
+                        </condition>
+                        <condition disabled="1" id="-8" name="Compare two values" sid="708972810839904" type="System">
+                            <param id="0" name="First value">trim(last_name)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">trim(last_name.Text)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Request URL" sid="696445766127319" type="AJAX">
+                            <param id="0" name="Tag">&quot;checkUserData&quot;</param>
+                            <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/flash_controller3_jmoe.php?data=operation_type:sthomedata;user_id:&quot;&amp;std_id&amp;&quot;;first_name:&quot;&amp;first_name.Text&amp;&quot;;last_name:&quot;&amp;last_name.Text&amp;&quot;;mobile_number:&quot;&amp;phoneNo.Text&amp;&quot;;email:&quot;&amp; email.Text</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="132608776815223">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="782471511996685" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="729190338772444" type="f_login">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="155625579041391" type="f_login">
+                            <param id="0" name="Text">&quot;غير مطابق لما هو موجود في البيانات الخاصة بك&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="949779862460485">
+            <conditions>
+                <condition id="3" name="On touched object" sid="258722554097021" type="Touch">
+                    <param id="0" name="Object">sign1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="763812902464707">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="399737824813015" type="sign1">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="947753282104694" type="sign1">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="280142354672413">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="840108144594999" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="602689266486114" type="sign1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="189881096958777">
+            <conditions>
+                <condition id="3" name="On touched object" sid="594234756863305" type="Touch">
+                    <param id="0" name="Object">sign2</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="625536459654145">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="813080026748504" type="sign2">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="839630336725172" type="sign2">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="852378121150472">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="645123370624974" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="336308354741726" type="sign2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="905758395489219">
+            <conditions>
+                <condition id="3" name="On touched object" sid="806506343003613" type="Touch">
+                    <param id="0" name="Object">sign3</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="159812423780780">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="389224944327870" type="sign3">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="546307329790189" type="sign3">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="656808846300940">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="339923543991113" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="203383104348537" type="sign3">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="981023754332928">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="442482087116410" type="System">
+                    <param id="0" name="First value">first_name.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="386600821224129" type="System">
+                    <param id="0" name="First value">last_name.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="823202227031791" type="System">
+                    <param id="0" name="First value">phoneNo.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="446593475041234" type="hitArea">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="646733518813029">
+            <conditions>
+                <condition id="-22" name="Else" sid="727133227288325" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="301950292672222" type="hitArea">
+                    <param id="0" name="Opacity">20</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="438163935740062">
+            <conditions>
+                <condition id="3" name="On touched object" sid="642517643743569" type="Touch">
+                    <param id="0" name="Object">signCheck</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="119057084517713" type="sign1">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">1</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="262865364714993" type="sign2">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">1</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="951794541052914" type="sign3">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="230812111006767" type="sign1" />
+                <action id="-9" name="Destroy" sid="233826015444195" type="sign2" />
+                <action id="-9" name="Destroy" sid="870025691199868" type="sign3" />
+                <action id="-9" name="Destroy" sid="643192494590763" type="signature1" />
+                <action id="-9" name="Destroy" sid="183767155759646" type="signature2" />
+                <action id="-9" name="Destroy" sid="383797433782195" type="signature3" />
+                <action id="-9" name="Destroy" sid="640380823779544" type="hitArea" />
+                <action id="0" name="Set text" sid="703958821812325" type="fillTxt">
+                    <param id="0" name="Text">&quot;انقر هنا لمشاهدة الفيديو التعريفي والتدريبي للهدهد في منزلي&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="410224872802447" type="nxtBtn">
+                    <param id="0" name="Text">&quot;شاهد&quot;</param>
+                </action>
+                <action id="-3" name="Set position" sid="702698519497362" type="bird">
+                    <param id="0" name="X">490</param>
+                    <param id="1" name="Y">490</param>
+                </action>
+                <action id="-3" name="Set position" sid="753532646998567" type="fillTxt">
+                    <param id="0" name="X">1000</param>
+                    <param id="1" name="Y">500</param>
+                </action>
+                <action id="-9" name="Destroy" sid="532013983970120" type="signCheck" />
+                <action id="-3" name="Set position" sid="631882027907494" type="watchVid">
+                    <param id="0" name="X">1100</param>
+                    <param id="1" name="Y">600</param>
+                </action>
+                <action id="-3" name="Set position" sid="645857368385887" type="nxtBtn">
+                    <param id="0" name="X">1100</param>
+                    <param id="1" name="Y">600</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="198461302275675">
+            <conditions>
+                <condition id="0" name="On completed" sid="573091808960339" type="AJAX">
+                    <param id="0" name="Tag">&quot;checkUserData&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="542095497394165">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="216997601031476" type="System">
+                            <param id="0" name="First value">tokenat(tokenat(AJAx.LastData,2,&quot;;&quot;),1,&quot;:&quot;)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;success&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="127111941474625" type="EditTexts" />
+                        <action id="-9" name="Destroy" sid="430425308886748" type="sign_check" />
+                        <action id="-9" name="Destroy" sid="537403913299771" type="nPhone" />
+                        <action id="-9" name="Destroy" sid="869705757530001" type="Nname" />
+                        <action id="-9" name="Destroy" sid="602312811947470" type="optional" />
+                        <action id="5" name="Set frame" sid="656578355222403" type="surBgg">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="859012571789167" type="fillTxt">
+                            <param id="0" name="Text">&quot;شروط الاستخدام&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="772343398368340" type="nxtBtn">
+                            <param id="0" name="Text">&quot;أوافق&quot;</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="993833753875079" type="signature1">
+                            <param id="0" name="X">850</param>
+                            <param id="1" name="Y">300</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="664581094618431" type="signature2">
+                            <param id="0" name="X">850</param>
+                            <param id="1" name="Y">450</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="587561335334282" type="signature3">
+                            <param id="0" name="X">850</param>
+                            <param id="1" name="Y">600</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="694129321211680" type="sign1">
+                            <param id="0" name="X">1600</param>
+                            <param id="1" name="Y">300</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="397500247079008" type="sign2">
+                            <param id="0" name="X">1600</param>
+                            <param id="1" name="Y">450</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="964288280038364" type="sign3">
+                            <param id="0" name="X">1600</param>
+                            <param id="1" name="Y">600</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="418655188958113" type="signCheck">
+                            <param id="0" name="X">1150</param>
+                            <param id="1" name="Y">775</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="704970231428590">
+            <conditions>
+                <condition id="3" name="On touched object" sid="170623936855784" type="Touch">
+                    <param id="0" name="Object">watchVid</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="815454449157440" type="Function">
+                    <param id="0" name="Name">&quot;viewVideo&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="713679663380970">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="912093360357492" type="System">
+                    <param id="0" name="First value">sign1.AnimationFrame</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">1</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="252305451821683" type="System">
+                    <param id="0" name="First value">sign2.AnimationFrame</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">1</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="288014749332178" type="System">
+                    <param id="0" name="First value">sign3.AnimationFrame</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="806361090023818" type="signCheck">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="598618339294347">
+            <conditions>
+                <condition id="-22" name="Else" sid="509156792944759" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="473281275169181" type="signCheck">
+                    <param id="0" name="Opacity">20</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

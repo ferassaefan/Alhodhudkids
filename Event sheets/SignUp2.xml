@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>SignUp2</name>
+    <events>
+        <variable constant="0" name="errorNumber" sid="489072683156366" static="0" type="number">0</variable>
+        <variable constant="0" name="signUpState" sid="177249835286477" static="0" type="text"></variable>
+        <variable constant="0" name="licenceDate" sid="710304238673877" static="0" type="text"></variable>
+        <include>globalSheet</include>
+        <event-block sid="739089536659317">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="128440904289296" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="874216422097614" type="f_login">
+                    <param id="0" name="Text">&quot;اسم المستخدم لا يقل عن 6 حروف أو أرقام أو رموز*&quot;&#x0D;&#x0A;&amp;  newline &amp; &quot;كلمة المرور لا تقل عن 6 حروف أو أرقام أو رموز*&quot;</param>
+                </action>
+                <action id="7" name="Set CSS style" sid="325077291916728" type="EditTexts">
+                    <param id="0" name="Property name">&quot;font-family&quot;</param>
+                    <param id="1" name="Value">&quot;Microsoft Uighur&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="217062689221061" type="System">
+                    <param id="0" name="Variable">licenceDate</param>
+                    <param id="1" name="Value">tokenat(Browser.ExecJS(&quot;Date()&quot;),2,&quot; &quot;)&amp;&quot;-&quot;&amp;tokenat(Browser.ExecJS(&quot;Date()&quot;),1,&quot; &quot;)&amp;&quot;-&quot;&amp;(int(tokenat(Browser.ExecJS(&quot;Date()&quot;),3,&quot; &quot;))+1)</param>
+                </action>
+                <action id="0" name="Set cursor style" sid="895853248564454" type="Mouse">
+                    <param id="0" name="Cursor style">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block any="1" sid="283517731426131">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="740432990369287" type="System">
+                            <param id="0" name="Variable">country</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="237891114311939">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="145840661705549" type="System">
+                                    <param id="0" name="First value">country</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;الأردن&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="886798885718363" type="System">
+                                    <param id="0" name="Variable">listCreated</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="609472991174541">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="591623403526335" type="System">
+                                    <param id="0" name="First value">country</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;الإمارات&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="198447003145545" type="System">
+                                    <param id="0" name="Variable">listCreated</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="917783911436265">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="117476070007966" type="System">
+                                    <param id="0" name="First value">country</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;السعودية&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="903820989461307" type="System">
+                                    <param id="0" name="Variable">listCreated</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="509533817243433">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="886329090125191" type="System">
+                    <param id="0" name="First value">user_name.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="458580927243888" type="System">
+                    <param id="0" name="First value">passwordSignUp.Text</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">&quot;&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="298214082545148">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="657426171271405" type="System">
+                            <param id="0" name="First value">len(user_name.Text)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">6</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="119074996581390" type="System">
+                            <param id="0" name="First value">len(passwordSignUp.Text)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">6</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="844126602653860" type="System">
+                            <param id="0" name="Variable">myUserName</param>
+                            <param id="1" name="Value">trim(user_name.Text)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="103688265896219" type="System">
+                            <param id="0" name="Variable">myPassWord</param>
+                            <param id="1" name="Value">trim(passwordSignUp.Text)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="931517623538945">
+                            <conditions />
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="905971572681539" type="signUp">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="258971451983506" type="f_login">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="613638893895475">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="360271724869859" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="906492055261257" type="f_login">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="343143609516862" type="signUp">
+                            <param id="0" name="Opacity">30</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="459633351418376">
+            <conditions>
+                <condition id="-22" name="Else" sid="112076200834506" type="System" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="815477990448189" type="f_login">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="714187950808810" type="signUp">
+                    <param id="0" name="Opacity">30</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="373004145276375">
+            <conditions>
+                <condition id="3" name="On touched object" sid="673874157585957" type="Touch">
+                    <param id="0" name="Object">signUp</param>
+                </condition>
+                <condition id="-10" name="Compare opacity" sid="446633311510792" type="signUp">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Opacity">100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set enabled" sid="510150461084227" type="EditTexts">
+                    <param id="0" name="Mode">0</param>
+                </action>
+                <action id="3" name="Set enabled" sid="109409779696570" type="Lists">
+                    <param id="0" name="Mode">0</param>
+                </action>
+                <action id="0" name="Request URL" sid="119172366692361" type="AJAX">
+                    <param id="0" name="Tag">&quot;SignUp&quot;</param>
+                    <param id="1" name="URL">&quot;http://www.alhodhudkids.com/alhodhud_webservice/flash_controller3_mariamTest.php?data=operation_type:usrreg;school_id:130;user_name:&quot; &amp; myUserName &amp;&quot; ;first_name:&quot; &amp; first_name&amp;&quot;;last_name:&quot;&amp; last_name&amp;&quot;;password:&quot;&amp; myPassWord&amp; &quot;;email:&quot; &amp;email&amp;&quot;;gender:&quot;&amp;gender&amp;&quot;;country:&quot;&amp;country&amp;&quot;;city:&quot;&amp;city&amp;&quot;;avatar:ST_&quot;&amp;std_id&amp;&quot;_&quot;&amp;Facebook_id &amp; &quot;_130&quot;&amp;&quot;;user_type:hstudent;tweeter_account:&quot;&amp; licenceDate &amp; &quot;;facebook_account:&quot; &amp; Facebook_id</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="660181997423314">
+            <conditions>
+                <condition id="3" name="On touched object" sid="155848210200328" type="Touch">
+                    <param id="0" name="Object">back</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="968705126377612" type="System">
+                    <param id="0" name="Variable">signUpState</param>
+                    <param id="1" name="Value">&quot;&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="102133458245194" type="System">
+                    <param id="0" name="Layout">SignUp</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="451624410318881">
+            <conditions>
+                <condition id="0" name="On completed" sid="792789097901773" type="AJAX">
+                    <param id="0" name="Tag">&quot;SignUp&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="361643085544555" type="System">
+                    <param id="0" name="Variable">signUpState</param>
+                    <param id="1" name="Value">tokenat(tokenat(AJAX.LastData , 2 , &quot;;&quot;) , 1 , &quot;:&quot;) </param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="374281104217992">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="391163025007885" type="System">
+                            <param id="0" name="First value">trim(signUpState)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;failed&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="447365190509417" type="f_login">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="165916067843432" type="System">
+                            <param id="0" name="Variable">errorNumber</param>
+                            <param id="1" name="Value">int(tokenat(tokenat(AJAX.LastData , 3 , &quot;;&quot;) , 1 , &quot;:&quot;))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="226019081946094">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="814783753423895" type="System">
+                                    <param id="0" name="First value">errorNumber</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">101</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Go to layout" sid="690705717291755" type="System">
+                                    <param id="0" name="Layout">SignUp</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="562619612212460">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="829441434273285" type="System">
+                                    <param id="0" name="First value">errorNumber</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">102</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="643715778368151" type="f_login">
+                                    <param id="0" name="Text">&quot;اسم المستخدم الذي تم إدخاله مستخدم مسبقاً قم بإدخال اسم مستخدم آخر&quot;</param>
+                                </action>
+                                <action id="4" name="Set enabled" sid="384936503907596" type="EditTexts">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="374289282601142" type="Lists">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="375733001939324" type="user_name">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                </action>
+                                <action id="6" name="Set focused" sid="867401214468989" type="user_name" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="116029380110315">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="364716226785584" type="System" />
+                        <condition id="-8" name="Compare two values" sid="812351110255370" type="System">
+                            <param id="0" name="First value">signUpState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;success&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="863758773667851" type="f_login">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="566588530588922" type="EditTexts">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="149576134465607" type="System">
+                            <param id="0" name="Variable">std_id</param>
+                            <param id="1" name="Value">tokenat(tokenat(AJAx.LastData,4,&quot;;&quot;),1,&quot;:&quot;)</param>
+                        </action>
+                        <action id="0" name="Request URL" sid="749786914520507" type="AJAX">
+                            <param id="0" name="Tag">&quot;inrol&quot;</param>
+                            <param id="1" name="URL">&quot;http://www.alhodhudkids.com/alhodhud_webservice/flash_controller3_mariamTest.php?data=operation_type:inrols;user_id:1;class_id:&quot;&amp; Facebook_id &amp; &quot;;to_user_id:&quot;&amp; std_id</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="271528061383227">
+            <conditions>
+                <condition id="0" name="On completed" sid="848378651058420" type="AJAX">
+                    <param id="0" name="Tag">&quot;inrol&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="705398315602311" type="Mouse">
+                    <param id="0" name="Cursor style">0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="675920447449107" type="System">
+                    <param id="0" name="Layout">login</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="495590239772991">
+            <conditions>
+                <condition id="1" name="On text changed" sid="268637395305820" type="EditTexts" />
+                <condition id="-8" name="Compare two values" sid="223082271537237" type="System">
+                    <param id="0" name="First value">signUpState</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">&quot;failed&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="736283191474268" type="f_login">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="911151074202608">
+            <conditions>
+                <condition id="1" name="On error" sid="570573545292423" type="AJAX">
+                    <param id="0" name="Tag">&quot;inrol&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Alert" sid="548357752391921" type="Browser">
+                    <param id="0" name="Message">AJAX.LastData</param>
+                </action>
+                <action id="0" name="Set text" sid="196761120566628" type="f_login">
+                    <param id="0" name="Text">&quot;حدثت مشكلة في عملية التسجيل يرجى المحاولة لاحقاً&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

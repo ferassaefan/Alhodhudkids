@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Ex10</name>
+    <events>
+        <variable constant="0" name="n1" sid="786829398019681" static="0" type="number">0</variable>
+        <variable constant="0" name="sec_n" sid="260062970042187" static="0" type="number">0</variable>
+        <variable constant="0" name="g5_lev" sid="885850524875264" static="0" type="number">1</variable>
+        <include>menuEvents</include>
+        <include>sessions</include>
+        <variable constant="0" name="n" sid="836988082788184" static="0" type="number">0</variable>
+        <event-block sid="661457517639552">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="964354570455079" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="431804816925836" type="System">
+                    <param id="0" name="Variable">enable</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="967264457567613" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">tokenat(game5.At(g5_lev),2,&quot;,&quot;)</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action disabled="1" id="0" name="Alert" sid="773154106015512" type="Browser">
+                    <param id="0" name="Message">tokenat(game5.At(g5_lev),2,&quot;,&quot;)</param>
+                </action>
+                <action behavior="Rotate" id="0" name="Set speed" sid="407106769299651" type="stars">
+                    <param id="0" name="Speed">0</param>
+                </action>
+                <action behavior="Sine" id="0" name="Set active" sid="488333466787567" type="stars">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="587115983115458" type="System">
+                    <param id="0" name="Object to create">write_sprite</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">850</param>
+                    <param id="3" name="Y">500</param>
+                </action>
+                <action id="-9" name="Set value" sid="338406497747277" type="System">
+                    <param id="0" name="Variable">sec_n</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-7" name="Set size" sid="213208808042976" type="write_sprite">
+                    <param id="0" name="Width">800</param>
+                    <param id="1" name="Height">800</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="169224520456699" type="System">
+                    <param id="0" name="Layer">3</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="131528504713781" type="System">
+                    <param id="0" name="Layer">4</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="928852030024429" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="452451920435568" type="System">
+                    <param id="0" name="Layer">1</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="106333305696631" type="write_sprite">
+                    <param id="0" name="Frame number">g5_lev+1</param>
+                </action>
+                <action id="-9" name="Set value" sid="166977368471522" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">565</param>
+                </action>
+                <action id="0" name="Set text" sid="290673836004965" type="memoryScoreTxt">
+                    <param id="0" name="Text">(g5_lev-1)*10</param>
+                </action>
+                <action behavior="Sine" id="0" name="Set active" sid="250101100652146" type="write_sprite">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="517542364023444" type="g5_txt">
+                    <param id="0" name="X">127</param>
+                    <param id="1" name="Y">184</param>
+                </action>
+                <action id="-3" name="Set position" sid="148380982556602" type="g5_txt2">
+                    <param id="0" name="X">127</param>
+                    <param id="1" name="Y">184</param>
+                </action>
+                <action id="0" name="Track Event" sid="828306584736178" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;app&quot;</param>
+                    <param id="1" name="Name">&quot;أحلل وأركب&quot;</param>
+                </action>
+                <action id="1" name="Track Extended Event" sid="349681886562160" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;app&quot;</param>
+                    <param id="1" name="Name">&quot;أحلل وأركب&quot;</param>
+                    <param id="2" name="Label">&quot;level&quot;</param>
+                    <param id="3" name="Value">classID</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="173834643912588">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="464564659138113" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set font size" sid="819666526183417" type="g5_txt">
+                            <param id="0" name="Size (pt)">160</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="996591351713216" type="System">
+                            <param id="0" name="Variable">font_size</param>
+                            <param id="1" name="Value">100</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="106584214236676" type="g5_txt2">
+                            <param id="0" name="Size (pt)">160</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="726536072392523">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="836471279952311" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set font size" sid="971958607515177" type="g5_txt">
+                            <param id="0" name="Size (pt)">220</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="300005407624928" type="System">
+                            <param id="0" name="Variable">font_size</param>
+                            <param id="1" name="Value">160</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="121202917411978" type="g5_txt2">
+                            <param id="0" name="Size (pt)">220</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="324967085475718">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="814330213499068" type="System">
+                            <param id="0" name="Object">stars</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="944555473087394">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="820350148443290" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">g5_lev-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="501626885012024" type="stars">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="981529919838910">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="382713743415076" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="291861199669223" type="stars">
+                                    <param id="0" name="Opacity">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="282861903426105">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="189478338042043" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">game5.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="315746369443619" type="stars">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="501757088431353">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="158082389913645" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="763600480068579" type="stars">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="346502927971408">
+                    <conditions />
+                    <actions>
+                        <action id="-16" name="Wait" sid="870020956056993" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="342586337461223" type="System">
+                            <param id="0" name="Variable">enable</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="548815357394706" type="write_sprite" />
+                        <action id="-4" name="Set layer visible" sid="955486900523350" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="830249258537463" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="519324326127793" type="System">
+                            <param id="0" name="Object to create">write_sprite</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="X">1250</param>
+                            <param id="3" name="Y">450</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="902291031609596" type="write_sprite">
+                            <param id="0" name="Width">600</param>
+                            <param id="1" name="Height">600</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="893267343245930" type="write_sprite">
+                            <param id="0" name="Frame number">g5_lev+1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="491658106403330" type="System">
+                            <param id="0" name="Variable">x_val</param>
+                            <param id="1" name="Value">1000</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="172002579496414" type="System">
+                            <param id="0" name="Variable">y_val</param>
+                            <param id="1" name="Value">710</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="412118793019583" type="System">
+                            <param id="0" name="Variable">n</param>
+                            <param id="1" name="Value">int(random(0,2))</param>
+                        </action>
+                        <action id="0" name="Set text" sid="900126145840530" type="g5_txt">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="391053100471998" type="System">
+                            <param id="0" name="Variable">n1</param>
+                            <param id="1" name="Value">int(random(2,29))</param>
+                        </action>
+                        <action id="0" name="Set text" sid="967178644992528" type="g5_txt2">
+                            <param id="0" name="Text">tokenat(game5.At(g5_lev),0,&quot;,&quot;)</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="321206439054483" type="write_sprite">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="458937920867672">
+                            <conditions>
+                                <condition id="-10" name="For" sid="735665003396694" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="383268593130892" type="System">
+                                    <param id="0" name="Object to create">write_sprite</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">x_val</param>
+                                    <param id="3" name="Y">y_val</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="813364373273321" type="System">
+                                    <param id="0" name="Object to create">sec</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">x_val</param>
+                                    <param id="3" name="Y">y_val</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="486160736955730" type="sec">
+                                    <param id="0" name="Size (pt)">font_size</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="669896744269508" type="write_sprite">
+                                    <param id="0" name="Width">280</param>
+                                    <param id="1" name="Height">280</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="890887882175732" type="System">
+                                    <param id="0" name="Variable">x_val</param>
+                                    <param id="1" name="Value">x_val-290</param>
+                                </action>
+                                <action behavior="Sine" id="0" name="Set active" sid="825649572225683" type="write_sprite">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="220133459068061">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="771488135205272" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set font color" sid="555248677233481" type="sec">
+                                            <param id="0" name="Color">rgb(220,38,72)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="357415185542683">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="434158414271620" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set font color" sid="358753390297480" type="sec">
+                                            <param id="0" name="Color">rgb(241,126,41)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="436482420592948">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="711765002169958" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">n</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="644107291135133" type="sec">
+                                            <param id="0" name="Text">tokenat(tokenat(game5.At(g5_lev),1,&quot;,&quot;),sec_n,&quot;-&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="639157201765411">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="222885723447367" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="405014636097950" type="sec">
+                                            <param id="0" name="Text">letters2.At(n1)&amp;&quot;ا&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="579517737284491">
+            <conditions>
+                <condition id="3" name="On touched object" sid="882411538712995" type="Touch">
+                    <param id="0" name="Object">write_sprite</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="233303539256597" type="write_sprite">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">g5_lev+1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="241906095541783" type="Audio" />
+                <action id="7" name="Play (by name)" sid="191333392120751" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">tokenat(game5.At(g5_lev),2,&quot;,&quot;)</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="14" name="Log" sid="997804403030398" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">tokenat(game5.At(g5_lev),2,&quot;,&quot;)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="614221758895165">
+            <conditions>
+                <condition id="3" name="On touched object" sid="372251287163299" type="Touch">
+                    <param id="0" name="Object">sec</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="907605338928749">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="206611061027268" type="System">
+                            <param id="0" name="First value">sec.Text</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">tokenat(tokenat(game5.At(g5_lev),1,&quot;,&quot;),sec_n,&quot;-&quot;)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="314446927787666" type="Function">
+                            <param id="0" name="Name">&quot;fill_txt&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="776381684704819">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="327186479176286" type="System">
+                    <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="365297865911177" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="813667563947630" type="System">
+                    <param id="0" name="First value">enable</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="511919928871447" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="520966366207810">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="709403139430996" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="365223497798826" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="188445365647384" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="612574272198966">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="461637273475034" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">565</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="426386873631352" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">565</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="624549552831536">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="906362881177269" type="System" />
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="829565802692900" type="Times">
+                    <param id="0" name="Width">TimeGame</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="360402929095484">
+            <conditions>
+                <condition id="0" name="On function" sid="957813648736849" type="Function">
+                    <param id="0" name="Name">&quot;fill_txt&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Append text" sid="831037890303426" type="g5_txt">
+                    <param id="0" name="Text">tokenat(tokenat(game5.At(g5_lev),1,&quot;,&quot;),sec_n,&quot;-&quot;)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="408538684706805">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="164734462156335" type="System">
+                            <param id="0" name="First value">sec_n</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">tokencount(tokenat(game5.At(g5_lev),1,&quot;,&quot;),&quot;-&quot;)-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="107112463216359" type="sec" />
+                        <action id="-9" name="Set value" sid="313633214124677" type="System">
+                            <param id="0" name="Variable">sec_n</param>
+                            <param id="1" name="Value">sec_n+1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="296075236266959" type="System">
+                            <param id="0" name="Variable">x_val</param>
+                            <param id="1" name="Value">1000</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="979229972632057" type="System">
+                            <param id="0" name="Variable">y_val</param>
+                            <param id="1" name="Value">710</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="848299014602038" type="System">
+                            <param id="0" name="Variable">n</param>
+                            <param id="1" name="Value">int(random(0,2))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="642988599585463" type="System">
+                            <param id="0" name="Variable">n1</param>
+                            <param id="1" name="Value">int(random(2,29))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="710083381715465">
+                            <conditions>
+                                <condition id="-10" name="For" sid="880401415884074" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="318789596792968" type="System">
+                                    <param id="0" name="Object to create">sec</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">x_val</param>
+                                    <param id="3" name="Y">y_val</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="994919758300881" type="System">
+                                    <param id="0" name="Variable">x_val</param>
+                                    <param id="1" name="Value">x_val-290</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="294626577477862" type="sec">
+                                    <param id="0" name="Size (pt)">font_size</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="484967519603640">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="916578811634879" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">n</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="502991298229435" type="sec">
+                                            <param id="0" name="Text">tokenat(tokenat(game5.At(g5_lev),1,&quot;,&quot;),sec_n,&quot;-&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="457663734940898">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="531372450949647" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="596287928239570" type="sec">
+                                            <param id="0" name="Text">letters2.At(n1)&amp;&quot;ا&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="885164616410905">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="849569699478027" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set font color" sid="730727458908215" type="sec">
+                                            <param id="0" name="Color">rgb(220,38,72)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="684638813145248">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="162434964055786" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set font color" sid="180503831014052" type="sec">
+                                            <param id="0" name="Color">rgb(241,126,41)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="211281810231455">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="114650223082389" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="781272967638315" type="g5_txt">
+                            <param id="0" name="X">150</param>
+                            <param id="1" name="Y">500</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="917108068197424" type="g5_txt2">
+                            <param id="0" name="X">150</param>
+                            <param id="1" name="Y">500</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="580411433066225" type="write_sprite">
+                            <param id="0" name="X">850</param>
+                            <param id="1" name="Y">300</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="252569967051996" type="write_sprite">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Sine" id="2" name="Set magnitude" sid="450198046791690" type="write_sprite">
+                            <param id="0" name="Magnitude">random(50,180)</param>
+                        </action>
+                        <action behavior="Sine" id="3" name="Set movement" sid="492317369948118" type="write_sprite">
+                            <param id="0" name="Movement">2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="697487907056202" type="System">
+                            <param id="0" name="Variable">enable</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="524978887611808" type="sec" />
+                        <action id="-4" name="Set layer visible" sid="772964565142683" type="System">
+                            <param id="0" name="Layer">1</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="7" name="Play (by name)" sid="610880914316124" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">tokenat(game5.At(g5_lev),2,&quot;,&quot;)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="989020469867583" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="7" name="Play (by name)" sid="944348195828963" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">tokenat(game5.At(g5_lev),2,&quot;,&quot;)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="148703028632794" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="453010832929611" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="563941675716434" type="System">
+                            <param id="0" name="Layer">4</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="110868276892268" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="7" name="Play (by name)" sid="546466282484479" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">tokenat(game5.At(g5_lev),2,&quot;,&quot;)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="946541352492319" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="605512870615471" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="521443894670057" type="System">
+                            <param id="0" name="Layer">4</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="764361453985654" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="497715645843590" type="System">
+                            <param id="0" name="Layer">1</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="938631602632822" type="memoryScoreTxt">
+                            <param id="0" name="Text">int(memoryScoreTxt.Text)+10</param>
+                        </action>
+                        <action id="7" name="Play (by name)" sid="562000973600530" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">&quot;GreatJob&quot;&amp;int(random(1,5))</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="421853956538703">
+                            <conditions>
+                                <condition id="-10" name="For" sid="519867038301139" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="990964674917087" type="System">
+                                    <param id="0" name="Object to create">stars</param>
+                                    <param id="1" name="Layer">4</param>
+                                    <param id="2" name="X">800</param>
+                                    <param id="3" name="Y">950</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="175640586677357" type="stars">
+                                    <param id="0" name="Width">123.117</param>
+                                    <param id="1" name="Height">116.962</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="186024328785686" type="stars">
+                                    <param id="0" name="Frame number">loopindex-1</param>
+                                </action>
+                                <action behavior="Rotate" id="1" name="Set acceleration" sid="665703377425530" type="stars">
+                                    <param id="0" name="Acceleration">1</param>
+                                </action>
+                                <action behavior="Sine" id="0" name="Set active" sid="201421306264772" type="stars">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="190342499066203">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="697236244824336" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="MoveTo" id="4" name="Move to XY" sid="933795719421910" type="stars">
+                                            <param id="0" name="X">850</param>
+                                            <param id="1" name="Y">200</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="679308474356734">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="689212972440643" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="MoveTo" id="4" name="Move to XY" sid="194130319143178" type="stars">
+                                            <param id="0" name="X">1100</param>
+                                            <param id="1" name="Y">300</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="620039352777550">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="416635075894927" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="MoveTo" id="4" name="Move to XY" sid="780468377476074" type="stars">
+                                            <param id="0" name="X">600</param>
+                                            <param id="1" name="Y">300</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="964100364146139">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="372216988019767" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="MoveTo" id="4" name="Move to XY" sid="987529279989202" type="stars">
+                                            <param id="0" name="X">1350</param>
+                                            <param id="1" name="Y">400</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="725702122304955">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="587413179812595" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="MoveTo" id="4" name="Move to XY" sid="280382820167269" type="stars">
+                                            <param id="0" name="X">350</param>
+                                            <param id="1" name="Y">400</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="508975230072402">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="730917030425702" type="System">
+                                    <param id="0" name="Object">stars</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="964459240638164">
+                                    <conditions>
+                                        <condition id="3" name="Compare frame" sid="332806021367619" type="stars">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Number">g5_lev</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Set opacity" sid="935884494554893" type="stars">
+                                            <param id="0" name="Opacity">100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="905639665072163">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="759537848629925" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Set opacity" sid="244113666146372" type="stars">
+                                            <param id="0" name="Opacity">20</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="360431721048081">
+                                    <conditions>
+                                        <condition id="3" name="Compare frame" sid="195747044489095" type="stars">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Number">game5.Width-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="688447720609966" type="stars">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="867979504443546">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="410475304022912" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="116112762298136" type="stars">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="162555747296790">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="955435522581292" type="System">
+                                    <param id="0" name="First value">g5_lev</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">game5.Width-1</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="607666297292147" type="System">
+                                    <param id="0" name="First value">g5_lev</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="310391266444525" type="System">
+                                    <param id="0" name="Seconds">5</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="502503995398189" type="System">
+                                    <param id="0" name="Variable">g5_lev</param>
+                                    <param id="1" name="Value">g5_lev+1</param>
+                                </action>
+                                <action id="-26" name="Restart layout" sid="931153487446279" type="System" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="216993935179124">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="497161770993361" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="768144747936886">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="705260343338371" type="System">
+                                            <param id="0" name="First value">g5_lev</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">10</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="931926722705431" type="System">
+                                            <param id="0" name="First value">g5_lev</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">game5.Width-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="170823030116416" type="Function">
+                                            <param id="0" name="Name">&quot;flow_logs&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="238887570878876" type="System">
+                                            <param id="0" name="Seconds">5</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="618745900432697" type="System">
+                                            <param id="0" name="Variable">g5_lev</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="140824705018009" type="System">
+                                            <param id="0" name="Variable">LayoutId</param>
+                                            <param id="1" name="Value">layout_sort.At(layout_sort.IndexOf(LayoutId)+1)</param>
+                                        </action>
+                                        <action id="-25" name="Go to layout (by name)" sid="910535949449984" type="System">
+                                            <param id="0" name="Layout">&quot;Ex&quot;&amp;LayoutId</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

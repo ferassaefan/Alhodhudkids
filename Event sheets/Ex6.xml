@@ -1,0 +1,1098 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Ex6</name>
+    <events>
+        <variable constant="0" name="game1_score" sid="352482594009355" static="0" type="number">0</variable>
+        <include>ItemsEvents</include>
+        <include>menuEvents</include>
+        <include>sessions</include>
+        <variable constant="0" name="Pause" sid="9537172742224393" static="0" type="number">0</variable>
+        <variable constant="0" name="Sound" sid="7306043572272916" static="0" type="number">0</variable>
+        <variable comment="x2,x3" constant="0" name="Combo" sid="1265991982050371" static="0" type="number">0</variable>
+        <variable comment="Best score" constant="0" name="BestScore" sid="9821529751547586" static="0" type="number">0</variable>
+        <variable comment="Time game" constant="0" name="TimeGame" sid="1238819348799051" static="0" type="number">464</variable>
+        <variable comment="Score player" constant="0" name="Score" sid="9840873697288364" static="0" type="number">0</variable>
+        <variable constant="0" name="XScore" sid="7068661705197467" static="0" type="number">0</variable>
+        <variable comment="672 - 8 (8 -how many pixels are shifted point)" constant="1" name="GROUND" sid="8498683322374601" static="0" type="number">1020</variable>
+        <variable comment="How many points connected" constant="0" name="ConnectedCount" sid="2568627826712795" static="0" type="number">0</variable>
+        <variable comment="Color" constant="0" name="CurrentColor" sid="5124629657703679" static="0" type="number">0</variable>
+        <variable comment="The array of" constant="0" name="CurrentPos" sid="6759372346070417" static="0" type="number">0</variable>
+        <variable comment="Drag line or not" constant="0" name="Drag" sid="5646337347068779" static="0" type="number">0</variable>
+        <event-group description="" sid="3121817423060266" title="System">
+            <sub-events>
+                <event-block sid="6720625918845665">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="9726930874905422" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Entrance Transition" sid="8381844909203587" type="LayoutTransition">
+                            <param id="0" name="Transition">5</param>
+                            <param id="1" name="Duration">-1</param>
+                            <param id="2" name="Delay">-1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="2884967648698409" type="System">
+                            <param id="0" name="Group name">&quot;Dots&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7855543215386677" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1606560028655591" type="Line" />
+                        <action id="-9" name="Set value" sid="1186456076012633" type="System">
+                            <param id="0" name="Variable">XScore</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1635376205915104" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">464</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="935097578387524" type="Animal">
+                            <param id="0" name="Width">150</param>
+                            <param id="1" name="Height">150</param>
+                        </action>
+                        <action id="0" name="Play" sid="766615760555705" type="Audio">
+                            <param id="0" name="Audio file">animalCrush</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Track Event" sid="458697448876153" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;app&quot;</param>
+                            <param id="1" name="Name">&quot;لعبتي المرحة&quot;</param>
+                        </action>
+                        <action id="1" name="Track Extended Event" sid="366432535963085" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;app&quot;</param>
+                            <param id="1" name="Name">&quot;لعبتي المرحة&quot;</param>
+                            <param id="2" name="Label">&quot;level&quot;</param>
+                            <param id="3" name="Value">classID</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="924853193769477" type="System">
+                            <param id="0" name="Variable">game1_score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="415958058603467" title="Candy">
+            <sub-events>
+                <event-block sid="5269888314327307">
+                    <conditions>
+                        <condition id="0" name="On function" sid="6193510815149451" type="Function">
+                            <param id="0" name="Name">&quot;unDo&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Arrays are stored serially connected dots and lines .</comment>
+                        <event-block sid="2829496603849383">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="5515596781685782" type="Line">
+                                    <param id="0" name="Unique ID">LinesUIDS.At(CurrentPos)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="6077789581610829" type="Line" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="2059673358359209">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="9870614420166367" type="Animal">
+                                    <param id="0" name="Unique ID">AnimalUIDS.At(CurrentPos)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="6743692080492828" type="Animal">
+                                    <param id="0" name="Instance variable">isConnected</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Well, there is nothing complicated . Take the current line and the point . Destroying line and point reset flag IsConnected.</comment>
+                    </sub-events>
+                </event-block>
+                <event-group description="" sid="7113792990366526" title="On destroyed | On created">
+                    <sub-events>
+                        <event-block sid="202122022872111">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="7628037988772419" type="Animal" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="243570156044543" type="Function">
+                                    <param id="0" name="Name">&quot;remove Animal&quot;</param>
+                                    <param id="1" name="Parameter {n}">Animal.UID</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="3297190577557992" type="System">
+                                    <param id="0" name="Object to create">Animal</param>
+                                    <param id="1" name="Layer">&quot;GAME&quot;</param>
+                                    <param id="2" name="X">Animal.X</param>
+                                    <param id="3" name="Y">Animal.Y - LayoutHeight/2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8683858272519727">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="3405161310988547" type="Animal" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="9396943439254768" type="Animal">
+                                    <param id="0" name="Frame number">int(random(Self.AnimationFrameCount))</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="394244933453126" type="Animal">
+                                    <param id="0" name="Width">150</param>
+                                    <param id="1" name="Height">150</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8040102521835838" type="Animal">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Value">Self.AnimationFrame</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="4528793264317852" type="Detector">
+                                    <param id="0" name="X">Animal.X</param>
+                                    <param id="1" name="Y">Animal.Y + 120</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="1377978070027708" type="Detector">
+                                    <param id="0" name="Pin to">Animal</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block disabled="1" sid="381711335887139">
+                                    <conditions>
+                                        <condition id="3" name="Compare frame" sid="299282855162205" type="Animal">
+                                            <param id="0" name="Comparison">0</param>
+                                            <param id="1" name="Number">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="398809240821596" title="Gravity">
+                    <sub-events>
+                        <event-block sid="8041108989766441">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="5476151254321836" type="Detector">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">GROUND</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="9347132263443859" type="Detector">
+                                    <param id="0" name="Object">Animals</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-23" name="Move at angle" sid="7623617815636695" type="Animal">
+                                    <param id="0" name="Angle">90</param>
+                                    <param id="1" name="Distance">10</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="3910810955304878">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="4564043833865515" type="Touch">
+                            <param id="0" name="Object">Animal</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="8307725430051749" type="Animal">
+                            <param id="0" name="Instance variable">isConnected</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1977845322696391" type="System">
+                            <param id="0" name="Variable">Drag</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4843937880945853" type="System">
+                            <param id="0" name="Variable">ConnectedCount</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="1" name="Set size" sid="4821752191146466" type="LinesUIDS">
+                            <param id="0" name="Width">ConnectedCount</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="1" name="Set size" sid="9877707432748072" type="AnimalUIDS">
+                            <param id="0" name="Width">ConnectedCount</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7711142419946682" type="System">
+                            <param id="0" name="Variable">CurrentColor</param>
+                            <param id="1" name="Value">Animal.AnimationFrame</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="975962994655161" type="System">
+                            <param id="0" name="Object to create">Line</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">Animal.X</param>
+                            <param id="3" name="Y">Animal.Y</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="6089384335156764" type="Line">
+                            <param id="0" name="Frame number">CurrentColor</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="4953725519823918" type="Animal">
+                            <param id="0" name="Animation">&quot;Active&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="2294549082175046" type="Animal">
+                            <param id="0" name="Frame number">CurrentColor</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="396129149984798" type="Animal">
+                            <param id="0" name="Opacity">80</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="8342438439467564" type="LinesUIDS">
+                            <param id="0" name="X">CurrentPos</param>
+                            <param id="1" name="Value">Line.UID</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="2074007350983909" type="AnimalUIDS">
+                            <param id="0" name="X">CurrentPos</param>
+                            <param id="1" name="Value">Animal.UID</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="1741752082768908">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3077570419713257" type="System">
+                                    <param id="0" name="Variable">Sound</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="3373375049751463" type="Audio">
+                                    <param id="0" name="Audio file">Drag</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>When you click on the first point set flag isConnected to True, indicates that begin &quot; drag &quot; line , memorizing the color, to create a line , remember UIDs point and the newly created line.</comment>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2078407788286917">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6560571638119593" type="System">
+                            <param id="0" name="Variable">Drag</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>If you &quot; drag &quot; line</comment>
+                        <event-block sid="6241014116897388">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="158627522709401" type="Line">
+                                    <param id="0" name="Unique ID">LinesUIDS.At(CurrentPos)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="6072295317352888" type="Line">
+                                    <param id="0" name="Width">distance(Self.X, Self.Y, Touch.X, Touch.Y)</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="1688603876647351" type="Line">
+                                    <param id="0" name="Angle">angle(Self.X, Self.Y, Touch.X, Touch.Y)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <comment>Take the current line</comment>
+                                <event-block sid="5037970454897332">
+                                    <conditions>
+                                        <condition id="4" name="Is touching object" sid="4435511062124103" type="Touch">
+                                            <param id="0" name="Object">Animal</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <comment>If you had your finger on the point and it does not soedenina and color coincides with the current , and it is not the current point , then create a new line ( to specify the width and angle of the current line ) , remember it ( and point) , set the flag isConnected to True, increase the number of connected points .</comment>
+                                        <event-block sid="5982938577265818">
+                                            <conditions>
+                                                <condition id="-5" name="Compare width" sid="1588082584409156" type="Line">
+                                                    <param id="0" name="Comparison">3</param>
+                                                    <param id="1" name="Width">175</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7933878948430126" type="Animal">
+                                                    <param id="0" name="Instance variable">isConnected</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="84284207053764" type="Animal">
+                                                    <param id="0" name="Instance variable">color</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">CurrentColor</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="1496132524098273" type="System">
+                                                    <param id="0" name="First value">Animal.UID</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">AnimalUIDS.At(CurrentPos)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="8288747957409491" type="Animal">
+                                                    <param id="0" name="Instance variable">isConnected</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="8396771655968054" type="System">
+                                                    <param id="0" name="Variable">CurrentPos</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="4538466389628571" type="System">
+                                                    <param id="0" name="Variable">ConnectedCount</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="1" name="Set size" sid="5348241925838313" type="LinesUIDS">
+                                                    <param id="0" name="Width">ConnectedCount</param>
+                                                    <param id="1" name="Height">1</param>
+                                                    <param id="2" name="Depth">1</param>
+                                                </action>
+                                                <action id="1" name="Set size" sid="4751986955416753" type="AnimalUIDS">
+                                                    <param id="0" name="Width">ConnectedCount</param>
+                                                    <param id="1" name="Height">1</param>
+                                                    <param id="2" name="Depth">1</param>
+                                                </action>
+                                                <action id="-5" name="Set width" sid="3156855312336389" type="Line">
+                                                    <param id="0" name="Width">distance(Self.X, Self.Y, Animal.X, Animal.Y)</param>
+                                                </action>
+                                                <action id="-8" name="Set angle" sid="279566510475639" type="Line">
+                                                    <param id="0" name="Angle">angle(Self.X, Self.Y, Animal.X, Animal.Y)</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="5439694235410662" type="System">
+                                                    <param id="0" name="Object to create">Line</param>
+                                                    <param id="1" name="Layer">&quot;BG&quot;</param>
+                                                    <param id="2" name="X">Animal.X</param>
+                                                    <param id="3" name="Y">Animal.Y</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="2354193517840631" type="Line">
+                                                    <param id="0" name="Frame number">CurrentColor</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="8727439611055911" type="Animal">
+                                                    <param id="0" name="Animation">&quot;Active&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="8835364432951598" type="Animal">
+                                                    <param id="0" name="Frame number">CurrentColor</param>
+                                                </action>
+                                                <action id="-16" name="Set opacity" sid="597568817499222" type="Animal">
+                                                    <param id="0" name="Opacity">80</param>
+                                                </action>
+                                                <action id="2" name="Set at X" sid="3123353140173782" type="LinesUIDS">
+                                                    <param id="0" name="X">CurrentPos</param>
+                                                    <param id="1" name="Value">Line.UID</param>
+                                                </action>
+                                                <action id="2" name="Set at X" sid="447706291063575" type="AnimalUIDS">
+                                                    <param id="0" name="X">CurrentPos</param>
+                                                    <param id="1" name="Value">Animal.UID</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="8478479985638044">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="5453222875288825" type="System">
+                                                            <param id="0" name="Variable">Sound</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Play" sid="2101253678097652" type="Audio">
+                                                            <param id="0" name="Audio file">Drag</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">-10</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2440642900856452">
+                    <conditions>
+                        <condition id="1" name="On any touch end" sid="4249065079878258" type="Touch" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>When finished , &quot; drag &quot; line , check the number of connected points . If there are more than 2 then destroy all connected points . Then destroy all the lines (to avoid bugs) , and reset the variables and cleanse arrays.</comment>
+                        <event-block sid="9373266331379709">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6812127111952124" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2503593486947461">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="6076894185016174" type="Animal">
+                                            <param id="0" name="Instance variable">isConnected</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="6505815915630151" type="Animal">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="9051384926313464" type="Animal">
+                                            <param id="0" name="Frame number">CurrentColor</param>
+                                        </action>
+                                        <action id="-7" name="Set size" sid="6089017558369424" type="Animal">
+                                            <param id="0" name="Width">150</param>
+                                            <param id="1" name="Height">150</param>
+                                        </action>
+                                        <action id="-16" name="Set opacity" sid="856024951964899" type="Animal">
+                                            <param id="0" name="Opacity">100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="2046180171890365">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8234787279224465" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">8</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6451619302632945">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="6402241648990306" type="Animal">
+                                            <param id="0" name="Instance variable">isConnected</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="1732641467172068">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="4251800713328387" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="8556803765466589" type="Animal">
+                                                    <param id="0" name="Object">Particles</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="9479754187271493" type="Animal" />
+                                                <action id="-10" name="Add to" sid="1007527248214391" type="System">
+                                                    <param id="0" name="Variable">TimeGame</param>
+                                                    <param id="1" name="Value">20</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="6163823663243882" type="System">
+                                                    <param id="0" name="Variable">XScore</param>
+                                                    <param id="1" name="Value">30</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="8396162207485545" type="System">
+                                                    <param id="0" name="Seconds">0.1</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="9207920384527756" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="744362888137545" type="System">
+                                                    <param id="0" name="Variable">game1_score</param>
+                                                    <param id="1" name="Value">30</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="3441585522815221">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="4594185116217204" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="9282790475829186" type="Animal">
+                                                    <param id="0" name="Object">Particles</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="335486620929734" type="Animal" />
+                                                <action id="-10" name="Add to" sid="2035547788577883" type="System">
+                                                    <param id="0" name="Variable">TimeGame</param>
+                                                    <param id="1" name="Value">25</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="513294923815896" type="System">
+                                                    <param id="0" name="Variable">XScore</param>
+                                                    <param id="1" name="Value">40</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="8935293251850121" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Value">2</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="301984922113349" type="System">
+                                                    <param id="0" name="Variable">game1_score</param>
+                                                    <param id="1" name="Value">40</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="4495307995549623">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="876835712478243" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="703839693367212" type="Animal">
+                                                    <param id="0" name="Object">Particles</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="1291346940867748" type="Animal" />
+                                                <action id="-10" name="Add to" sid="6391056994037078" type="System">
+                                                    <param id="0" name="Variable">TimeGame</param>
+                                                    <param id="1" name="Value">30</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="9139289869226742" type="System">
+                                                    <param id="0" name="Variable">XScore</param>
+                                                    <param id="1" name="Value">50</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="488638985100430" type="System">
+                                                    <param id="0" name="Variable">game1_score</param>
+                                                    <param id="1" name="Value">50</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="2641513918154412">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="50678926114507" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">8</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="6810457916605575" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6757501744231273">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="638622552277758" type="Animal">
+                                            <param id="0" name="Instance variable">isConnected</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="3320278245769897">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="4512253446869544" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="415204984425199" type="Animal">
+                                                    <param id="0" name="Object">Particles</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="4295298644695903" type="Animal" />
+                                                <action id="-10" name="Add to" sid="1368051541899205" type="System">
+                                                    <param id="0" name="Variable">TimeGame</param>
+                                                    <param id="1" name="Value">10</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="7835340569383835" type="System">
+                                                    <param id="0" name="Variable">XScore</param>
+                                                    <param id="1" name="Value">17</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="297197312079286" type="System">
+                                                    <param id="0" name="Variable">game1_score</param>
+                                                    <param id="1" name="Value">17</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="9171785890432064" type="System">
+                                                    <param id="0" name="Seconds">0.1</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="8817388898844731" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="5763175096728221">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="3060501532408639" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="1510580639821405" type="Animal">
+                                                    <param id="0" name="Object">Particles</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="837959988738714" type="Animal" />
+                                                <action id="-10" name="Add to" sid="6089269587903515" type="System">
+                                                    <param id="0" name="Variable">TimeGame</param>
+                                                    <param id="1" name="Value">15</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="5674602989962553" type="System">
+                                                    <param id="0" name="Variable">XScore</param>
+                                                    <param id="1" name="Value">20</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="7856113345229972" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Value">2</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="231213301041155" type="System">
+                                                    <param id="0" name="Variable">game1_score</param>
+                                                    <param id="1" name="Value">20</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="2092000120800749">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="48062005794886" type="System">
+                                                    <param id="0" name="Variable">Combo</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="6283410027251159" type="Animal">
+                                                    <param id="0" name="Object">Particles</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="4584509943470587" type="Animal" />
+                                                <action id="-10" name="Add to" sid="6757579120788652" type="System">
+                                                    <param id="0" name="Variable">TimeGame</param>
+                                                    <param id="1" name="Value">20</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="5220862917238121" type="System">
+                                                    <param id="0" name="Variable">XScore</param>
+                                                    <param id="1" name="Value">25</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="803885557121039" type="System">
+                                                    <param id="0" name="Variable">game1_score</param>
+                                                    <param id="1" name="Value">25</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3127106157357113">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6315267688974487" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="7645768839080015" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6983527141894294">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="8642755448264527" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="3602268465427204" type="System">
+                                            <param id="0" name="Variable">TimeGame</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="6042711141251869" type="System">
+                                            <param id="0" name="Variable">XScore</param>
+                                            <param id="1" name="Value">5</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="896461755937138" type="System">
+                                            <param id="0" name="Variable">game1_score</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2435592632588615">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="2850765873851847" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="4554493504532576" type="System">
+                                            <param id="0" name="Variable">TimeGame</param>
+                                            <param id="1" name="Value">12</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="3683872689129886" type="System">
+                                            <param id="0" name="Variable">XScore</param>
+                                            <param id="1" name="Value">7</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="239042765738938" type="System">
+                                            <param id="0" name="Variable">game1_score</param>
+                                            <param id="1" name="Value">12</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="2262571235973912" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="1036550009141133" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3995939116558331">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4385273577912049" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="2514503326540649" type="System">
+                                            <param id="0" name="Variable">TimeGame</param>
+                                            <param id="1" name="Value">5</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="5961735894925817" type="System">
+                                            <param id="0" name="Variable">XScore</param>
+                                            <param id="1" name="Value">13</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="633028198998159" type="System">
+                                            <param id="0" name="Variable">game1_score</param>
+                                            <param id="1" name="Value">13</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="6979827278996327" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="7350115262848055" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5880727739514055">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="566643141325613" type="Animal">
+                                            <param id="0" name="Instance variable">isConnected</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="8301063165418522" type="Animal">
+                                            <param id="0" name="Object">Particles</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="1445835132050079" type="Animal" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="7696255054146407">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="205735560275134" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6528674772064063">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="508060486692669" type="Animal">
+                                            <param id="0" name="Instance variable">isConnected</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="4314637390990693">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="2809200789124104" type="System">
+                                                    <param id="0" name="Variable">Sound</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action disabled="1" id="7" name="Play (by name)" sid="544699026113141" type="Audio">
+                                                    <param id="0" name="Folder">0</param>
+                                                    <param id="1" name="Audio file name">elementsSound.At(CurrentColor)</param>
+                                                    <param id="3" name="Loop">0</param>
+                                                    <param id="4" name="Volume">-8</param>
+                                                    <param id="2" name="Tag (optional)">&quot;match sound&quot;</param>
+                                                </action>
+                                                <action id="7" name="Play (by name)" sid="818747915169000" type="Audio">
+                                                    <param id="0" name="Folder">0</param>
+                                                    <param id="1" name="Audio file name">elementsSound.At(Animal.AnimationFrame)</param>
+                                                    <param id="3" name="Loop">0</param>
+                                                    <param id="4" name="Volume">0</param>
+                                                    <param id="2" name="Tag (optional)">&quot;match sound&quot;</param>
+                                                </action>
+                                                <action disabled="1" id="0" name="Alert" sid="841318614624916" type="Browser">
+                                                    <param id="0" name="Message">elementsSound.At(Animal.AnimationFrame)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="4522861111546199">
+                            <conditions>
+                                <condition id="-19" name="Pick all" sid="922192002982099" type="System">
+                                    <param id="0" name="Object">Line</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="2589775606189579" type="Line" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="2304385687027826">
+                            <conditions>
+                                <condition id="-19" name="Pick all" sid="2336772089360071" type="System">
+                                    <param id="0" name="Object">Animal</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="1746926250557265" type="Animal">
+                                    <param id="0" name="Instance variable">isConnected</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8583095877884608">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="3558164363281476" type="System">
+                                    <param id="0" name="Variable">CurrentPos</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="9352792029236094" type="System">
+                                    <param id="0" name="Variable">ConnectedCount</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2577190042004897" type="System">
+                                    <param id="0" name="Variable">Drag</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7590141663360661" type="System">
+                                    <param id="0" name="Variable">CurrentColor</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                                <action id="0" name="Clear" sid="9438427588174421" type="AnimalUIDS" />
+                                <action id="0" name="Clear" sid="2191356172320881" type="LinesUIDS" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="769953169760643">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Set text" sid="129452039012388" type="memoryScoreTxt">
+                                    <param id="0" name="Text">game1_score</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4237606362255422" title="Time">
+            <sub-events>
+                <event-block sid="1462119035359378">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="2357443605023097" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2939126378096957" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="1750991694396986" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4960203080759833" title="Score ads">
+            <sub-events>
+                <event-block sid="3697689496556073">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="8683394362247726" type="System">
+                            <param id="0" name="First value">XScore</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6753930882210268">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="2562189515391084" type="System">
+                                    <param id="0" name="Interval (seconds)">0.02</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="9577455149818064" type="System">
+                                    <param id="0" name="Variable">XScore</param>
+                                    <param id="1" name="Value">-5</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="5651858121820231" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7103300312944893" title="Every tick">
+            <sub-events>
+                <event-block any="1" sid="5569811032556438">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="4343500301473461" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="6074103828809721" type="Detector">
+                            <param id="0" name="Object">Animal</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6314768111941501" title="Time_Game">
+            <sub-events>
+                <event-block sid="9085515964241111">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1124797543162845" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">464</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9939323293742599" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">464</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="8513556703079531">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="737766868802089" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="230182555931836" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="834591803377670">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="654213915329440" type="System">
+                            <param id="0" name="Variable">game1_score</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">300</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="865951348021835" type="Function">
+                            <param id="0" name="Name">&quot;flow_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="873936962089187" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="751134108333192" type="System">
+                            <param id="0" name="Variable">CurrentPos</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="569144726993307" type="System">
+                            <param id="0" name="Variable">CurrentColor</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="296310186603676" type="System">
+                            <param id="0" name="Variable">XScore</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="270146609874996" type="System">
+                            <param id="0" name="Variable">CurrentColor</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Clear" sid="571217414835410" type="AnimalUIDS" />
+                        <action id="0" name="Clear" sid="478006813967652" type="LinesUIDS" />
+                        <action id="-9" name="Set value" sid="417196460089353" type="System">
+                            <param id="0" name="Variable">LayoutId</param>
+                            <param id="1" name="Value">layout_sort.At(layout_sort.IndexOf(LayoutId)+1)</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="958243592769613" type="System">
+                            <param id="0" name="Layout">&quot;Ex&quot;&amp;LayoutId</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="3187261259031169">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="5717999210484852" type="System" />
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="8781057664008122" type="Times">
+                    <param id="0" name="Width">TimeGame</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="236566782294685">
+            <conditions>
+                <condition id="0" name="On ended" sid="217905717326909" type="Audio">
+                    <param id="0" name="Tag">&quot;match sound&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Play (by name)" sid="188611867425853" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;GreatJob&quot;&amp;int(random(1,5))</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

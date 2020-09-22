@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Loader</name>
+    <events>
+        <variable constant="0" name="loadMemoryGameVar" sid="112302439671057" static="0" type="number">0</variable>
+        <include>logs</include>
+        <event-block sid="131782421784467">
+            <conditions>
+                <condition id="7" name="Compare size" sid="908762297809826" type="MemoryGame_Setting">
+                    <param id="0" name="Axis">0</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">loadMemoryGameVar</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="306468865392133">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="114935723180246" type="System">
+                            <param id="0" name="Variable">std_id</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="535530987009506" type="System">
+                            <param id="0" name="Layout">login</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="975768384595003">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="169457465776661" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="457980070606663" type="System">
+                            <param id="0" name="Layout">login</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="630463394014022">
+            <conditions>
+                <condition id="-22" name="Else" sid="452990658902787" type="System" />
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="589802335429405">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="248887470121477" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="566587178642642" type="System">
+                    <param id="0" name="Variable">std_id</param>
+                    <param id="1" name="Value">Browser.QueryParam(&quot;id&quot;)</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="420115713398598" type="System">
+                    <param id="0" name="Variable">classID</param>
+                    <param id="1" name="Value">Browser.QueryParam(&quot;level&quot;)</param>
+                </action>
+                <action id="1" name="Request project file" sid="935171538045157" type="AJAX">
+                    <param id="0" name="Tag">&quot;anmat&quot;</param>
+                    <param id="1" name="File">anmat.txt</param>
+                </action>
+                <action id="5" name="Check item exists" sid="239644853650077" type="LocalStorage">
+                    <param id="0" name="Key">&quot;session_id&quot;</param>
+                </action>
+                <action id="1" name="Request project file" sid="211993164330426" type="AJAX">
+                    <param id="0" name="Tag">&quot;load Memory Game Data&quot;</param>
+                    <param id="1" name="File">memory0.csv</param>
+                </action>
+                <action id="-40" name="Set fullscreen scaling" sid="664292251767399" type="System">
+                    <param id="0" name="Fullscreen scaling">1</param>
+                </action>
+                <action id="0" name="Set item" sid="690955558973168" type="LocalStorage">
+                    <param id="0" name="Key">&quot;user&quot;</param>
+                    <param id="1" name="Value">std_id</param>
+                </action>
+                <action id="0" name="Call function" sid="973603914897881" type="Function">
+                    <param id="0" name="Name">&quot;kg&apos;sArray&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="2" name="Start tracking duration" sid="641478554183277" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;session&quot;</param>
+                    <param id="1" name="Name">&quot;start&quot;</param>
+                </action>
+                <action id="0" name="Track Event" sid="798689018671182" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;Raw:Url:Domain&quot;</param>
+                    <param id="1" name="Name">Browser.Domain</param>
+                </action>
+                <action id="0" name="Track Event" sid="806603298009012" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;Raw:Url:PathName&quot;</param>
+                    <param id="1" name="Name">Browser.PathName</param>
+                </action>
+                <action id="0" name="Track Event" sid="996589186880222" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;Raw:Url:Protocol&quot;</param>
+                    <param id="1" name="Name">Browser.Protocol</param>
+                </action>
+                <action id="0" name="Clear" sid="114593109430671" type="month_name" />
+                <action id="1" name="Set size" sid="473717786311277" type="month_name">
+                    <param id="0" name="Width">12</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="2" name="Set at X" sid="950151498913156" type="month_name">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Value">&quot;Jan&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="771627287456436" type="month_name">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Value">&quot;Feb&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="935411700007604" type="month_name">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Value">&quot;Mar&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="992840598039723" type="month_name">
+                    <param id="0" name="X">3</param>
+                    <param id="1" name="Value">&quot;Apr&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="315544484488881" type="month_name">
+                    <param id="0" name="X">4</param>
+                    <param id="1" name="Value">&quot;May&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="101524938782103" type="month_name">
+                    <param id="0" name="X">5</param>
+                    <param id="1" name="Value">&quot;Jun&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="860848958464026" type="month_name">
+                    <param id="0" name="X">6</param>
+                    <param id="1" name="Value">&quot;Jul&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="198469782544758" type="month_name">
+                    <param id="0" name="X">7</param>
+                    <param id="1" name="Value">&quot;Aug&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="184855843605664" type="month_name">
+                    <param id="0" name="X">8</param>
+                    <param id="1" name="Value">&quot;Sep&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="330244478769870" type="month_name">
+                    <param id="0" name="X">9</param>
+                    <param id="1" name="Value">&quot;Oct&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="743466188864255" type="month_name">
+                    <param id="0" name="X">10</param>
+                    <param id="1" name="Value">&quot;Nov&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="626775640587635" type="month_name">
+                    <param id="0" name="X">11</param>
+                    <param id="1" name="Value">&quot;Dec&quot;</param>
+                </action>
+                <action disabled="1" id="5" name="Check item exists" sid="647586302366771" type="LocalStorage">
+                    <param id="0" name="Key">&quot;std_id&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="445709930933792">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="739024922448225" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="958918621761286" type="System">
+                            <param id="0" name="Variable">platform</param>
+                            <param id="1" name="Value">&quot;mobile&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="233386482683631">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="727709358921576" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="563405763782416" type="System">
+                            <param id="0" name="Variable">platform</param>
+                            <param id="1" name="Value">&quot;web&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="618045189076749">
+                    <conditions />
+                    <actions>
+                        <action id="2" name="Start tracking duration" sid="686700477672439" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;app&quot;</param>
+                            <param id="1" name="Name">&quot;app&quot;</param>
+                        </action>
+                        <action id="0" name="Track Event" sid="159435748757025" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;app&quot;</param>
+                            <param id="1" name="Name">&quot;start App&quot;</param>
+                        </action>
+                        <action id="1" name="Track Extended Event" sid="219235567666643" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;app&quot;</param>
+                            <param id="1" name="Name">&quot;start App&quot;</param>
+                            <param id="2" name="Label">&quot;platform&quot;</param>
+                            <param id="3" name="Value">platform</param>
+                        </action>
+                        <action id="0" name="Play" sid="390579508883179" type="Audio">
+                            <param id="0" name="Audio file">الهدهد في منزلي</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;load complete&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="399446529576105">
+                    <conditions>
+                        <condition id="16" name="Is portrait/landscape" sid="526288255417221" type="Browser">
+                            <param id="0" name="Orientation">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Alert" sid="893507792890899" type="Browser">
+                            <param id="0" name="Message">&quot;يفضل استخدام الهاتف بالاتجاه أفقي&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="751076543314206">
+            <conditions>
+                <condition id="0" name="On completed" sid="835213012553261" type="AJAX">
+                    <param id="0" name="Tag">&quot;load Memory Game Data&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="856281544033835" type="System">
+                    <param id="0" name="Variable">loadMemoryGameVar</param>
+                    <param id="1" name="Value">tokencount(AJAX.LastData , newline)</param>
+                </action>
+                <action id="1" name="Set size" sid="503173817858154" type="MemoryGame_Setting">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="0" name="Clear" sid="601303924679708" type="MemoryGame_Setting" />
+            </actions>
+            <sub-events>
+                <event-block sid="246905770168343">
+                    <conditions>
+                        <condition id="-10" name="For" sid="231917149145623" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">tokencount(AJAX.LastData,newline)-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="439753106875012" type="MemoryGame_Setting">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">tokenat(AJAX.LastData,loopindex,newline)</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="210900724705571">
+            <conditions>
+                <condition id="0" name="On completed" sid="369844757581029" type="AJAX">
+                    <param id="0" name="Tag">&quot;anmat&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="249876198464024">
+                    <conditions>
+                        <condition id="-10" name="For" sid="701003042066564" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">tokencount(AJAX.LastData , newline)-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="377924881188653" type="anmat">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">trim(tokenat(AJAX.LastData ,loopindex ,newline))</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action disabled="1" id="14" name="Log" sid="414784847500488" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">&quot;load Anmat Completed&quot;</param>
+                        </action>
+                        <action disabled="1" id="14" name="Log" sid="897783628004171" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">tokencount(AJAX.LastData , newline)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Todo Disable Write Game</comment>
+        <event-block sid="849217524750412">
+            <conditions>
+                <condition id="1" name="On error" sid="963686976603674" type="AJAX">
+                    <param id="0" name="Tag">&quot;load Memory Game Data&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="601036813224434" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;load Memory Game Data Error&quot;</param>
+                </action>
+                <action id="0" name="Alert" sid="862460486160798" type="Browser">
+                    <param id="0" name="Message">&quot;حدثت مشكلة في استعراض الهدهد في منزلي&#x0D;&#x0A;نرجو منكم التأكد من سرعة الاتصال بالإنترنت لديكم&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="271152782222361" type="System">
+                    <param id="0" name="Layout">login</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="565958793572763">
+            <conditions>
+                <condition id="1" name="On error" sid="725553131278073" type="AJAX">
+                    <param id="0" name="Tag">&quot;load write&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="416961469651231" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Load write Error&quot;</param>
+                </action>
+                <action id="0" name="Alert" sid="981620580764548" type="Browser">
+                    <param id="0" name="Message">&quot;حدثت مشكلة في استعراض النسخة الخاصة بكم &#x0D;&#x0A;نرجو منكم المحاولة في وقتِ لاحق&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="545704143073321">
+            <conditions>
+                <condition id="9" name="On item exists" sid="247002261691881" type="LocalStorage">
+                    <param id="0" name="Key">&quot;session_id&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="965810347047387" type="System">
+                    <param id="0" name="Variable">preSession_Id</param>
+                    <param id="1" name="Value">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="582027471645472">
+            <conditions>
+                <condition id="9" name="On item exists" sid="379716299081286" type="LocalStorage">
+                    <param id="0" name="Key">&quot;std_id&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="109923945214042" type="System">
+                    <param id="0" name="Variable">std_id</param>
+                    <param id="1" name="Value">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="435771618220961">
+            <conditions>
+                <condition id="0" name="On function" sid="526744462130551" type="Function">
+                    <param id="0" name="Name">&quot;kg&apos;sArray&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="209902732452063">
+                    <conditions>
+                        <condition disabled="1" id="-14" name="Compare variable" sid="214773766334214" type="System">
+                            <param id="0" name="Variable">classID</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="603946771155265" type="Letters" />
+                        <action id="1" name="Set size" sid="708835555903033" type="Letters">
+                            <param id="0" name="Width">29</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="632016636971695" type="Letters">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Value">&quot;aa&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="500282295601004" type="Letters">
+                            <param id="0" name="X">1</param>
+                            <param id="1" name="Value">&quot;a&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="527737249914773" type="Letters">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Value">&quot;b&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="825400251031237" type="Letters">
+                            <param id="0" name="X">3</param>
+                            <param id="1" name="Value">&quot;t&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="339417566717746" type="Letters">
+                            <param id="0" name="X">4</param>
+                            <param id="1" name="Value">&quot;x&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="383258724258111" type="Letters">
+                            <param id="0" name="X">5</param>
+                            <param id="1" name="Value">&quot;g&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="314348749643981" type="Letters">
+                            <param id="0" name="X">6</param>
+                            <param id="1" name="Value">&quot;H&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="736034714468780" type="Letters">
+                            <param id="0" name="X">7</param>
+                            <param id="1" name="Value">&quot;kh&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="461205610129547" type="Letters">
+                            <param id="0" name="X">8</param>
+                            <param id="1" name="Value">&quot;d&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="196986920217571" type="Letters">
+                            <param id="0" name="X">9</param>
+                            <param id="1" name="Value">&quot;u&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="249389549568624" type="Letters">
+                            <param id="0" name="X">10</param>
+                            <param id="1" name="Value">&quot;r&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="956285627451854" type="Letters">
+                            <param id="0" name="X">11</param>
+                            <param id="1" name="Value">&quot;z&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="324942564210784" type="Letters">
+                            <param id="0" name="X">12</param>
+                            <param id="1" name="Value">&quot;s&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="393205051750342" type="Letters">
+                            <param id="0" name="X">13</param>
+                            <param id="1" name="Value">&quot;v&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="411547604509468" type="Letters">
+                            <param id="0" name="X">14</param>
+                            <param id="1" name="Value">&quot;c&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="957563324257088" type="Letters">
+                            <param id="0" name="X">15</param>
+                            <param id="1" name="Value">&quot;q&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="197179208420956" type="Letters">
+                            <param id="0" name="X">16</param>
+                            <param id="1" name="Value">&quot;i&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="362324232840053" type="Letters">
+                            <param id="0" name="X">17</param>
+                            <param id="1" name="Value">&quot;e&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="588330298645700" type="Letters">
+                            <param id="0" name="X">18</param>
+                            <param id="1" name="Value">&quot;p&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="440096844431615" type="Letters">
+                            <param id="0" name="X">19</param>
+                            <param id="1" name="Value">&quot;o&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="615828662914046" type="Letters">
+                            <param id="0" name="X">20</param>
+                            <param id="1" name="Value">&quot;f&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="145599265451688" type="Letters">
+                            <param id="0" name="X">21</param>
+                            <param id="1" name="Value">&quot;j&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="799301234140770" type="Letters">
+                            <param id="0" name="X">22</param>
+                            <param id="1" name="Value">&quot;k&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="773864315986190" type="Letters">
+                            <param id="0" name="X">23</param>
+                            <param id="1" name="Value">&quot;l&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="160188855941167" type="Letters">
+                            <param id="0" name="X">24</param>
+                            <param id="1" name="Value">&quot;m&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="881991876810319" type="Letters">
+                            <param id="0" name="X">25</param>
+                            <param id="1" name="Value">&quot;n&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="758856129146069" type="Letters">
+                            <param id="0" name="X">26</param>
+                            <param id="1" name="Value">&quot;hh&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="792658392511958" type="Letters">
+                            <param id="0" name="X">27</param>
+                            <param id="1" name="Value">&quot;w&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="802397183769716" type="Letters">
+                            <param id="0" name="X">28</param>
+                            <param id="1" name="Value">&quot;y&quot;</param>
+                        </action>
+                        <action id="0" name="Clear" sid="711360295868618" type="letters3" />
+                        <action id="1" name="Set size" sid="702003765048610" type="letters3">
+                            <param id="0" name="Width">29</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="375556806877792" type="letters3">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Value">&quot;أنس والأرنب&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="144037129604231" type="letters3">
+                            <param id="0" name="X">1</param>
+                            <param id="1" name="Value">&quot;سوار&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="882557416077526" type="letters3">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Value">&quot;بيان والبقرة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="808677407221683" type="letters3">
+                            <param id="0" name="X">3</param>
+                            <param id="1" name="Value">&quot;تميم والتمساح&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="422625779153170" type="letters3">
+                            <param id="0" name="X">4</param>
+                            <param id="1" name="Value">&quot;ثريا والثعلب&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="396385015240137" type="letters3">
+                            <param id="0" name="X">5</param>
+                            <param id="1" name="Value">&quot;جعفر والجمل&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="357942024839764" type="letters3">
+                            <param id="0" name="X">6</param>
+                            <param id="1" name="Value">&quot;حنان والحصان&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="768186883306298" type="letters3">
+                            <param id="0" name="X">7</param>
+                            <param id="1" name="Value">&quot;خالد والخروف&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="181612764395772" type="letters3">
+                            <param id="0" name="X">8</param>
+                            <param id="1" name="Value">&quot;داوود والدجاجة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="546539970280919" type="letters3">
+                            <param id="0" name="X">9</param>
+                            <param id="1" name="Value">&quot;ذكرى والذئب&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="942811904856752" type="letters3">
+                            <param id="0" name="X">10</param>
+                            <param id="1" name="Value">&quot;رؤوف والرنة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="292177607676222" type="letters3">
+                            <param id="0" name="X">11</param>
+                            <param id="1" name="Value">&quot;زينب والزرافة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="166558578793303" type="letters3">
+                            <param id="0" name="X">12</param>
+                            <param id="1" name="Value">&quot;سلمى والسلحفاة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="506499623658778" type="letters3">
+                            <param id="0" name="X">13</param>
+                            <param id="1" name="Value">&quot;شذى والشبل&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="412753810136122" type="letters3">
+                            <param id="0" name="X">14</param>
+                            <param id="1" name="Value">&quot;صالح والصقر&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="477444526008381" type="letters3">
+                            <param id="0" name="X">15</param>
+                            <param id="1" name="Value">&quot;ضحى والضفدع&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="759722383189225" type="letters3">
+                            <param id="0" name="X">16</param>
+                            <param id="1" name="Value">&quot;طارق والطاووس&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="130885903125247" type="letters3">
+                            <param id="0" name="X">17</param>
+                            <param id="1" name="Value">&quot;ظافر والظبي&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="345878749074025" type="letters3">
+                            <param id="0" name="X">18</param>
+                            <param id="1" name="Value">&quot;عيسى والعصفور&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="157074405379653" type="letters3">
+                            <param id="0" name="X">19</param>
+                            <param id="1" name="Value">&quot;غادة والغراب&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="585712989394558" type="letters3">
+                            <param id="0" name="X">20</param>
+                            <param id="1" name="Value">&quot;فاطمة والفيل&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="617818166383753" type="letters3">
+                            <param id="0" name="X">21</param>
+                            <param id="1" name="Value">&quot;قاسم والقرد&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="520222448555155" type="letters3">
+                            <param id="0" name="X">22</param>
+                            <param id="1" name="Value">&quot;كوثر والكلب&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="551659254007873" type="letters3">
+                            <param id="0" name="X">23</param>
+                            <param id="1" name="Value">&quot;لبيب واللاما&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="747502411381290" type="letters3">
+                            <param id="0" name="X">24</param>
+                            <param id="1" name="Value">&quot;مريم والماعز&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="543493458316883" type="letters3">
+                            <param id="0" name="X">25</param>
+                            <param id="1" name="Value">&quot;نوح والنحلة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="580848505442860" type="letters3">
+                            <param id="0" name="X">26</param>
+                            <param id="1" name="Value">&quot;هاشم والهرة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="800295389576105" type="letters3">
+                            <param id="0" name="X">27</param>
+                            <param id="1" name="Value">&quot;وداد والوزة&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="834862732907324" type="letters3">
+                            <param id="0" name="X">28</param>
+                            <param id="1" name="Value">&quot;يحيى واليمامة&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="118101361778815">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Clear" sid="889673581277790" type="letters2" />
+                        <action id="1" name="Set size" sid="217033669047980" type="letters2">
+                            <param id="0" name="Width">29</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="792266260202428" type="letters2">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Value">&quot;ء&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="101595894195983" type="letters2">
+                            <param id="0" name="X">1</param>
+                            <param id="1" name="Value">&quot;ا&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="195732284179591" type="letters2">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Value">&quot;ب&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="523243328535121" type="letters2">
+                            <param id="0" name="X">3</param>
+                            <param id="1" name="Value">&quot;ت&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="332007177572832" type="letters2">
+                            <param id="0" name="X">4</param>
+                            <param id="1" name="Value">&quot;ث&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="134917339032144" type="letters2">
+                            <param id="0" name="X">5</param>
+                            <param id="1" name="Value">&quot;ج&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="704857786012292" type="letters2">
+                            <param id="0" name="X">6</param>
+                            <param id="1" name="Value">&quot;ح&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="955589791320742" type="letters2">
+                            <param id="0" name="X">7</param>
+                            <param id="1" name="Value">&quot;خ&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="833376323334633" type="letters2">
+                            <param id="0" name="X">8</param>
+                            <param id="1" name="Value">&quot;د&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="366169579314032" type="letters2">
+                            <param id="0" name="X">9</param>
+                            <param id="1" name="Value">&quot;ذ&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="909737517705827" type="letters2">
+                            <param id="0" name="X">10</param>
+                            <param id="1" name="Value">&quot;ر&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="285776388272254" type="letters2">
+                            <param id="0" name="X">11</param>
+                            <param id="1" name="Value">&quot;ز&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="635234903654119" type="letters2">
+                            <param id="0" name="X">12</param>
+                            <param id="1" name="Value">&quot;س&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="173607401667039" type="letters2">
+                            <param id="0" name="X">13</param>
+                            <param id="1" name="Value">&quot;ش&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="785196835260003" type="letters2">
+                            <param id="0" name="X">14</param>
+                            <param id="1" name="Value">&quot;ص&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="317272944198353" type="letters2">
+                            <param id="0" name="X">15</param>
+                            <param id="1" name="Value">&quot;ض&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="865317412170023" type="letters2">
+                            <param id="0" name="X">16</param>
+                            <param id="1" name="Value">&quot;ط&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="762240505240030" type="letters2">
+                            <param id="0" name="X">17</param>
+                            <param id="1" name="Value">&quot;ظ&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="536037724255275" type="letters2">
+                            <param id="0" name="X">18</param>
+                            <param id="1" name="Value">&quot;ع&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="885857424282320" type="letters2">
+                            <param id="0" name="X">19</param>
+                            <param id="1" name="Value">&quot;غ&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="858880191363753" type="letters2">
+                            <param id="0" name="X">20</param>
+                            <param id="1" name="Value">&quot;ف&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="998924605833857" type="letters2">
+                            <param id="0" name="X">21</param>
+                            <param id="1" name="Value">&quot;ق&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="459449444703370" type="letters2">
+                            <param id="0" name="X">22</param>
+                            <param id="1" name="Value">&quot;ك&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="698776677725785" type="letters2">
+                            <param id="0" name="X">23</param>
+                            <param id="1" name="Value">&quot;ل&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="430382030069185" type="letters2">
+                            <param id="0" name="X">24</param>
+                            <param id="1" name="Value">&quot;م&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="381428955646294" type="letters2">
+                            <param id="0" name="X">25</param>
+                            <param id="1" name="Value">&quot;ن&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="359779668102486" type="letters2">
+                            <param id="0" name="X">26</param>
+                            <param id="1" name="Value">&quot;ه&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="415185574850465" type="letters2">
+                            <param id="0" name="X">27</param>
+                            <param id="1" name="Value">&quot;و&quot;</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="492097171442838" type="letters2">
+                            <param id="0" name="X">28</param>
+                            <param id="1" name="Value">&quot;ي&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="566802823722397">
+            <conditions>
+                <condition id="19" name="On update found" sid="875375564032946" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="0" name="Alert" sid="199497803624326" type="Browser">
+                    <param id="0" name="Message">&quot;هناك نسخة محدّثة من الموقع سيتم تحديث النسخة لديكم الآن&quot;</param>
+                </action>
+                <action id="9" name="Reload" sid="692974306618570" type="Browser" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

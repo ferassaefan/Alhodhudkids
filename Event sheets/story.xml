@@ -1,0 +1,1075 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>story</name>
+    <events>
+        <include>logs</include>
+        <variable constant="0" name="storyTime" sid="543069557579533" static="0" type="number">0</variable>
+        <variable constant="0" name="questionCountStory" sid="237121793646467" static="0" type="number">0</variable>
+        <variable constant="0" name="storyParts" sid="869431390531207" static="0" type="number">0</variable>
+        <variable constant="0" name="quesNav" sid="329366269169781" static="0" type="number">1</variable>
+        <variable constant="0" name="storyNumber" sid="184176567684786" static="0" type="number">0</variable>
+        <variable constant="0" name="ansLoop" sid="915557990510712" static="0" type="number">3</variable>
+        <variable constant="0" name="requestMedia" sid="108840665496778" static="0" type="number">0</variable>
+        <variable constant="0" name="storyVar" sid="857603011787843" static="0" type="number">1</variable>
+        <include>globalSheet</include>
+        <event-group description="" sid="912673716624380" title="question">
+            <sub-events>
+                <event-block sid="206763731548472">
+                    <conditions>
+                        <condition id="0" name="On function" sid="830158474915839" type="Function">
+                            <param id="0" name="Name">&quot;quesLoad&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="627981970514086" type="ans1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="347223487675529" type="ans2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="877415641604311" type="ans3">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="530252452387872" type="System">
+                            <param id="0" name="Variable">tempAnswer</param>
+                            <param id="1" name="Value">&quot;&quot;</param>
+                        </action>
+                        <action id="1" name="Set size" sid="172760379946527" type="answersArray">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action behavior="LiteTween2" id="10" name="Start" sid="635132213967789" type="tex1">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                        <action behavior="LiteTween2" id="10" name="Start" sid="139835957706257" type="tex2">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                        <action behavior="LiteTween2" id="10" name="Start" sid="517650158283069" type="tex3">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                        <action id="0" name="Track Event" sid="880004456274736" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;Channel&quot;</param>
+                            <param id="1" name="Name">globalAction</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="504523232118347">
+                            <conditions>
+                                <condition id="-10" name="For" sid="179088962506405" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="685788363656026" type="answersArray">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">tokenat(tokenat(storyQues.At(storyNumber), ansLoop , &quot;,&quot;), loopindex , &quot;_&quot;)</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block disabled="1" sid="790509949752715">
+                            <conditions>
+                                <condition id="-10" name="For" sid="301003161678090" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">answersArray.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="954131908123694">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="393539835122291" type="Function">
+                                    <param id="0" name="Name">&quot;shuffleAnswers&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="426270358221437">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="450284150570693" type="System">
+                                    <param id="0" name="Variable">rightAnswer</param>
+                                    <param id="1" name="Value">tokenat(storyQues.At(storyNumber) , questionNumber + 1, &quot;,&quot;)</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="110591491484776" type="nxtBtn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="462481028315801" type="cat">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="808321474381000" type="grass">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="102535261230199" type="ans1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="800593751790752" type="ans2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="973546775493269" type="ans3">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="309568923321771" type="tex1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="422857251998839" type="tex2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="116128117024745" type="tex3">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="987661843534270" type="quesStory">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="973181197919119" type="quesStoryTxt1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="861435295692105" type="answer2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="309718527144794" type="answerTxt">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="928827983194630" type="quesStoryTxt1">
+                                    <param id="0" name="Text">trim(tokenat(storyQues.At(storyNumber),questionNumber-1, &quot;,&quot;))</param>
+                                </action>
+                                <action disabled="1" id="0" name="Set text" sid="560276270489824" type="quesStoryTxt1">
+                                    <param id="0" name="Text">trim(right(tokenat(storyQues.At(storyNumber),questionNumber, &quot;,&quot;),len(tokenat(storyQues.At(storyNumber),questionNumber, &quot;,&quot;))-3))</param>
+                                </action>
+                                <action id="0" name="Set text" sid="937477495710109" type="tex1">
+                                    <param id="0" name="Text">shuffledArray.At(0)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="329423259534715" type="tex2">
+                                    <param id="0" name="Text">shuffledArray.At(1)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="177800268523418" type="tex3">
+                                    <param id="0" name="Text">shuffledArray.At(2)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="363489933486084" type="quesStoryTxt1">
+                                    <param id="0" name="Text">replace(tokenat(storyQues.At(storyNumber)  , questionNumber , &quot;,&quot; ) , &quot;:&quot; , &quot;&quot; ) </param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="734082355833555" type="nextPart">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="891680119632690" type="questionsNumber">
+                                    <param id="0" name="Text">quesNav &amp; &quot;/&quot; &amp; questionCountStory</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="393908269121148">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="613551223486230" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="873126334384026" type="System">
+                    <param id="0" name="Variable">storyNumber</param>
+                    <param id="1" name="Value">int(random(28))</param>
+                </action>
+                <action disabled="1" id="0" name="Alert" sid="980295291602901" type="Browser">
+                    <param id="0" name="Message">storyArr.At(storyNumber)</param>
+                </action>
+                <action disabled="1" id="0" name="Alert" sid="862747286651241" type="Browser">
+                    <param id="0" name="Message">storyQues.At(storyVar) </param>
+                </action>
+                <action id="-9" name="Set value" sid="634111670640507" type="System">
+                    <param id="0" name="Variable">questionCountStory</param>
+                    <param id="1" name="Value">tokencount(storyQues.At(storyNumber) , &quot;؟&quot;) -1</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="509065049836741" type="System">
+                    <param id="0" name="Variable">questionCount</param>
+                    <param id="1" name="Value">(tokencount(storyArr.At(storyNumber) , &quot;_&quot;)-1)/2</param>
+                </action>
+                <action id="1" name="Append text" sid="673378394691292" type="sessionData">
+                    <param id="0" name="Text">&quot;_C&quot;&amp;LayoutId</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block any="1" sid="503721800738830">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="474693081568755" type="System">
+                            <param id="0" name="Variable">classID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">str(3)</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="804548246328044" type="System">
+                            <param id="0" name="Variable">classID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">int(3)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="551469736070112" type="System">
+                            <param id="0" name="Variable">storyNumber</param>
+                            <param id="1" name="Value">int(random(18))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="387105300527913" type="System">
+                            <param id="0" name="Variable">questionCountStory</param>
+                            <param id="1" name="Value">tokencount(storyQues.At(storyNumber) , &quot;؟&quot;)-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="701206775528360">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="938946368240205" type="System">
+                            <param id="0" name="Variable">globalAction</param>
+                            <param id="1" name="Value">&quot;قِصَّتي الْمَرِحَةِ&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="779456001389242" type="System">
+                            <param id="0" name="Variable">questionNumber</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="487926044431433" type="System">
+                            <param id="0" name="Variable">addingAmount</param>
+                            <param id="1" name="Value">100/questionCountStory</param>
+                        </action>
+                        <action id="0" name="Set text" sid="603085494821874" type="questionsNumber">
+                            <param id="0" name="Text">quesNav &amp; &quot;/&quot; &amp; questionCountStory</param>
+                        </action>
+                        <action id="0" name="Set text" sid="330181275769791" type="tasks">
+                            <param id="0" name="Text">&quot;مهمة&quot; </param>
+                        </action>
+                        <action id="0" name="Set text" sid="397142486960948" type="memoryScoreTxt">
+                            <param id="0" name="Text">globalScore </param>
+                        </action>
+                        <action id="5" name="Set frame" sid="133122780275417" type="bucket">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="840945850737058" type="System">
+                            <param id="0" name="Variable">storyVar</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="343093153935232" type="ans1">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="362637262635318" type="ans2">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="433532426379556" type="ans3">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="505468215699055" type="tex1">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="838036914686594" type="tex2">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="263328538282777" type="tex3">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="628681740389335" type="quesStory">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="803504511211360" type="quesStoryTxt1">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="527386314276551" type="answer2">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="369922545862049" type="answerTxt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="382956286044441" type="cat">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="1" name="Set size" sid="116376591992278" type="answersArray">
+                            <param id="0" name="Width">3</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="629732093050328" type="wave">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="2" name="Set font face" sid="347810105822937" type="Texts">
+                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                            <param id="1" name="Style">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="14" name="Stop" sid="745153712906227" type="tex1">
+                            <param id="0" name="Stop Mode">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="14" name="Stop" sid="324947957339501" type="tex2">
+                            <param id="0" name="Stop Mode">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="14" name="Stop" sid="453418663861191" type="tex3">
+                            <param id="0" name="Stop Mode">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="522998897052103">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="291430747571172" type="System">
+                                    <param id="0" name="Variable">loginLogs</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="957877855155831" type="Function">
+                                    <param id="0" name="Name">&quot;date_fun&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="289563961891693" type="System">
+                                    <param id="0" name="Variable">log_data</param>
+                                    <param id="1" name="Value">&quot;;login,&quot;&amp;fullyear&amp;&quot;,&quot;&amp;clock &amp; &quot;,&quot;&amp; currLesson</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="593125481982366" type="System">
+                                    <param id="0" name="Variable">log_data4</param>
+                                    <param id="1" name="Value">&quot;;login,&quot;&amp;fullyear&amp;&quot;,&quot;&amp;clock &amp; &quot;,&quot;&amp; currLesson</param>
+                                </action>
+                                <action id="0" name="Call function" sid="604434060796913" type="Function">
+                                    <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="991485652716976" type="System">
+                                    <param id="0" name="Variable">loginLogs</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="441941709745751" type="System">
+                                    <param id="0" name="Variable">log_data</param>
+                                    <param id="1" name="Value">&quot;:C:2:&quot; &amp; clock </param>
+                                </action>
+                                <action id="0" name="Call function" sid="496406849483585" type="Function">
+                                    <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="675227563681642" type="System">
+                                    <param id="0" name="Variable">log_data4</param>
+                                    <param id="1" name="Value">&quot;_C&quot;&amp;LayoutId</param>
+                                </action>
+                                <action id="0" name="Call function" sid="410868618079803" type="Function">
+                                    <param id="0" name="Name">&quot;upload_logs2&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="719127516195241">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="134495847823758" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="517063472972351" type="Function">
+                                    <param id="0" name="Name">&quot;date_fun&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="610432392902355" type="System">
+                                    <param id="0" name="Variable">log_data</param>
+                                    <param id="1" name="Value">&quot;:C:2:&quot; &amp; clock </param>
+                                </action>
+                                <action id="0" name="Call function" sid="758339687672297" type="Function">
+                                    <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="808692639772607" type="System">
+                                    <param id="0" name="Variable">log_data4</param>
+                                    <param id="1" name="Value">&quot;_C&quot;&amp;LayoutId</param>
+                                </action>
+                                <action id="0" name="Call function" sid="507150478594581" type="Function">
+                                    <param id="0" name="Name">&quot;upload_logs2&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="457764387109057">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="361827552119852" type="System">
+                            <param id="0" name="Variable">storyParts</param>
+                            <param id="1" name="Value">tokencount(storyArr.At(0) , &quot;,&quot;)-1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="609301698341627" type="story1">
+                            <param id="0" name="Text">tokenat(storyArr.At(storyNumber) , storyVar , &quot;,&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="432738917515156" title="loadText">
+            <sub-events>
+                <event-block sid="533829984073872">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="316697980458804" type="System">
+                            <param id="0" name="Variable">storyVar</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="870554435573195" type="prevBtn">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="848288134280266" type="nxtBtn">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="582440568339519" type="nextPart">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="995977849922287" type="prevPart">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="689236257165035">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="996996170841631" type="System">
+                            <param id="0" name="Variable">storyVar</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="224861529838181" type="prevBtn">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="809738187049060" type="prevPart">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="324524526094745">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="803685167445562" type="System">
+                            <param id="0" name="Variable">storyVar</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">storyParts</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="317746858459616" type="nxtBtn">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="593963073079473" type="nextPart">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="954029733947134">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="240591478118435" type="System">
+                            <param id="0" name="Variable">storyVar</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">storyParts</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="924585483384133" type="nxtBtn">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="427067170457887" type="nextPart">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="145131080492659">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="835885437680477" type="Touch">
+                            <param id="0" name="Object">nextPart</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="911530190243902" type="nxtBtn" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="956569555856111" type="System">
+                            <param id="0" name="Variable">storyVar</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="823124704228863" type="story1">
+                            <param id="0" name="Text">tokenat(storyArr.At(storyNumber) , storyVar , &quot;,&quot;)</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="455444361638882" type="ans1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="627420056080120" type="ans2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="799048591583148" type="ans3">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action behavior="LiteTween" disabled="1" id="10" name="Start" sid="227064816643027" type="story1">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="432850796842011">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="765093396522045" type="System">
+                                    <param id="0" name="Variable">storyVar</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">storyParts</param>
+                                </condition>
+                                <condition behavior="LiteTween" disabled="1" id="1" name="Compare progress" sid="757851388659165" type="story1">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Value">0.2</param>
+                                </condition>
+                                <condition id="-9" inverted="1" name="Is visible" sid="436836061548430" type="quesStory" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="205575226662052" type="Function">
+                                    <param id="0" name="Name">&quot;quesLoad&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action disabled="1" id="-12" name="Set group active" sid="766577635140612" type="System">
+                                    <param id="0" name="Group name">&quot;loadText&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="732953539096217" type="nxtBtn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="206469128666688">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="879433150646632" type="Touch">
+                            <param id="0" name="Object">prevPart</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="990259250047293" type="prevPart" />
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="765323625811143" type="System">
+                            <param id="0" name="Variable">storyVar</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="840352690477858" type="story1">
+                            <param id="0" name="Text">tokenat(storyArr.At(storyNumber) , storyVar , &quot;,&quot;)</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="734800550598053" type="ans1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="459947583503030" type="ans2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="212537907796779" type="ans3">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="322156635240365" type="story1">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="225962369181012">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="625236617145177" type="System">
+                                    <param id="0" name="Variable">storyVar</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="632656684520076" type="prevBtn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="358068682957522" type="prevPart">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="199038773053293" title="checkAnswer2">
+            <sub-events>
+                <event-block sid="327377320083043">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="313970783408613" type="Touch">
+                            <param id="0" name="Object">answer2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Track Event" sid="219199207108642" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;Channel&quot;</param>
+                            <param id="1" name="Name">globalAction</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="567555193876106">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="382456726507452" type="System">
+                                    <param id="0" name="First value">tempAnswer</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">rightAnswer</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="33" name="Stop all" sid="691203652775947" type="Audio" />
+                                <action id="7" name="Play (by name)" sid="221974520504509" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;GreatJob&quot;&amp;round(random(1,5))</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="215086538095342" type="System">
+                                    <param id="0" name="Variable">globalScore</param>
+                                    <param id="1" name="Value">round(addingAmount)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="124477876581673" type="memoryScoreTxt">
+                                    <param id="0" name="Text">globalScore </param>
+                                </action>
+                                <action id="-3" name="Set position" sid="504432454700791" type="celebrate">
+                                    <param id="0" name="X">960</param>
+                                    <param id="1" name="Y">830</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="231812874381693" type="bucket">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="639358004862540" type="cat">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="898618021385893" type="answer2">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="682728669583041" type="answerTxt">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="616362749484455" type="System">
+                                    <param id="0" name="Group name">&quot;checkAnswer2&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="704217997815865" type="System">
+                                    <param id="0" name="Variable">storyTime</param>
+                                    <param id="1" name="Value">int(timer)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="662453465463597">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="244332520439679" type="System">
+                                            <param id="0" name="Variable">quesNav</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Value">questionCountStory</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="520168920749992" type="System">
+                                            <param id="0" name="Seconds">2.0</param>
+                                        </action>
+                                        <action id="-3" name="Set position" sid="335622680733464" type="celebrate">
+                                            <param id="0" name="X">960</param>
+                                            <param id="1" name="Y">1354</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="869264015177284" type="bucket">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="447810317395550" type="cat">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="802240404040841" type="answer2">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="623664353251747" type="answerTxt">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-12" name="Set group active" sid="222616396946637" type="System">
+                                            <param id="0" name="Group name">&quot;checkAnswer2&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="155293021791659" type="System">
+                                            <param id="0" name="Variable">quesNav</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block any="1" sid="295315581589544">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="837029395343255" type="System">
+                                                    <param id="0" name="Variable">classID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">str(3)</param>
+                                                </condition>
+                                                <condition id="-14" name="Compare variable" sid="771947460021831" type="System">
+                                                    <param id="0" name="Variable">classID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">int(3)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="172490851636847" type="System">
+                                                    <param id="0" name="Variable">questionNumber</param>
+                                                    <param id="1" name="Value">6</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="286477585145705" type="System">
+                                                    <param id="0" name="Variable">ansLoop</param>
+                                                    <param id="1" name="Value">6</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="553381193621631">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="717174243109474" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="965354222681802" type="System">
+                                                    <param id="0" name="Variable">questionNumber</param>
+                                                    <param id="1" name="Value">3</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="466385874680245" type="System">
+                                                    <param id="0" name="Variable">ansLoop</param>
+                                                    <param id="1" name="Value">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="627048340828109">
+                                            <conditions />
+                                            <actions>
+                                                <action id="0" name="Call function" sid="714461567466364" type="Function">
+                                                    <param id="0" name="Name">&quot;quesLoad&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="323274680277201" type="Function">
+                                                    <param id="0" name="Name">&quot;fireTimer&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="433099483361512">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="715644635542303" type="System">
+                                            <param id="0" name="Variable">quesNav</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">questionCountStory</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="696038049221696" type="System">
+                                            <param id="0" name="Variable">storyDone</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="807341076929010" type="System">
+                                            <param id="0" name="Variable">questionNumber</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="639790317053035" type="System">
+                                            <param id="0" name="Variable">questionCountStory</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="202525938907596" type="Function">
+                                            <param id="0" name="Name">&quot;date_fun&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="938753595131466" type="System">
+                                            <param id="0" name="Variable">log_data</param>
+                                            <param id="1" name="Value">&quot;:&quot; &amp; clock  &amp; &quot;,&quot;</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="707470094248553" type="Function">
+                                            <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="265218712449575">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="699840417411876" type="System">
+                                                    <param id="0" name="Variable">user_type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;hstudent&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="541157145636531" type="System">
+                                                    <param id="0" name="Variable">log_data2</param>
+                                                    <param id="1" name="Value">&quot;lesson No.:&quot; &amp; moeLessonIndex &amp; &quot;,Story: storyDone,&quot; &amp; &quot;Letter:&quot;&amp;tokenat(storyArr.At(storyNumber) , 0 , &quot;,&quot;) &amp; &quot;,Time:&quot; &amp; storyTime</param>
+                                                </action>
+                                                <action id="0" name="Request URL" sid="689208706822149" type="AJAX">
+                                                    <param id="0" name="Tag">&quot;post data&quot;</param>
+                                                    <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/stdProgressNew2.php?name=&quot;&amp;std_id&amp;&quot;_progress.csv&amp;logs=&quot;&amp;log_data2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="313629826982832">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="748071610461591" type="System">
+                                                    <param id="0" name="Variable">user_type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;student&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="933636479500158" type="System">
+                                                    <param id="0" name="Variable">log_data2</param>
+                                                    <param id="1" name="Value">&quot;lesson No.:&quot; &amp; numberOfLessons &amp; &quot;,Story: storyDone,&quot; &amp; &quot;Letter:&quot;&amp;tokenat(storyArr.At(storyNumber) , 0 , &quot;,&quot;) &amp; &quot;,Time:&quot; &amp; storyTime</param>
+                                                </action>
+                                                <action id="0" name="Request URL" sid="790885436447901" type="AJAX">
+                                                    <param id="0" name="Tag">&quot;post data&quot;</param>
+                                                    <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/stdProgressNew2.php?name=&quot;&amp;std_id&amp;&quot;_progress.csv&amp;logs=&quot;&amp;log_data2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="123281296552748">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="899524991592588" type="System" />
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                        <event-block sid="632265706239064">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-2" name="Go to layout" sid="379501960939339" type="System">
+                                                    <param id="0" name="Layout">loading</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="364163073314973">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="762841427467584" type="System">
+                                            <param id="0" name="Variable">storyDone</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="274289699994596" type="finishedExercises">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">globalAction</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="770907856454394">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="632613229459123" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="33" name="Stop all" sid="536403482125396" type="Audio" />
+                                <action id="0" name="Play" sid="417987020127261" type="Audio">
+                                    <param id="0" name="Audio file">هيا ساعدوني</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="461316312928300">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="164917402385360" type="Touch">
+                            <param id="0" name="Object">tex1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="963362924363399" type="ans1">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="149834297924562" type="ans2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="930900631481776" type="ans3">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="377268399060490" type="System">
+                            <param id="0" name="Variable">tempAnswer</param>
+                            <param id="1" name="Value">tex1.Text</param>
+                        </action>
+                        <action id="0" name="Track Event" sid="132334610178444" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;Channel&quot;</param>
+                            <param id="1" name="Name">globalAction</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="397515272001809">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="784407036492748" type="Touch">
+                            <param id="0" name="Object">tex2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="101676085770017" type="ans2">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="210020535250921" type="ans1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="959809750746438" type="ans3">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="542094511661893" type="System">
+                            <param id="0" name="Variable">tempAnswer</param>
+                            <param id="1" name="Value">tex2.Text</param>
+                        </action>
+                        <action id="0" name="Track Event" sid="645933626396183" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;Channel&quot;</param>
+                            <param id="1" name="Name">globalAction</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="323119290675650">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="256990179255980" type="Touch">
+                            <param id="0" name="Object">tex3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="205544592662224" type="ans3">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="546827744113627" type="ans1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="997112552670586" type="ans2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="782180812689895" type="System">
+                            <param id="0" name="Variable">tempAnswer</param>
+                            <param id="1" name="Value">tex3.Text</param>
+                        </action>
+                        <action id="0" name="Track Event" sid="625270251036479" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;Channel&quot;</param>
+                            <param id="1" name="Name">globalAction</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="659578597645126" title="Shuffling Answers2">
+            <sub-events>
+                <event-block sid="205526403813557">
+                    <conditions>
+                        <condition id="0" name="On function" sid="876060448035018" type="Function">
+                            <param id="0" name="Name">&quot;shuffleAnswers&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set size" sid="837161970549904" type="shuffledArray">
+                            <param id="0" name="Width">answersArray.Width</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="182194817780560">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="603443935573268" type="System">
+                                    <param id="0" name="Count">answersArray.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="376500144103992" type="System">
+                                    <param id="0" name="Variable">index</param>
+                                    <param id="1" name="Value">floor(random(answersArray.Width))</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="268475082256961" type="shuffledArray">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">answersArray.At(index)</param>
+                                </action>
+                                <action id="9" name="Delete" sid="256275506843482" type="answersArray">
+                                    <param id="0" name="Index">index</param>
+                                    <param id="1" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block disabled="1" sid="525807915360241">
+                    <conditions>
+                        <condition id="7" name="Compare size" sid="427671234039280" type="shuffledArray">
+                            <param id="0" name="Axis">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="960276070130519" type="tex1">
+                            <param id="0" name="Text">shuffledArray.At(0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="151209716682508" type="tex2">
+                            <param id="0" name="Text">shuffledArray.At(1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="651641365665437" type="tex3">
+                            <param id="0" name="Text">shuffledArray.At(2)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="791418840239353" type="tex4">
+                            <param id="0" name="Text">shuffledArray.At(3)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="993637085155466" type="tex5">
+                            <param id="0" name="Text">shuffledArray.At(4)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="196631743259739">
+                    <conditions>
+                        <condition id="7" name="Compare size" sid="320488117090774" type="shuffledArray">
+                            <param id="0" name="Axis">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="669625206175979" type="tex1">
+                            <param id="0" name="Text">shuffledArray.At(0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="437783623439981" type="tex2">
+                            <param id="0" name="Text">shuffledArray.At(1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="668845897051414" type="tex3">
+                            <param id="0" name="Text">shuffledArray.At(2)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="943585131610103" type="tex4">
+                            <param id="0" name="Text">shuffledArray.At(3)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="858946062738905">
+                    <conditions>
+                        <condition id="7" name="Compare size" sid="568102563107625" type="shuffledArray">
+                            <param id="0" name="Axis">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="751507940566052" type="tex1">
+                            <param id="0" name="Text">shuffledArray.At(0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="360368959134379" type="tex2">
+                            <param id="0" name="Text">shuffledArray.At(1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="893087315482427" type="tex3">
+                            <param id="0" name="Text">shuffledArray.At(2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="277646182238483">
+                    <conditions>
+                        <condition id="7" name="Compare size" sid="754768776488482" type="shuffledArray">
+                            <param id="0" name="Axis">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="137831514043464" type="tex1">
+                            <param id="0" name="Text">shuffledArray.At(0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="646666564456116" type="tex2">
+                            <param id="0" name="Text">shuffledArray.At(1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

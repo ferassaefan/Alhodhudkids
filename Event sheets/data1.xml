@@ -1,0 +1,1250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>data1</name>
+    <events>
+        <include>sessions</include>
+        <event-group description="" sid="941397425789230" title="Load Assets2">
+            <sub-events>
+                <event-block sid="788656975215422">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="790410786996743" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set size" sid="717421467451775" type="tempShape">
+                            <param id="0" name="Width">1</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="498557174080876" type="tempShape" />
+                        <action id="-9" name="Set value" sid="438723329429377" type="System">
+                            <param id="0" name="Variable">LayoutId</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="976966622160085" type="let_ch">
+                            <param id="0" name="Width">pic_width*1.15</param>
+                            <param id="1" name="Height">pic_height*1.15</param>
+                        </action>
+                        <action id="0" name="Set text" sid="461702914552532" type="MomentPLZ">
+                            <param id="0" name="Text">MomentPLZ_Array.At(langId)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="423546487657142" type="MomentPLZ2">
+                            <param id="0" name="Text">MomentPLZ2_Array.At(langId)</param>
+                        </action>
+                        <action id="7" name="Play (by name)" sid="451996684111933" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">mainLetter&amp;&quot;_letter&quot;</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;letter_sound&quot;</param>
+                        </action>
+                        <action id="0" name="Clear" sid="950476221727534" type="game5" />
+                        <action id="1" name="Set size" sid="114102127931653" type="game5">
+                            <param id="0" name="Width">tokencount(write_Array.At(letters.IndexOf(mainLetter)+29),&quot;;&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="786207610530100" type="cur_story" />
+                        <action id="1" name="Set size" sid="195330067168060" type="cur_story">
+                            <param id="0" name="Width">5</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="798818266002727" type="System">
+                            <param id="0" name="Variable">shapeLevel</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="431713964179889">
+                            <conditions>
+                                <condition id="-10" name="For" sid="275375328564719" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="793689623337945" type="cur_story">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+68,newline),1,&quot;;&quot;),loopindex,&quot;,&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="866221454900022">
+                            <conditions>
+                                <condition id="-10" name="For" sid="208839091588229" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">game5.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="936273139022568" type="game5">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(write_Array.At(letters.IndexOf(mainLetter)+29),loopindex,&quot;;&quot;)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="526599392392368" type="write_sprite">
+                                    <param id="0" name="Frame number">loopindex</param>
+                                </action>
+                                <action id="10" name="Load image from URL" sid="901976060577887" type="write_sprite">
+                                    <param id="0" name="URI">globalPath&amp;&quot;/elements/&quot;&amp;tokenat(game5.At(loopindex-1),2,&quot;,&quot;)&amp;&quot;.png&quot;</param>
+                                    <param id="1" name="Size">0</param>
+                                    <param id="2" name="Cross-origin">0</param>
+                                </action>
+                                <action id="9" name="Preload (by name)" sid="993456509500595" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">tokenat(game5.At(loopindex-1),2,&quot;,&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="761378792792752">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="387728151064690" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;0&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="230772629495315" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;2&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="533507636533375" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;1&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="793225249412505" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;3&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="462484125518214" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;4&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="880817881288994" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;5&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Request URL" sid="630404297561085" type="AJAX">
+                                    <param id="0" name="Tag">&quot;load Assets Data&quot;</param>
+                                    <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/home_access/home access content file&quot;&amp;classID&amp;&quot;.csv&quot;&amp;&quot;?&quot;&amp;random(10000000)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="698514410149504">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="739643815031010" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Request URL" sid="790893087063405" type="AJAX">
+                                    <param id="0" name="Tag">&quot;load Assets Data&quot;</param>
+                                    <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/home_access/Default_homeaccess.csv&quot;&amp;&quot;?&quot;&amp;random(10000000)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="993013171390211">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="201673874861506" type="System">
+                                    <param id="0" name="Variable">loadAssets</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="975492038777740">
+                            <conditions>
+                                <condition id="-20" name="Is on mobile device" sid="982745216587674" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set font size" sid="289708064366052" type="MomentPLZ">
+                                    <param id="0" name="Size (pt)">38</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="958363749509305" type="MomentPLZ2">
+                                    <param id="0" name="Size (pt)">62</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="146408932854578">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="378428190509060" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set font size" sid="301696044035157" type="MomentPLZ">
+                                    <param id="0" name="Size (pt)">48</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="633825267162898" type="MomentPLZ2">
+                                    <param id="0" name="Size (pt)">72</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="205047768765047">
+                            <conditions>
+                                <condition id="-10" name="For" sid="140798652493400" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">58</param>
+                                    <param id="2" name="End index">write_Array.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="510328429599155" type="stories">
+                                    <param id="0" name="X">loopindex-58</param>
+                                    <param id="1" name="Value">tokenat(write_Array.At(loopindex),langId,&quot;;&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="602165378404154">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="927277894938578" type="System">
+                                    <param id="0" name="Variable">user_type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;hstudent&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="647515824540049" type="MomentPLZ2">
+                                    <param id="0" name="Text">&quot;جاري تجهيز نسخة طفلك بناء على الاختيارات اللغوية التي اخترتها&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="305178298720533">
+                    <conditions>
+                        <condition id="0" name="On completed" sid="587810326705697" type="AJAX">
+                            <param id="0" name="Tag">&quot;load Assets Data&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="630669351540733" type="AssetsData" />
+                        <action id="1" name="Set size" sid="977023898080335" type="AssetsData">
+                            <param id="0" name="Width">tokencount(AJAX.LastData,newline)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="890580757153941">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="426805506218936" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="180918235750689" type="System">
+                                    <param id="0" name="Variable">letterIndex</param>
+                                    <param id="1" name="Value">Letters.IndexOf(mainLetter)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="203470790782888">
+                            <conditions>
+                                <condition id="-10" name="For" sid="576264486532178" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">AssetsData.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="756886157518345" type="AssetsData">
+                                    <param id="0" name="X">loopindex-1</param>
+                                    <param id="1" name="Value">tokenat(AJAX.LastData,loopindex-1,newline)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="304539067984314">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="620968572871654" type="System">
+                                    <param id="0" name="Variable">Assets_Str</param>
+                                    <param id="1" name="Value">AssetsData.At(letterIndex+1)</param>
+                                </action>
+                                <action id="0" name="Clear" sid="529389236086695" type="AssetsData" />
+                                <action id="1" name="Set size" sid="651456917557713" type="AssetsData">
+                                    <param id="0" name="Width">tokencount(Assets_Str,&quot;,&quot;)</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="268932969828846">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="607452515364763" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">AssetsData.Width</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Set at X" sid="465605627869829" type="AssetsData">
+                                            <param id="0" name="X">loopindex</param>
+                                            <param id="1" name="Value">tokenat(Assets_Str,loopindex,&quot;,&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="539510751884817">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="764167691890389" type="System">
+                                            <param id="0" name="Variable">elementsCount</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="0" name="Clear" sid="524837073587828" type="App_Settings" />
+                                        <action id="1" name="Set size" sid="914537089457725" type="App_Settings">
+                                            <param id="0" name="Width">elementsCount+1</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="864521250601443" type="System">
+                                            <param id="0" name="Variable">rCount</param>
+                                            <param id="1" name="Value">tokencount(AssetsData.At(2),&quot;;&quot;)</param>
+                                        </action>
+                                        <action id="1" name="Set size" sid="567683593355372" type="room">
+                                            <param id="0" name="Width">rCount</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                        <action id="1" name="Set size" sid="631284294486827" type="room_sounds">
+                                            <param id="0" name="Width">rCount</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="807081922845895" type="System">
+                                            <param id="0" name="Variable">fCount</param>
+                                            <param id="1" name="Value">tokencount(AssetsData.At(3),&quot;;&quot;)</param>
+                                        </action>
+                                        <action id="1" name="Set size" sid="137660411185922" type="feelings">
+                                            <param id="0" name="Width">fCount</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                        <action id="1" name="Set size" sid="227299881709269" type="feelingSounds">
+                                            <param id="0" name="Width">fCount</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="964571441571611" type="System">
+                                            <param id="0" name="Variable">sCount</param>
+                                            <param id="1" name="Value">tokencount(AssetsData.At(5),&quot;;&quot;)</param>
+                                        </action>
+                                        <action id="2" name="Set at X" sid="513792827594922" type="Letters_Array">
+                                            <param id="0" name="X">0</param>
+                                            <param id="1" name="Value">tokenat(AssetsData.at(1),0,&quot;;&quot;)</param>
+                                        </action>
+                                        <action id="0" name="Clear" sid="840557399677160" type="story_ele" />
+                                        <action id="1" name="Set size" sid="385466918007899" type="story_ele">
+                                            <param id="0" name="Width">tokencount(AssetsData.At(5),&quot;;&quot;)</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                        <action id="0" name="Clear" sid="673416979784481" type="mem_ele" />
+                                        <action id="1" name="Set size" sid="809489208727045" type="mem_ele">
+                                            <param id="0" name="Width">0</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                        <action id="0" name="Clear" sid="381909641112740" type="shapesSet" />
+                                        <action id="1" name="Set size" sid="182101032100353" type="shapesSet">
+                                            <param id="0" name="Width">0</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="333538329021801">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="608103826789198" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">0</param>
+                                                    <param id="2" name="End index">tokencount(AssetsData.At(1),&quot;;&quot;)-2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="668112719835850" type="mem_ele">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">tokenat(tokenat(AssetsData.At(1),loopindex,&quot;;&quot;),0,&quot;.&quot;)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="976412950900732" type="System">
+                                                    <param id="0" name="Variable">elementsCount</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="352182464196409">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="998189940708041" type="System">
+                                                    <param id="0" name="First value">harf_set</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="665502919629211" type="mem_ele">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">&quot;L1&quot;</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="897447533414488" type="shapesSet">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">&quot;L1&quot;</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action id="2" name="Set at X" sid="198661608102697" type="Letters_Array">
+                                                    <param id="0" name="X">0</param>
+                                                    <param id="1" name="Value">&quot;L1&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="702945759238797">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="325472419177862" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">1</param>
+                                                    <param id="2" name="End index">tokencount(longVal,&quot;,&quot;)-2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="404987252100357" type="mem_ele">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">&quot;LL&quot;&amp;tokenat(longVal,loopindex,&quot;,&quot;)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="607939700956442" type="shapesSet">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">&quot;LL&quot;&amp;tokenat(longVal,loopindex,&quot;,&quot;)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="443301906502249">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="448826237430254" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">1</param>
+                                                    <param id="2" name="End index">tokencount(shortVal,&quot;,&quot;)-2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="762260682650641" type="mem_ele">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">&quot;LS&quot;&amp;tokenat(shortVal,loopindex,&quot;,&quot;)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="226708491738399">
+                            <conditions>
+                                <condition id="-10" name="For" sid="743146059216789" type="System">
+                                    <param id="0" name="Name">&quot;elements&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">elementsCount</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="230583270176422" type="App_Settings">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(AssetsData.at(1),loopindex-1,&quot;;&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="831888813919355">
+                            <conditions>
+                                <condition id="-10" name="For" sid="557545723130465" type="System">
+                                    <param id="0" name="Name">&quot;Feelinigs&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">fCount-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="842432871246920" type="feelings">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(AssetsData.at(3),loopindex,&quot;;&quot;)</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="596237861913972" type="feelingSounds">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(AssetsData.at(3),loopindex,&quot;;&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="164794091376413">
+                            <conditions>
+                                <condition id="-10" name="For" sid="946931128534883" type="System">
+                                    <param id="0" name="Name">&quot;room&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">rCount</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="733221226900347" type="room">
+                                    <param id="0" name="X">loopindex-1</param>
+                                    <param id="1" name="Value">tokenat(AssetsData.at(2),loopindex-1,&quot;;&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="378625715740603">
+                            <conditions>
+                                <condition id="-10" name="For" sid="204066042825931" type="System">
+                                    <param id="0" name="Name">&quot;story&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">story_ele.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="996233924470473" type="story_ele">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(AssetsData.at(5),loopindex,&quot;;&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="938391409306949">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Request URL" sid="624868662733127" type="AJAX">
+                                    <param id="0" name="Tag">&quot;load Shape&quot;</param>
+                                    <param id="1" name="URL">&quot;https://alhodhudkids.com/app/files/shape.csv?&quot;&amp;random(1000000)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="455660504559983">
+                    <conditions>
+                        <condition id="0" name="On completed" sid="850949945189568" type="AJAX">
+                            <param id="0" name="Tag">&quot;load Shape&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="166082071767216" type="Shape_Array" />
+                        <action id="1" name="Set size" sid="688201254505626" type="Shape_Array">
+                            <param id="0" name="Width">tokencount(AJAX.LastData,newline)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="119146413422100">
+                            <conditions>
+                                <condition id="-10" name="For" sid="579939942847600" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">Shape_Array.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="650844210189756" type="Shape_Array">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(AJAX.LastData,loopindex,newline)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="682346301028853">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="688767026234215" type="System">
+                                            <param id="0" name="First value">tokenat(Shape_Array.At(loopindex),0,&quot;,&quot;)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">mainLetter</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="396700295266050" type="System">
+                                            <param id="0" name="Variable">Shape_Str</param>
+                                            <param id="1" name="Value">Shape_Array.At(loopindex)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="881925983977841">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Clear" sid="192122135380487" type="Shape_Array" />
+                                <action id="1" name="Set size" sid="372621366566559" type="Shape_Array">
+                                    <param id="0" name="Width">tokencount(Shape_Str,&quot;,&quot;)</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="504292503768507">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="271071531652622" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">Shape_Array.Width</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="106612307964827" type="Function">
+                                            <param id="0" name="Name">&quot;check available letters&quot;</param>
+                                            <param id="1" name="Parameter {n}">tokenat(Shape_Str,loopindex,&quot;,&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="538287920567702">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Clear" sid="978726065517013" type="Shape_Array" />
+                                        <action id="1" name="Set size" sid="399124262321590" type="Shape_Array">
+                                            <param id="0" name="Width">1</param>
+                                            <param id="1" name="Height">1</param>
+                                            <param id="2" name="Depth">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="594508422804463">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="252268492933510" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">1</param>
+                                                    <param id="2" name="End index">tempShape.Width</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="982117541626269" type="Shape_Array">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">tempShape.At(loopindex)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="257115320549546">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="250670823459717" type="Function">
+                                    <param id="0" name="Name">&quot;load Images&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="555581840153570">
+                    <conditions>
+                        <condition id="1" name="On error" sid="547082814561137" type="AJAX">
+                            <param id="0" name="Tag">&quot;load Shape&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="880331757554521" title="Func :2">
+            <sub-events>
+                <event-block sid="404072228255816">
+                    <conditions>
+                        <condition id="0" name="On function" sid="934048162402677" type="Function">
+                            <param id="0" name="Name">&quot;load Images&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="556773423835655" type="Sound_Array" />
+                        <action id="1" name="Set size" sid="710537140119085" type="Sound_Array">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="822031318672365" type="memoryElements" />
+                        <action id="1" name="Set size" sid="335457814737260" type="memoryElements">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="772389669283865" type="elementsSound" />
+                        <action id="1" name="Set size" sid="639987226550483" type="elementsSound">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="1" name="Track Extended Event" sid="468242898906790" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;app&quot;</param>
+                            <param id="1" name="Name">&quot;start App&quot;</param>
+                            <param id="2" name="Label">&quot;platform&quot;</param>
+                            <param id="3" name="Value">platform</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="681962509531542">
+                            <conditions />
+                            <actions>
+                                <action id="-10" name="Add to" sid="276815862492599" type="System">
+                                    <param id="0" name="Variable">numOfImages</param>
+                                    <param id="1" name="Value">elementsCount</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="652556261486756" type="System">
+                                    <param id="0" name="Variable">numOfImages</param>
+                                    <param id="1" name="Value">fCount</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="261733134047336" type="System">
+                                    <param id="0" name="Variable">numOfImages</param>
+                                    <param id="1" name="Value">rCount</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="594743431241534" type="System">
+                                    <param id="0" name="Variable">numOfImages</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="242609246137507" type="System">
+                                    <param id="0" name="Variable">numOfImages</param>
+                                    <param id="1" name="Value">Letters_Array.Width</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="311836049518354" type="Card">
+                                    <param id="0" name="Animation">&quot;CardFace&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="978095688884660">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="935130465407259" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">mem_ele.Width-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="751335661001317" type="Card">
+                                            <param id="0" name="Frame number">loopindex</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block any="1" sid="671881854866731">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="405720759788386" type="System">
+                                                    <param id="0" name="First value">mem_ele.At(loopindex)</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;character&quot;</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="734113701317337" type="System">
+                                                    <param id="0" name="First value">mem_ele.At(loopindex)</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;animal&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="10" name="Load image from URL" sid="558775438090109" type="Card">
+                                                    <param id="0" name="URI">globalPath&amp;&quot;/letters/&quot;&amp;mainLetter&amp;&quot;/&quot;&amp;mem_ele.At(loopindex)&amp;&quot;.png&quot;</param>
+                                                    <param id="1" name="Size">1</param>
+                                                    <param id="2" name="Cross-origin">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="767613298945534" type="memoryElements">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">&quot;e&quot;&amp;loopindex+1</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="211650369892073" type="Sound_Array">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">mainLetter&amp;&quot;_&quot;&amp;mem_ele.At(loopindex)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="748989337906998">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="236909479191608" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="442588472495274" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Second value">elementsCount</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="10" name="Load image from URL" sid="575326085220643" type="Card">
+                                                    <param id="0" name="URI">globalPath&amp;&quot;/elements/&quot;&amp;mem_ele.At(loopindex)&amp;&quot;.png&quot;</param>
+                                                    <param id="1" name="Size">1</param>
+                                                    <param id="2" name="Cross-origin">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="419700344786212" type="memoryElements">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">&quot;e&quot;&amp;loopindex+1</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="499800107758915" type="Sound_Array">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">mem_ele.At(loopindex)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="821275028180031">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="897948042932225" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="10" name="Load image from URL" sid="562320283035207" type="Card">
+                                                    <param id="0" name="URI">globalPath&amp;&quot;/letters/&quot;&amp;mainLetter&amp;&quot;/&quot;&amp;mem_ele.At(loopindex)&amp;&quot;.png&quot;</param>
+                                                    <param id="1" name="Size">1</param>
+                                                    <param id="2" name="Cross-origin">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="288701623421022" type="Sound_Array">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">mainLetter&amp;&quot;_&quot;&amp;mem_ele.At(loopindex)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action id="5" name="Push" sid="530254456718301" type="memoryElements">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">mem_ele.At(loopindex)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="592570862578089">
+                            <conditions>
+                                <condition id="-10" name="For" sid="859192384668703" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">elementsCount-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="879873991354291">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="763057860607613" type="System">
+                                            <param id="0" name="First value">mem_ele.At(loopindex)</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">&quot;character&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="279568264536848" type="System">
+                                            <param id="0" name="First value">mem_ele.At(loopindex)</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">&quot;animal&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="405683391536912" type="System">
+                                            <param id="0" name="First value">elementsSound.Width</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="276420245154873" type="elementsSound">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">mem_ele.At(loopindex)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="996896317156568" type="Animal">
+                                            <param id="0" name="Frame number">elementsSound.Width-1</param>
+                                        </action>
+                                        <action id="10" name="Load image from URL" sid="763540767555176" type="Animal">
+                                            <param id="0" name="URI">globalPath&amp;&quot;/elements/&quot;&amp;mem_ele.At(loopindex)&amp;&quot;.png&quot;</param>
+                                            <param id="1" name="Size">1</param>
+                                            <param id="2" name="Cross-origin">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="758076878478470">
+                            <conditions>
+                                <condition id="-10" name="For" sid="745754474393992" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">story_ele.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="168056136540090" type="story_mc">
+                                    <param id="0" name="Frame number">loopindex</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block any="1" sid="706825189070477">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="328926148317884" type="System">
+                                            <param id="0" name="First value">story_ele.At(loopindex)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;character.png&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="357863713899169" type="System">
+                                            <param id="0" name="First value">story_ele.At(loopindex)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;animal.png&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="759939737275525" type="story_mc">
+                                            <param id="0" name="URI">globalPath&amp;&quot;/letters/&quot;&amp;mainLetter&amp;&quot;/&quot;&amp;story_ele.At(loopindex)</param>
+                                            <param id="1" name="Size">1</param>
+                                            <param id="2" name="Cross-origin">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="629305903817952">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="570272302561659" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="717224453353412" type="story_mc">
+                                            <param id="0" name="URI">globalPath&amp;&quot;/elements/&quot;&amp;story_ele.At(loopindex)</param>
+                                            <param id="1" name="Size">1</param>
+                                            <param id="2" name="Cross-origin">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="371836986989618">
+                            <conditions>
+                                <condition id="-10" name="For" sid="186043776091567" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">feelings.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="276922913752524" type="feeling">
+                                    <param id="0" name="Frame number">loopindex</param>
+                                </action>
+                                <action id="10" name="Load image from URL" sid="514555320896716" type="feeling">
+                                    <param id="0" name="URI">globalPath&amp;&quot;/feelings/&quot;&amp;feelings.At(loopindex)</param>
+                                    <param id="1" name="Size">1</param>
+                                    <param id="2" name="Cross-origin">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="795492999423471">
+                            <conditions>
+                                <condition id="-10" name="For" sid="909597165003411" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">room.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="232968943580859" type="drag">
+                                    <param id="0" name="Frame number">loopindex</param>
+                                </action>
+                                <action id="10" name="Load image from URL" sid="791081678777551" type="drag">
+                                    <param id="0" name="URI">globalPath&amp;&quot;/elements/&quot;&amp;room.At(loopindex)</param>
+                                    <param id="1" name="Size">1</param>
+                                    <param id="2" name="Cross-origin">0</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="703387367785432" type="room_sounds">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(room.At(loopindex),0,&quot;.&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="356920535289869">
+                            <conditions />
+                            <actions>
+                                <action id="10" name="Load image from URL" sid="773062732677795" type="drawMask">
+                                    <param id="0" name="URI">globalPath&amp;&quot;/letters/&quot;&amp;mainLetter&amp;&quot;/mask.png&quot;&amp;&quot;?&quot;&amp;random(10000000)</param>
+                                    <param id="1" name="Size">1</param>
+                                    <param id="2" name="Cross-origin">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="688973991145242">
+                            <conditions>
+                                <condition id="-10" name="For" sid="386978289563832" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">mem_ele.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Preload (by name)" sid="828856655582542" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">mem_ele.At(loopindex)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="320549385666286">
+                            <conditions>
+                                <condition id="-10" name="For" sid="896408818152446" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">feelingSounds.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Preload (by name)" sid="248575919382763" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">tokenat(feelingSounds.At(loopindex),0,&quot;.&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="360138012089468">
+                            <conditions>
+                                <condition id="-10" name="For" sid="787255545905986" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">room.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Preload (by name)" sid="774836682890927" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">tokenat(room_sounds.At(loopindex),0,&quot;.&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="704009485163060">
+                            <conditions>
+                                <condition id="-10" name="For" sid="953408824620815" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">Letters_Array.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Preload (by name)" sid="869143895155763" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">mainLetter&amp;&quot;_&quot;&amp;tokenat(Letters_Array.At(loopindex),0,&quot;.&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="801056110913622">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="343451508857271" type="Function">
+                                    <param id="0" name="Name">&quot;update memory elements&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="515576261551026">
+                    <conditions>
+                        <condition id="0" name="On function" sid="662148363209270" type="Function">
+                            <param id="0" name="Name">&quot;check available letters&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="found" sid="987437985594598" static="0" type="number">0</variable>
+                        <event-block sid="537531701195464">
+                            <conditions>
+                                <condition id="-10" name="For" sid="171960427900346" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">Letters_Array.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="413410640464461">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="577725466551910" type="System">
+                                            <param id="0" name="First value">tokenat(Letters_Array.At(loopindex),0,&quot;.&quot;)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">tokenat(Function.Param(0),0,&quot;;&quot;)</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="871756253338012" type="System">
+                                            <param id="0" name="First value">tokenat(Function.Param(0),0,&quot;;&quot;)</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">&quot;&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="133026527023297" type="System">
+                                            <param id="0" name="Variable">found</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="354619396396829">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="735687218996354" type="System">
+                                    <param id="0" name="Variable">found</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="769030665559398" type="tempShape">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <variable constant="0" name="rowString" sid="474930038429266" static="0" type="text"></variable>
+                <event-block sid="175949961985039">
+                    <conditions>
+                        <condition id="0" name="On function" sid="234676916906618" type="Function">
+                            <param id="0" name="Name">&quot;update memory elements&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="840044597090473" type="removedIndeses" />
+                        <action id="1" name="Set size" sid="621820421446635" type="removedIndeses">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="959235340508491" type="mem_set" />
+                        <action id="1" name="Set size" sid="871446326285780" type="mem_set">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="913352078390489">
+                            <conditions>
+                                <condition id="-10" name="For" sid="734298371466971" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">memoryElements.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="288993717794516" type="Card">
+                                    <param id="0" name="Frame number">loopindex</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="448533867601159" type="Card">
+                                    <param id="0" name="Instance variable">name</param>
+                                    <param id="1" name="Value">memoryElements.At(loopindex)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="333938521055428">
+                            <conditions>
+                                <condition id="-10" name="For" sid="404618924152631" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">MemoryGame_Setting.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="numOfelements" sid="727254210591328" static="0" type="number">0</variable>
+                                <variable constant="0" name="numOfFounds" sid="407953288971659" static="0" type="number">0</variable>
+                                <variable constant="0" name="curIndex" sid="115732006040728" static="0" type="number">0</variable>
+                                <event-block sid="581880246553570">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="138148573446477" type="System">
+                                            <param id="0" name="Variable">numOfelements</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="636810432971124" type="System">
+                                            <param id="0" name="Variable">numOfFounds</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="569586547123110" type="System">
+                                            <param id="0" name="Variable">rowString</param>
+                                            <param id="1" name="Value">tokenat(MemoryGame_Setting.At(loopindex),2,&quot;;&quot;)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="312886164889249" type="System">
+                                            <param id="0" name="Variable">numOfelements</param>
+                                            <param id="1" name="Value">tokencount(rowString,&quot;,&quot;)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="255842751906155" type="System">
+                                            <param id="0" name="Variable">curIndex</param>
+                                            <param id="1" name="Value">loopindex</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <variable constant="0" name="currenElemnt" sid="564768003037184" static="0" type="text"></variable>
+                                <event-block sid="285204814824297">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="147453818624908" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">tokencount(rowString,&quot;,&quot;)-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="644992082760263" type="System">
+                                            <param id="0" name="Variable">currenElemnt</param>
+                                            <param id="1" name="Value">tokenat(rowString,loopindex,&quot;,&quot;)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="208674051555198">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="791064768956187" type="System">
+                                                    <param id="0" name="First value">memoryElements.IndexOf(currenElemnt)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="146914834171798" type="System">
+                                                    <param id="0" name="Variable">numOfFounds</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="134080035994792">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="444780651092348" type="System">
+                                            <param id="0" name="First value">numOfelements</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">numOfFounds</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="303593457956380" type="mem_set">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">MemoryGame_Setting.At(loopindex)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="648877034466839">
+                            <conditions />
+                            <actions>
+                                <action disabled="1" id="-16" name="Wait" sid="204815068159346" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action disabled="1" id="0" name="Alert" sid="717983764085083" type="Browser">
+                                    <param id="0" name="Message">mem_set.AsJSON</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="908138765514658" type="System">
+                                    <param id="0" name="Layout">start</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="957880710128153" title="Start Loading2">
+            <sub-events>
+                <event-block sid="303909623821420">
+                    <conditions>
+                        <condition id="1" name="Preloads complete" sid="110493546747191" type="Audio" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="892754799831052" type="System">
+                            <param id="0" name="Variable">ready</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

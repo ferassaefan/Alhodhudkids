@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>start</name>
+    <events>
+        <include>logs</include>
+        <event-block sid="317781343610775">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="278530539868255" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="130953236670071" type="week_let">
+                    <param id="0" name="Text">letters2.At(Letters.IndexOf(mainLetter))</param>
+                </action>
+                <action id="-9" name="Set value" sid="595364417857114" type="System">
+                    <param id="0" name="Variable">story</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="655815434314319" type="System">
+                    <param id="0" name="Layer">&quot;MENU&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action disabled="1" id="1" name="Set size" sid="390142554134653" type="layout_sort">
+                    <param id="0" name="Width">10</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="772030747525864" type="layout_sort">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="981861900290690" type="layout_sort">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Value">8</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="942444303316964" type="layout_sort">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Value">6</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="996455165639453" type="layout_sort">
+                    <param id="0" name="X">3</param>
+                    <param id="1" name="Value">9</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="899731532224192" type="layout_sort">
+                    <param id="0" name="X">4</param>
+                    <param id="1" name="Value">7</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="703286946984810" type="layout_sort">
+                    <param id="0" name="X">5</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="575998235088913" type="layout_sort">
+                    <param id="0" name="X">6</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="475343814741065" type="layout_sort">
+                    <param id="0" name="X">7</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="429782154643465" type="layout_sort">
+                    <param id="0" name="X">8</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+                <action disabled="1" id="2" name="Set at X" sid="353883543430158" type="layout_sort">
+                    <param id="0" name="X">9</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="1" name="Set size" sid="473011397543221" type="let_flow">
+                    <param id="0" name="Width">1</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="0" name="Clear" sid="583794689692073" type="let_flow" />
+            </actions>
+            <sub-events>
+                <event-block sid="935383056702235">
+                    <conditions>
+                        <condition id="-10" name="For" sid="538913271745957" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">flow_array.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="577765809693450">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="403445912223342" type="System">
+                                    <param id="0" name="Variable">mainLetter</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">tokenat(flow_array.At(loopindex),0,&quot;,&quot;)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set size" sid="685902164889890" type="let_flow">
+                                    <param id="0" name="Width">tokencount(tokenat(flow_array.At(loopindex),3,&quot;,&quot;),&quot;;&quot;)-1</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="265366506759056" type="flow_array">
+                                    <param id="0" name="X">0</param>
+                                    <param id="1" name="Value">flow_array.At(loopindex)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="944996721500394">
+                    <conditions>
+                        <condition id="-10" name="For" sid="945698884879182" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">let_flow.Width</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set at X" sid="858509840718069" type="let_flow">
+                            <param id="0" name="X">loopindex-1</param>
+                            <param id="1" name="Value">tokenat(tokenat(flow_array.At(0),3,&quot;,&quot;),loopindex,&quot;;&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="128706966529149">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="111707524794021" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="799446533275225" type="System">
+                            <param id="0" name="Variable">font_size</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="805813455567236" type="week_let">
+                            <param id="0" name="Size (pt)">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="691111037208900">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="957703161313342" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set font size" sid="264847157617470" type="week_let">
+                            <param id="0" name="Size (pt)">150</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="598353071930796">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="379693162900947" type="System">
+                                    <param id="0" name="First value">Lang</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;En&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="129092048962915" type="System">
+                                    <param id="0" name="Variable">font_size</param>
+                                    <param id="1" name="Value">28</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="780077057208812">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="210989575840664" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="100409237092941" type="System">
+                                    <param id="0" name="Variable">font_size</param>
+                                    <param id="1" name="Value">32</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="966179381835553">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="665387807287095" type="System">
+                            <param id="0" name="Object">start2B</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="912088207768761" type="start2B">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="441616545483196">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="586320698299222" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">let_flow.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="856398892727804" type="start2B">
+                                    <param id="0" name="Frame number">loopindex+1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="247890128302412">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="171412655808160" type="System">
+                            <param id="0" name="Object">start2p</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="544609658780999" type="start2p">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="803878237156153">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="137504739353660" type="System">
+                                    <param id="0" name="First value">let_flow.IndexOf(str(layout_sort.At(loopindex)))</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="740736000955184" type="start2p">
+                                    <param id="0" name="Frame number">layout_sort.At(loopindex)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="333360539284000">
+            <conditions>
+                <condition id="17" name="On tap object" sid="900415547322655" type="Touch">
+                    <param id="0" name="Object">start2B</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="488216955075140">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="158750716352317" type="System">
+                            <param id="0" name="First value">start2B.AnimationFrame</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="695962431457777" type="System">
+                            <param id="0" name="Variable">LayoutId</param>
+                            <param id="1" name="Value">layout_sort.At(start2B.AnimationFrame-1)</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="957412636842103" type="System">
+                            <param id="0" name="Layout">&quot;EX&quot;&amp;LayoutId</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="879975932410715" type="System">
+                            <param id="0" name="Variable">memoryFirstTime</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="764224254871780" type="System">
+                            <param id="0" name="Variable">MemoryGameLevel</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="818673959634061">
+            <conditions>
+                <condition id="17" name="On tap object" sid="402019882975331" type="Touch">
+                    <param id="0" name="Object">start_btn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="351664234002270" type="System">
+                    <param id="0" name="Variable">memoryFirstTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="658082597512201" type="System">
+                    <param id="0" name="Variable">MemoryGameLevel</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="473007642350537">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="278526601906181" type="System">
+                            <param id="0" name="First value">let_flow.Width</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="521274909243352" type="System">
+                            <param id="0" name="Variable">LayoutId</param>
+                            <param id="1" name="Value">layout_sort.At(0)</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="336054082094359" type="System">
+                            <param id="0" name="Layout">&quot;EX&quot;&amp;LayoutId</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="792986859812571">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="561484985219976" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="946244961215615" type="System">
+                            <param id="0" name="Variable">LayoutId</param>
+                            <param id="1" name="Value">layout_sort.At(let_flow.Width)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="429601617549702">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="827213385379409" type="System">
+                                    <param id="0" name="Variable">LayoutId</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="192350615535088" type="System">
+                                    <param id="0" name="Variable">LayoutId</param>
+                                    <param id="1" name="Value">layout_sort.At(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="707901397859346">
+                            <conditions />
+                            <actions>
+                                <action id="-25" name="Go to layout (by name)" sid="274084981935607" type="System">
+                                    <param id="0" name="Layout">&quot;EX&quot;&amp;LayoutId</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

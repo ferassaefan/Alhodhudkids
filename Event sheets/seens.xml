@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>seens</name>
+    <events>
+        <variable constant="0" name="sound_stat" sid="569797663668640" static="0" type="number">0</variable>
+        <include>sessions</include>
+        <include>logs</include>
+        <event-block sid="112810005334410">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="711602376499437" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="DragDrop" id="0" name="Set enabled" sid="149502422570351" type="seens">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="0" name="Set text" sid="657863759192537" type="titl">
+                    <param id="0" name="Text">tokenat(stories.At(story-1),0,&quot;,&quot;)</param>
+                </action>
+                <action id="0" name="Set text" sid="826818289807612" type="txt">
+                    <param id="0" name="Text">tokenat(stories.At(story-1),1,&quot;,&quot;)</param>
+                </action>
+                <action id="0" name="Set text" sid="351515440255248" type="g_txt">
+                    <param id="0" name="Text">tokenat(helpme,langId,&quot;,&quot;)</param>
+                </action>
+                <action id="0" name="Call function" sid="774889235716155" type="Function">
+                    <param id="0" name="Name">&quot;date_fun&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="717954711693729" type="System">
+                    <param id="0" name="Variable">log_data</param>
+                    <param id="1" name="Value">&quot;:&quot;&amp;clock&amp;&quot;,S:&quot;&amp;story&amp;&quot;:&quot;&amp;clock</param>
+                </action>
+                <action id="0" name="Call function" sid="685831253379127" type="Function">
+                    <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="7" name="Play (by name)" sid="614448862277773" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;as&quot;&amp;story</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;start_sound&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="275171746718821" type="System">
+                    <param id="0" name="Variable">sound_stat</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set font face" sid="715237590428709" type="Texts">
+                    <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                    <param id="1" name="Style">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="853012471287671">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="935864425612248" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set font size" sid="285274287177602" type="titl">
+                            <param id="0" name="Size (pt)">55</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="633678209231189" type="txt">
+                            <param id="0" name="Size (pt)">55</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="843379433769460" type="cur_let">
+                            <param id="0" name="Size (pt)">40</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="512964828332694" type="Text11">
+                            <param id="0" name="Size (pt)">25</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="683744984773848" type="g_txt">
+                            <param id="0" name="Size (pt)">20</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="895078524649111">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="309839311014050" type="System">
+                                    <param id="0" name="First value">Lang</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;En&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="455866208324271" type="System">
+                                    <param id="0" name="Variable">font_size</param>
+                                    <param id="1" name="Value">14</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="862620753090148">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="407336757684669" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="894331723552550" type="System">
+                                    <param id="0" name="Variable">font_size</param>
+                                    <param id="1" name="Value">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="120435843636481">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="262846450850413" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set font size" sid="210211481969846" type="titl">
+                            <param id="0" name="Size (pt)">72</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="962306256517332" type="txt">
+                            <param id="0" name="Size (pt)">72</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="290757471712882" type="cur_let">
+                            <param id="0" name="Size (pt)">52</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="508074240533745" type="Text11">
+                            <param id="0" name="Size (pt)">32</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="637404853585113" type="g_txt">
+                            <param id="0" name="Size (pt)">28</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="636509056835419">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="902819779997414" type="System">
+                                    <param id="0" name="First value">Lang</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;En&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="595833656691142" type="System">
+                                    <param id="0" name="Variable">font_size</param>
+                                    <param id="1" name="Value">22</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="126630887487343">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="789129857504842" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="443261679062695" type="System">
+                                    <param id="0" name="Variable">font_size</param>
+                                    <param id="1" name="Value">32</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="447488256508336">
+                    <conditions>
+                        <condition id="-24" name="For Each (ordered)" sid="563935660694665" type="System">
+                            <param id="0" name="Object">w_path</param>
+                            <param id="1" name="Expression">0</param>
+                            <param id="2" name="Order">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="407220989528491" type="w_path">
+                            <param id="0" name="Opacity">30</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="538300326719098">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="297881126636098" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">seen-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="625417525073177" type="w_path">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="487622408947427">
+                    <conditions />
+                    <actions>
+                        <action id="-16" name="Wait" sid="873724966621642" type="System">
+                            <param id="0" name="Seconds">4</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="445669788884321">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="606481485554163" type="System">
+                                    <param id="0" name="First value">sound_stat</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Play (by name)" sid="279080879652210" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;as&quot;&amp;story&amp;&quot;_c1&quot;</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="158549470568685">
+            <conditions />
+            <actions />
+            <sub-events>
+                <event-block sid="401135989161676">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="589073399501433" type="System">
+                            <param id="0" name="Variable">Lang</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Ar&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="442698872047239">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="848055164154939" type="System">
+                            <param id="0" name="Variable">Lang</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;En&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="713803038975076">
+            <conditions>
+                <condition id="17" name="On tap object" sid="420797322271416" type="Touch">
+                    <param id="0" name="Object">bg</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="473936381899893" type="System">
+                    <param id="0" name="Layout">Ex1</param>
+                </action>
+                <action id="-9" name="Set value" sid="203138807716148" type="System">
+                    <param id="0" name="Variable">story</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="742550565480544">
+            <conditions>
+                <condition id="17" name="On tap object" sid="767248452895684" type="Touch">
+                    <param id="0" name="Object">close</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="243951403656912" type="System">
+                    <param id="0" name="Layout">Ex1</param>
+                </action>
+                <action id="-9" name="Set value" sid="694396013322346" type="System">
+                    <param id="0" name="Variable">story</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="144960223557896">
+            <conditions>
+                <condition behavior="DragDrop" id="0" name="Is dragging" sid="188914339662800" type="seens" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="945994540974403" type="seens">
+                    <param id="0" name="Y">591</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="396771602285802">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="534694346012849" type="seens">
+                            <param id="0" name="Object">switch</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="DragDrop" id="1" name="Drop" sid="978143960268985" type="seens" />
+                        <action id="-1" name="Set X" sid="735668991694830" type="seens">
+                            <param id="0" name="X">1187</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="913370304637673">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="118668279219718" type="System">
+                                    <param id="0" name="First value">switch.IID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="593463089576298">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="162932184892604" type="System">
+                                            <param id="0" name="First value">seen</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="669887816538540" type="System">
+                                            <param id="0" name="Variable">seen</param>
+                                            <param id="1" name="Value">seen+1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="496927907857526">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="563292309494814" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="840027285580313" type="System">
+                                            <param id="0" name="Variable">seen</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="912284559658698">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="100272625300124" type="System" />
+                                <condition id="-8" name="Compare two values" sid="865350892898088" type="System">
+                                    <param id="0" name="First value">switch.IID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="912836617552801">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="689196592885664" type="System">
+                                            <param id="0" name="First value">seen</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="311588938056754" type="System">
+                                            <param id="0" name="Variable">seen</param>
+                                            <param id="1" name="Value">seen-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="496382711129487">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="297843550961063" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="281854270538822" type="System">
+                                            <param id="0" name="Variable">seen</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="185438708036119">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="602247484849564" type="Function">
+                                    <param id="0" name="Name">&quot;adam_sound&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="495007729779576">
+            <conditions>
+                <condition id="3" name="On touched object" sid="790325688619723" type="Touch">
+                    <param id="0" name="Object">switch</param>
+                </condition>
+                <condition id="-9" name="Layer is visible" sid="657797670830695" type="System">
+                    <param id="0" name="Layer">3</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="748351122758472">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="606949591202487" type="System">
+                            <param id="0" name="First value">switch.IID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="391933884850706">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="510925853280331" type="System">
+                                    <param id="0" name="First value">seen</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="524467671952946" type="System">
+                                    <param id="0" name="Variable">seen</param>
+                                    <param id="1" name="Value">seen+1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="965156564806586">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="785418015876131" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="470466418993475" type="System">
+                                    <param id="0" name="Variable">seen</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="458428718976143">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="693399123622852" type="System" />
+                        <condition id="-8" name="Compare two values" sid="618100216624601" type="System">
+                            <param id="0" name="First value">switch.IID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="890264747109170">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="191675737858767" type="System">
+                                    <param id="0" name="First value">seen</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="606056365354441" type="System">
+                                    <param id="0" name="Variable">seen</param>
+                                    <param id="1" name="Value">seen-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="728289072284089">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="955659888555238" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="571016510737820" type="System">
+                                    <param id="0" name="Variable">seen</param>
+                                    <param id="1" name="Value">10</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="135819831626019">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Call function" sid="436779386576346" type="Function">
+                            <param id="0" name="Name">&quot;adam_sound&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="706352605906485">
+            <conditions>
+                <condition behavior="DragDrop" id="2" name="On drop" sid="250394469499279" type="seens" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="184518406667965" type="seens">
+                    <param id="0" name="X">1187</param>
+                    <param id="1" name="Y">591</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="404554088474880">
+            <conditions>
+                <condition id="0" name="On ended" sid="281673429891654" type="Audio">
+                    <param id="0" name="Tag">&quot;start_sound&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Play (by name)" sid="444015899319594" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;as&quot;&amp;story&amp;&quot;_c1&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="985069135967062" type="System">
+                    <param id="0" name="Variable">sound_stat</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="931394604477123">
+            <conditions>
+                <condition id="0" name="On function" sid="561584328345370" type="Function">
+                    <param id="0" name="Name">&quot;adam_sound&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="595587173077771" type="Audio" />
+                <action id="7" name="Play (by name)" sid="560590160938642" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;as&quot;&amp;story&amp;&quot;_c&quot;&amp;seen</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="5" name="Set frame" sid="662349506668449" type="seens">
+                    <param id="0" name="Frame number">seen-1</param>
+                </action>
+                <action id="0" name="Set text" sid="193309905769637" type="txt">
+                    <param id="0" name="Text">tokenat(stories.At(story-1),seen,&quot;,&quot;)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="585026732692132">
+                    <conditions>
+                        <condition id="-24" name="For Each (ordered)" sid="923257576980008" type="System">
+                            <param id="0" name="Object">w_path</param>
+                            <param id="1" name="Expression">0</param>
+                            <param id="2" name="Order">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="563353784614763" type="w_path">
+                            <param id="0" name="Opacity">30</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="885414256841185">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="575946710582197" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">seen-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="743900552867170" type="w_path">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="611137534396928">
+            <conditions>
+                <condition id="3" name="On touched object" sid="666699568723728" type="Touch">
+                    <param id="0" name="Object">w_path</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="881391998780101" type="System">
+                    <param id="0" name="Variable">seen</param>
+                    <param id="1" name="Value">w_path.IID+1</param>
+                </action>
+                <action id="5" name="Set frame" sid="497028441037171" type="seens">
+                    <param id="0" name="Frame number">seen-1</param>
+                </action>
+                <action id="0" name="Set text" sid="187516447780662" type="txt">
+                    <param id="0" name="Text">tokenat(stories.At(story-1),seen,&quot;,&quot;)</param>
+                </action>
+                <action id="0" name="Call function" sid="722379358863877" type="Function">
+                    <param id="0" name="Name">&quot;adam_sound&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

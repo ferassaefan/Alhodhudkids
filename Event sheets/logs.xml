@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>logs</name>
+    <events>
+        <variable constant="0" name="clock" sid="838857692527150" static="0" type="text"></variable>
+        <variable constant="0" name="fullyear" sid="922451377621703" static="0" type="text"></variable>
+        <variable constant="0" name="log_data" sid="913282768415987" static="0" type="text"></variable>
+        <event-block sid="236567137662246">
+            <conditions>
+                <condition id="0" name="On function" sid="162210804323247" type="Function">
+                    <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="737941675353025">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="454764342187285" type="System">
+                            <param id="0" name="First value">find(log_data , &quot;M:0&quot;)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Request URL" sid="407393872619952" type="AJAX">
+                            <param id="0" name="Tag">&quot;&quot;</param>
+                            <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/std.php?name=&quot;&amp;Facebook_id&amp;&quot;_logs.csv&amp;logs=&quot;&amp;log_data&amp;&quot;&amp;id=&quot;&amp;std_id</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block any="1" sid="524547353551948">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="580382659704831" type="System">
+                                    <param id="0" name="Variable">classID</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="142558350246816" type="System">
+                                    <param id="0" name="First value">find(log_data4 , &quot;login&quot;)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Request URL" sid="867535770210029" type="AJAX">
+                                    <param id="0" name="Tag">&quot;&quot;</param>
+                                    <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/PBI/std.php?name=&quot;&amp;Facebook_id&amp;&quot;_logs.csv&amp;logs=&quot;&amp;log_data4&amp;&quot;&amp;id=&quot;&amp;std_id</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="106796290437438" type="System">
+                                    <param id="0" name="Variable">log_data4</param>
+                                    <param id="1" name="Value">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="261408480375434">
+            <conditions>
+                <condition id="0" name="On function" sid="533879399051667" type="Function">
+                    <param id="0" name="Name">&quot;upload_logs2&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="460098007183968">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Request URL" sid="880502186686535" type="AJAX">
+                            <param id="0" name="Tag">&quot;&quot;</param>
+                            <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/PBI/std.php?name=&quot;&amp;Facebook_id&amp;&quot;_logs.csv&amp;logs=&quot;&amp;log_data4&amp;&quot;&amp;id=&quot;&amp;std_id</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="583216500302232">
+            <conditions>
+                <condition id="0" name="On function" sid="134528894960216" type="Function">
+                    <param id="0" name="Name">&quot;date_fun&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="829034444430221" type="System">
+                    <param id="0" name="Variable">clock</param>
+                    <param id="1" name="Value">tokenat(Browser.ExecJS(&quot;Date()&quot;),4,&quot; &quot;)</param>
+                </action>
+                <action id="-9" name="Set value" sid="307646212904825" type="System">
+                    <param id="0" name="Variable">fullyear</param>
+                    <param id="1" name="Value">tokenat(Browser.ExecJS(&quot;Date()&quot;),2,&quot; &quot;)&amp;&quot;/&quot;&amp;tokenat(Browser.ExecJS(&quot;Date()&quot;),1,&quot; &quot;)&amp;&quot;/&quot;&amp;tokenat(Browser.ExecJS(&quot;Date()&quot;),3,&quot; &quot;)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="538219919504785">
+            <conditions>
+                <condition id="0" name="On function" sid="958312159791392" type="Function">
+                    <param id="0" name="Name">&quot;logs_final&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="455594077509432" type="System">
+                    <param id="0" name="Variable">log_data4</param>
+                    <param id="1" name="Value">schoolID&amp;&quot;;&quot;&amp;classID&amp;&quot;;&quot;&amp;std_id&amp;&quot;;&quot;&amp;myUserName&amp;&quot;;&quot;&amp;fullyear&amp;&quot;;&quot;&amp;loginTime&amp;&quot;;&quot;&amp;sessionData.Text&amp;&quot;;&quot;&amp;clock</param>
+                </action>
+                <action id="0" name="Request URL" sid="414005871002311" type="AJAX">
+                    <param id="0" name="Tag">&quot;sessionFinal&quot;</param>
+                    <param id="1" name="URL">&quot;http://alhodhudkids.com/alhodhud_webservice/data/uploads/school_login.php?logs=&quot;&amp;log_data4&amp; &quot;&amp;name=homeaccess_logins.csv&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="116944810063648">
+            <conditions>
+                <condition id="0" name="On completed" sid="470002936249624" type="AJAX">
+                    <param id="0" name="Tag">&quot;sessionFinal&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="758663599193875" type="sessionData">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="833778530530792">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="171650915757365" type="System">
+                            <param id="0" name="Variable">Lang</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Ar&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="323726698332722" type="System">
+                            <param id="0" name="Layout">login</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="466490577902564">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="790038084826134" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="222444890563924" type="System">
+                            <param id="0" name="Layout">login_en</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="215565681293722">
+                    <conditions>
+                        <condition id="-32" name="Is on platform" sid="675063907080931" type="System">
+                            <param id="0" name="Platform">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Reload" sid="814424024766821" type="Browser" />
+                    </actions>
+                </event-block>
+                <event-block sid="854682407476691">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="106133565568598" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Close" sid="188503915781736" type="Browser" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="1">login</layout>
+        <layout active="1" order="3">Ex11</layout>
+        <layout order="6">Ex8</layout>
+        <event-sheet order="0">login</event-sheet>
+        <event-sheet order="2">main_let</event-sheet>
+        <event-sheet order="4">EX11</event-sheet>
+        <event-sheet order="5">Ex8</event-sheet>
+        <event-sheet order="7">Loader</event-sheet>
+        <event-sheet order="8">data1</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1">
+        <family expanded="0" name="Animals" />
+        <family expanded="0" name="Texts" />
+        <family expanded="0" name="EditTexts" />
+        <family expanded="0" name="Lists" />
+        <family expanded="0" name="skillTxt" />
+        <family expanded="0" name="NavBar" />
+        <family expanded="0" name="statuses" />
+        <family expanded="0" name="jmoeBtn" />
+        <family expanded="0" name="answers" />
+        <family expanded="0" name="Buttons" />
+        <family expanded="0" name="Analysis" />
+        <family expanded="0" name="surpriseBtns" />
+        <family expanded="0" name="headerBtns" />
+    </families-expanded>
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/Plugins/" />
+        <folder expanded="1" path="object-folder/SpriteFonts/" />
+        <folder expanded="0" path="object-folder/Graphics/" />
+        <folder expanded="0" path="object-folder/Other/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="layout-folder/Loading/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/Animal/" />
+        <folder expanded="1" path="animation-folder/Line/" />
+        <folder expanded="1" path="animation-folder/Detector/" />
+        <folder expanded="1" path="animation-folder/loginBtn/" />
+        <folder expanded="1" path="animation-folder/highlight2/" />
+        <folder expanded="1" path="animation-folder/selectGame/" />
+        <folder expanded="1" path="animation-folder/info/" />
+        <folder expanded="1" path="animation-folder/menu/" />
+        <folder expanded="1" path="animation-folder/drag/" />
+        <folder expanded="1" path="animation-folder/drawMask/" />
+        <folder expanded="1" path="animation-folder/DUCK/" />
+        <folder expanded="1" path="animation-folder/colors/" />
+        <folder expanded="1" path="animation-folder/slash/" />
+        <folder expanded="1" path="animation-folder/avatar/" />
+        <folder expanded="1" path="animation-folder/cardsBG/" />
+        <folder expanded="1" path="animation-folder/infoBtn/" />
+        <folder expanded="1" path="animation-folder/bigLetter/" />
+        <folder expanded="1" path="animation-folder/next/" />
+        <folder expanded="1" path="animation-folder/Sprite13/" />
+        <folder expanded="1" path="animation-folder/Card/" />
+        <folder expanded="1" path="animation-folder/stars/" />
+        <folder expanded="1" path="animation-folder/feeling/" />
+        <folder expanded="1" path="animation-folder/ar_btn/" />
+        <folder expanded="1" path="animation-folder/en_btn/" />
+        <folder expanded="1" path="animation-folder/curtain/" />
+        <folder expanded="1" path="animation-folder/Sprite4/" />
+        <folder expanded="1" path="animation-folder/remember/" />
+        <folder expanded="1" path="animation-folder/LettersIdol/" />
+        <folder expanded="1" path="animation-folder/parent/" />
+        <folder expanded="1" path="animation-folder/goodbye/" />
+        <folder expanded="1" path="animation-folder/Sprite16/" />
+        <folder expanded="1" path="animation-folder/s3/" />
+        <folder expanded="1" path="animation-folder/s4/" />
+        <folder expanded="1" path="animation-folder/s2/" />
+        <folder expanded="1" path="animation-folder/s5/" />
+        <folder expanded="1" path="animation-folder/s6/" />
+        <folder expanded="1" path="animation-folder/help/" />
+        <folder expanded="1" path="animation-folder/avatar2/" />
+        <folder expanded="1" path="animation-folder/ch_avatar/" />
+        <folder expanded="1" path="animation-folder/loadingMc/" />
+        <folder expanded="1" path="animation-folder/sw_let/" />
+        <folder expanded="1" path="animation-folder/ch_let/" />
+        <folder expanded="1" path="animation-folder/skip_btn/" />
+        <folder expanded="1" path="animation-folder/whatsapp/" />
+        <folder expanded="1" path="animation-folder/sel_let/" />
+        <folder expanded="1" path="animation-folder/let_ch/" />
+        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/let_ch2/" />
+        <folder expanded="1" path="animation-folder/bg/" />
+        <folder expanded="1" path="animation-folder/lang_btn/" />
+        <folder expanded="1" path="animation-folder/Sprite3/" />
+        <folder expanded="1" path="animation-folder/Sprite5/" />
+        <folder expanded="1" path="animation-folder/block/" />
+        <folder expanded="1" path="animation-folder/block2/" />
+        <folder expanded="1" path="animation-folder/w_path/" />
+        <folder expanded="1" path="animation-folder/dr_line/" />
+        <folder expanded="1" path="animation-folder/Sprite7/" />
+        <folder expanded="1" path="animation-folder/Sprite8/" />
+        <folder expanded="1" path="animation-folder/Sprite9/" />
+        <folder expanded="1" path="animation-folder/write_sprite/" />
+        <folder expanded="1" path="animation-folder/seens/" />
+        <folder expanded="1" path="animation-folder/switch/" />
+        <folder expanded="1" path="animation-folder/ex1_bg/" />
+        <folder expanded="1" path="animation-folder/sel_story/" />
+        <folder expanded="1" path="animation-folder/close/" />
+        <folder expanded="1" path="animation-folder/exper/" />
+        <folder expanded="1" path="animation-folder/Sprite2/" />
+        <folder expanded="1" path="animation-folder/dummySprite/" />
+        <folder expanded="1" path="animation-folder/ans1/" />
+        <folder expanded="1" path="animation-folder/ans2/" />
+        <folder expanded="1" path="animation-folder/ans3/" />
+        <folder expanded="1" path="animation-folder/sound1/" />
+        <folder expanded="1" path="animation-folder/nextPart/" />
+        <folder expanded="1" path="animation-folder/back/" />
+        <folder expanded="1" path="animation-folder/Sprite10/" />
+        <folder expanded="1" path="animation-folder/dummy/" />
+        <folder expanded="1" path="animation-folder/trueIcon/" />
+        <folder expanded="1" path="animation-folder/answer/" />
+        <folder expanded="1" path="animation-folder/questionBG/" />
+        <folder expanded="1" path="animation-folder/pBG/" />
+        <folder expanded="1" path="animation-folder/cat/" />
+        <folder expanded="1" path="animation-folder/exercisesBtn/" />
+        <folder expanded="1" path="animation-folder/story/" />
+        <folder expanded="1" path="animation-folder/surprise/" />
+        <folder expanded="1" path="animation-folder/writing/" />
+        <folder expanded="1" path="animation-folder/numBG/" />
+        <folder expanded="1" path="animation-folder/moeLesson/" />
+        <folder expanded="1" path="animation-folder/Sprite11/" />
+        <folder expanded="1" path="animation-folder/ans4/" />
+        <folder expanded="1" path="animation-folder/analyticsObj/" />
+        <folder expanded="1" path="animation-folder/hitArea/" />
+        <folder expanded="1" path="animation-folder/greenBar/" />
+        <folder expanded="1" path="animation-folder/bgPreLogin/" />
+        <folder expanded="1" path="animation-folder/hodhud/" />
+        <folder expanded="1" path="animation-folder/preLogin/" />
+        <folder expanded="1" path="animation-folder/bgLoad/" />
+        <folder expanded="1" path="animation-folder/logout/" />
+        <folder expanded="1" path="animation-folder/account/" />
+        <folder expanded="1" path="animation-folder/linenav/" />
+        <folder expanded="1" path="animation-folder/1st/" />
+        <folder expanded="1" path="animation-folder/num1/" />
+        <folder expanded="1" path="animation-folder/2nd/" />
+        <folder expanded="1" path="animation-folder/3rd/" />
+        <folder expanded="1" path="animation-folder/4th/" />
+        <folder expanded="1" path="animation-folder/5th/" />
+        <folder expanded="1" path="animation-folder/num2/" />
+        <folder expanded="1" path="animation-folder/num3/" />
+        <folder expanded="1" path="animation-folder/num4/" />
+        <folder expanded="1" path="animation-folder/num5/" />
+        <folder expanded="1" path="animation-folder/navstep/" />
+        <folder expanded="1" path="animation-folder/yellow/" />
+        <folder expanded="1" path="animation-folder/yellow2/" />
+        <folder expanded="1" path="animation-folder/X/" />
+        <folder expanded="1" path="animation-folder/bucket/" />
+        <folder expanded="1" path="animation-folder/hodhudLogo/" />
+        <folder expanded="1" path="animation-folder/bucketload/" />
+        <folder expanded="1" path="animation-folder/questionBack/" />
+        <folder expanded="1" path="animation-folder/ans5/" />
+        <folder expanded="1" path="animation-folder/ans6/" />
+        <folder expanded="1" path="animation-folder/readBtn/" />
+        <folder expanded="1" path="animation-folder/backGround/" />
+        <folder expanded="1" path="animation-folder/grass/" />
+        <folder expanded="1" path="animation-folder/linestory/" />
+        <folder expanded="1" path="animation-folder/quesStory/" />
+        <folder expanded="1" path="animation-folder/answer2/" />
+        <folder expanded="1" path="animation-folder/wave/" />
+        <folder expanded="1" path="animation-folder/celebrate/" />
+        <folder expanded="1" path="animation-folder/timess/" />
+        <folder expanded="1" path="animation-folder/bckg/" />
+        <folder expanded="1" path="animation-folder/surBgg/" />
+        <folder expanded="1" path="animation-folder/grass2/" />
+        <folder expanded="1" path="animation-folder/bggIps/" />
+        <folder expanded="1" path="animation-folder/letter/" />
+        <folder expanded="1" path="animation-folder/listen/" />
+        <folder expanded="1" path="animation-folder/writeSur/" />
+        <folder expanded="1" path="animation-folder/share/" />
+        <folder expanded="1" path="animation-folder/lettCircle/" />
+        <folder expanded="1" path="animation-folder/bookBg/" />
+        <folder expanded="1" path="animation-folder/erase/" />
+        <folder expanded="1" path="animation-folder/spacing/" />
+        <folder expanded="1" path="animation-folder/keyBorad/" />
+        <folder expanded="1" path="animation-folder/readScene/" />
+        <folder expanded="1" path="animation-folder/saveBtn/" />
+        <folder expanded="1" path="animation-folder/kBBg/" />
+        <folder expanded="1" path="animation-folder/keyBBg/" />
+        <folder expanded="1" path="animation-folder/puncCircle/" />
+        <folder expanded="1" path="animation-folder/specialBg/" />
+        <folder expanded="1" path="animation-folder/lock/" />
+        <folder expanded="1" path="animation-folder/numBG2/" />
+        <folder expanded="1" path="animation-folder/signUp/" />
+        <folder expanded="1" path="animation-folder/prevPart/" />
+        <folder expanded="1" path="animation-folder/separator/" />
+        <folder expanded="1" path="animation-folder/grass3/" />
+        <folder expanded="1" path="animation-folder/down/" />
+        <folder expanded="1" path="animation-folder/up/" />
+        <folder expanded="1" path="animation-folder/greenBar2/" />
+        <folder expanded="1" path="animation-folder/lessonBack/" />
+        <folder expanded="1" path="animation-folder/bayan/" />
+        <folder expanded="1" path="animation-folder/semester1/" />
+        <folder expanded="1" path="animation-folder/backExe/" />
+        <folder expanded="1" path="animation-folder/backMoe/" />
+        <folder expanded="1" path="animation-folder/backStory/" />
+        <folder expanded="1" path="animation-folder/backWriting/" />
+        <folder expanded="1" path="animation-folder/backSurprise/" />
+        <folder expanded="1" path="animation-folder/lessonBg/" />
+        <folder expanded="1" path="animation-folder/vidBtn/" />
+        <folder expanded="1" path="animation-folder/problem/" />
+        <folder expanded="1" path="animation-folder/videoBtn/" />
+        <folder expanded="1" path="animation-folder/Sprite12/" />
+        <folder expanded="1" path="animation-folder/sign_check/" />
+        <folder expanded="1" path="animation-folder/sign1/" />
+        <folder expanded="1" path="animation-folder/signCheck/" />
+        <folder expanded="1" path="animation-folder/watchVid/" />
+        <folder expanded="1" path="animation-folder/sign2/" />
+        <folder expanded="1" path="animation-folder/sign3/" />
+        <folder expanded="1" path="animation-folder/bird/" />
+        <folder expanded="1" path="animation-folder/semester2/" />
+        <folder expanded="1" path="animation-folder/bgpoin/" />
+        <folder expanded="1" path="animation-folder/start2BG/" />
+        <folder expanded="1" path="animation-folder/start2B/" />
+        <folder expanded="1" path="animation-folder/start2p/" />
+        <folder expanded="1" path="animation-folder/menu2/" />
+        <folder expanded="1" path="animation-folder/start_btn/" />
+        <folder expanded="1" path="animation-folder/story_mc/" />
+        <folder expanded="1" path="animation-folder/let_bg/" />
+        <folder expanded="1" path="animation-folder/let_link/" />
+    </folders-expanded>
+</c2uistate>

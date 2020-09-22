@@ -1,0 +1,1949 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>PreAnalytics</name>
+    <events>
+        <variable constant="0" name="lessonAnal" sid="311333371769783" static="0" type="text"></variable>
+        <variable constant="0" name="prevWritStoryAnal" sid="482645015389310" static="0" type="text"></variable>
+        <variable constant="0" name="semesterAdded" sid="791893333890821" static="0" type="number">0</variable>
+        <variable constant="0" name="selLesQuesCount" sid="702995630322297" static="0" type="number">0</variable>
+        <variable constant="0" name="lessonSelectedIndex" sid="584622104168917" static="0" type="number">-1</variable>
+        <variable constant="0" name="tmp" sid="918720900257599" static="0" type="text"></variable>
+        <variable constant="0" name="channelAvg" sid="381476485200661" static="0" type="number">0</variable>
+        <include>globalSheet</include>
+        <event-block sid="439372571337127">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="713167547452487" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="236323866948956" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">1600</param>
+                </action>
+                <action id="-9" name="Set value" sid="901086589297392" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">300</param>
+                </action>
+                <action id="2" name="Set font face" sid="246511023010249" type="Texts">
+                    <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                    <param id="1" name="Style">0</param>
+                </action>
+                <action id="0" name="Request URL" sid="862058930477021" type="AJAX">
+                    <param id="0" name="Tag">&quot;userLiveProgress&quot;</param>
+                    <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/getData.php?name=&quot;&amp;std_id&amp;&quot;_progress.csv&amp;&quot; &amp;&quot;time=&quot;&amp; Browser.ExecJS(&quot;new Date().getTime();&quot;)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="276363042772924">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="681390520855095" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Set CSS style" sid="828226936639935" type="Lists">
+                            <param id="0" name="Property name">&quot;text-align&quot;</param>
+                            <param id="1" name="Value">&quot;right&quot;</param>
+                        </action>
+                        <action id="6" name="Set CSS style" sid="171290170756224" type="Lists">
+                            <param id="0" name="Property name">&quot;font-size&quot;</param>
+                            <param id="1" name="Value">&quot;0.85 em&quot;</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="316730993390805" type="Analysis">
+                            <param id="0" name="Size (pt)">36</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="597077382899648" type="back">
+                            <param id="0" name="Width">100</param>
+                            <param id="1" name="Height">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="653451086985259">
+            <conditions>
+                <condition id="1" name="On selection changed" sid="917559132137477" type="lessonSelection" />
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="281675390471380" type="selectedLessonArr" />
+                <action id="0" name="Clear" sid="762989451316381" type="skills" />
+                <action id="1" name="Set size" sid="346443578630285" type="skills">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="1" name="Set size" sid="532000427665189" type="selectedLessonArr">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="372923634352713" type="noExcersies">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="670140742803760" type="System">
+                    <param id="0" name="Variable">lessonAnal</param>
+                    <param id="1" name="Value">lessonSelection.SelectedText</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="611565805557934">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="561391575206299" type="System">
+                            <param id="0" name="Variable">semester</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="638792524566109" type="System">
+                            <param id="0" name="Variable">currLessonIndex</param>
+                            <param id="1" name="Value">lessonSelection.SelectedIndex</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="390111513699945" type="System">
+                            <param id="0" name="Variable">anmatAdded</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="776096927676956" type="Function">
+                            <param id="0" name="Name">&quot;onSelectLesson&quot;</param>
+                            <param id="1" name="Parameter {n}">lessonSelection.SelectedIndex</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="972328952444468" type="System">
+                            <param id="0" name="Variable">lessonSelectedIndex</param>
+                            <param id="1" name="Value">lessonSelection.SelectedIndex</param>
+                        </action>
+                        <action id="0" name="Call function" sid="174462060037269" type="Function">
+                            <param id="0" name="Name">&quot;destroyObj&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="664211432504907" type="Function">
+                            <param id="0" name="Name">&quot;anmatAdding&quot;</param>
+                            <param id="1" name="Parameter {n}">lessonSelectedIndex</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="786625539632984">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="778871644066954" type="System">
+                            <param id="0" name="Variable">semester</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="648484941184714" type="System">
+                            <param id="0" name="Variable">currLessonIndex</param>
+                            <param id="1" name="Value">lessonSelection.SelectedIndex</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="271961480103317" type="System">
+                            <param id="0" name="Variable">semesterAdded</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action disabled="1" id="0" name="Alert" sid="102250110351310" type="Browser">
+                            <param id="0" name="Message">currLessonIndex</param>
+                        </action>
+                        <action disabled="1" id="0" name="Call function" sid="789495888313149" type="Function">
+                            <param id="0" name="Name">&quot;addSemester&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action disabled="1" id="0" name="Alert" sid="896997008006572" type="Browser">
+                            <param id="0" name="Message">currLessonIndex</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="539241450886149" type="System">
+                            <param id="0" name="Variable">anmatAdded</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="720635271003268" type="Function">
+                            <param id="0" name="Name">&quot;onSelectLesson&quot;</param>
+                            <param id="1" name="Parameter {n}">currLessonIndex</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="571370038707980" type="System">
+                            <param id="0" name="Variable">lessonSelectedIndex</param>
+                            <param id="1" name="Value">currLessonIndex</param>
+                        </action>
+                        <action id="0" name="Call function" sid="849178514841472" type="Function">
+                            <param id="0" name="Name">&quot;destroyObj&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="723936604307346" type="Function">
+                            <param id="0" name="Name">&quot;anmatAdding&quot;</param>
+                            <param id="1" name="Parameter {n}">currLessonIndex</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1" sid="485916977082996">
+            <conditions>
+                <condition id="3" name="On touched object" sid="904275923126423" type="Touch">
+                    <param id="0" name="Object">exercisesBtn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="157926553808792" type="selectedLessonArr" />
+                <action id="1" name="Set size" sid="995985375602710" type="selectedLessonArr">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="274898650949853" type="System">
+                    <param id="0" name="Variable">analysisCreated</param>
+                    <param id="1" name="Value">&quot;exercises&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Temporary until adding the Anmat of the current Lesson </comment>
+                <event-block any="1" disabled="1" sid="859523647735363">
+                    <conditions>
+                        <condition disabled="1" id="6" inverted="1" name="Is empty" sid="784830942643542" type="skills" />
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="153832719832370" type="System">
+                            <param id="0" name="Layout">Analytics</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="850878975212892">
+            <conditions>
+                <condition id="3" name="On touched object" sid="727071329225850" type="Touch">
+                    <param id="0" name="Object">back</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="460131603444916" type="selectedLessonArr" />
+                <action id="0" name="Clear" sid="154436213898460" type="skills" />
+                <action id="1" name="Set size" sid="653788480001168" type="skills">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="1" name="Set size" sid="200279505523775" type="selectedLessonArr">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="671009526611851" type="System">
+                    <param id="0" name="Variable">lessonSelectedIndex</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-9" name="Set value" sid="383636246069541" type="System">
+                    <param id="0" name="Variable">currLessonIndex</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="944584095801647" type="System">
+                    <param id="0" name="Variable">semesterAdded</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="508034624357466" type="System">
+                    <param id="0" name="Variable">keyBoard</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="177984610950979" type="System">
+                    <param id="0" name="Variable">openCurtain</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="667418843808031" type="System">
+                    <param id="0" name="Group name">&quot;selectLesson&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="907586316797097" type="System">
+                    <param id="0" name="Group name">&quot;semester&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="328538099211324">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="509797326712898" type="System">
+                            <param id="0" name="Variable">user_type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;hstudent&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="836425703334399" type="exercises" />
+                        <action id="1" name="Set size" sid="923908184345349" type="exercises">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="893921020016881" type="System">
+                            <param id="0" name="Layout">levelSelection</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="150731775232153">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="154678814584951" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="439823837140606" type="System">
+                            <param id="0" name="Layout">load7</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="438757800337093">
+            <conditions>
+                <condition id="3" name="On touched object" sid="638814912966651" type="Touch">
+                    <param id="0" name="Object">writing</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="689578226699263" type="selectedLessonArr" />
+                <action id="1" name="Set size" sid="134432851060996" type="selectedLessonArr">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="924770521520898" type="System">
+                    <param id="0" name="Variable">analysisCreated</param>
+                    <param id="1" name="Value">&quot;writing&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="675859232511210" type="System">
+                    <param id="0" name="Layout">Analytics</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="992259220877556">
+            <conditions>
+                <condition id="3" name="On touched object" sid="454766572794231" type="Touch">
+                    <param id="0" name="Object">surprise</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="589434375960586" type="selectedLessonArr" />
+                <action id="1" name="Set size" sid="255468059506134" type="selectedLessonArr">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="111710183075684" type="System">
+                    <param id="0" name="Variable">analysisCreated</param>
+                    <param id="1" name="Value">&quot;surprise&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="972854127406159" type="System">
+                    <param id="0" name="Layout">Analytics</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="508833074783056">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="588067299028549" type="System">
+                    <param id="0" name="Variable">Lang</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;En&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="389135601515455" type="correctExercises">
+                    <param id="0" name="Text">&quot;Performance&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="820534981058601" type="channels">
+                    <param id="0" name="Text">&quot;Channels&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="381487706141888" type="duration">
+                    <param id="0" name="Text">&quot;Duration&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="747389954846603" type="avg">
+                    <param id="0" name="Text">&quot;Average&quot;</param>
+                </action>
+                <action id="3" name="Set font size" sid="151452769427579" type="exerciseTitle">
+                    <param id="0" name="Size (pt)">24</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="216002605772748">
+            <conditions>
+                <condition id="0" name="On function" sid="487155118341602" type="Function">
+                    <param id="0" name="Name">&quot;onSelectLesson&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="613444690193346" type="skills" />
+                <action id="1" name="Set size" sid="577769485374767" type="skills">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="121860411278803" type="System">
+                    <param id="0" name="Variable">selLesQuesCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="580415971962006">
+                    <conditions>
+                        <condition id="-10" name="For" sid="743883681373878" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">finishedExercises.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="128618379104022">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="198359416290315" type="System">
+                                    <param id="0" name="First value">int(replace(tokenat(tokenat(finishedExercises.At(loopindex) , 0 , &quot;,&quot;) , 1 , &quot;:&quot;) , &quot;&quot;&quot;&quot;,&quot;&quot;))</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="0" name="Alert" sid="260424137053866" type="Browser">
+                                    <param id="0" name="Message">tokenat(finishedExercises.At(loopindex) , 2 , &quot;,&quot;)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="680526325001570">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="423770350703793" type="System">
+                                            <param id="0" name="First value">tokenat(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) , 0 , &quot;:&quot;)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;&quot;&quot;moeLesson&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="776248686673187" type="selectedLessonArr">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">replace(replace(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) &amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,2 , &quot;,&quot;)&amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,3 , &quot;,&quot;)    , &quot;&quot;&quot;&quot;,&quot;&quot;) , &quot;]&quot; , &quot;&quot;)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="989389767593751">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="891932597382995" type="System">
+                                            <param id="0" name="First value">tokenat(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) , 0 , &quot;:&quot;)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;&quot;&quot; Questions&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="222798905858778" type="System">
+                                            <param id="0" name="Variable">tmp</param>
+                                            <param id="1" name="Value">replace(replace(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) &amp; &quot;,&quot; &amp; tokenat(finishedExercises.At(loopindex) , 2 , &quot;,&quot;) ,&quot;&quot;&quot;&quot; , &quot;&quot;) , &quot;]&quot; , &quot;&quot;)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <comment>Finished The Selected Lesson Questions </comment>
+                                        <event-block sid="380175963376039">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="824160836898609" type="System">
+                                                    <param id="0" name="First value">tokenat(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) , 1 , &quot;:&quot;)</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot; questionsDone &quot;&quot;&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="856873554760485" type="selectedLessonArr">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">replace(replace(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) &amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) , 2 , &quot;,&quot;) , &quot;&quot;&quot;&quot;,&quot;&quot;) , &quot;]&quot; , &quot;&quot;)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                                <action disabled="1" id="0" name="Alert" sid="454875161594155" type="Browser">
+                                                    <param id="0" name="Message">selectedLessonArr.Back</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <comment>Add Trials </comment>
+                                                <event-block sid="795282746328831">
+                                                    <conditions>
+                                                        <condition id="-10" name="For" sid="352027019279596" type="System">
+                                                            <param id="0" name="Name">&quot;addSkills&quot;</param>
+                                                            <param id="1" name="Start index">0</param>
+                                                            <param id="2" name="End index">fullExercises.Width -1 </param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="517172990669421">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="545694844317265" type="System">
+                                                                    <param id="0" name="First value">int(tokenat(fullExercises.At(loopindex) , 0 , &quot;,&quot;))</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Second value">Function.Param(0)</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="5" name="Push" sid="382535082651835" type="skills">
+                                                                    <param id="0" name="Where">0</param>
+                                                                    <param id="1" name="Value">tokenat(fullExercises.At(loopindex(&quot;addSkills&quot;)) , 7 , &quot;,&quot;)</param>
+                                                                    <param id="2" name="Axis">0</param>
+                                                                </action>
+                                                                <action disabled="1" id="0" name="Alert" sid="108189211031214" type="Browser">
+                                                                    <param id="0" name="Message">skills.Back</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Didn&apos;t Finish The Selected Lesson Questions </comment>
+                                        <event-block sid="991096461171006">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="963663913499702" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Push" sid="285912984352175" type="selectedLessonArr">
+                                                    <param id="0" name="Where">0</param>
+                                                    <param id="1" name="Value">replace(tmp , &quot;&quot;&quot;&quot;,&quot;&quot;)</param>
+                                                    <param id="2" name="Axis">0</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <comment>Grab Skills</comment>
+                                                <event-block sid="265197850202053">
+                                                    <conditions>
+                                                        <condition id="-10" name="For" sid="156082824072371" type="System">
+                                                            <param id="0" name="Name">&quot;quest&quot;</param>
+                                                            <param id="1" name="Start index">0</param>
+                                                            <param id="2" name="End index">tokencount(tokenat(tokenat(tmp, 1 , &quot;:&quot;) , 0, &quot;,&quot;), &quot;;&quot;)-1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="692915306696116">
+                                                            <conditions>
+                                                                <condition id="-10" name="For" sid="628509550956856" type="System">
+                                                                    <param id="0" name="Name">&quot;exe&quot;</param>
+                                                                    <param id="1" name="Start index">0</param>
+                                                                    <param id="2" name="End index">fullExercises.Width -1 </param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="236859176181627">
+                                                                    <conditions>
+                                                                        <condition id="-8" name="Compare two values" sid="885706311592600" type="System">
+                                                                            <param id="0" name="First value">int(tokenat(tokenat(tokenat(tmp, 1 , &quot;:&quot;) , 0, &quot;,&quot;) , loopindex(&quot;quest&quot;) , &quot;;&quot;))</param>
+                                                                            <param id="1" name="Comparison">0</param>
+                                                                            <param id="2" name="Second value">int(tokenat(fullExercises.At(loopindex(&quot;exe&quot;)) , 5  , &quot;,&quot;))</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="5" name="Push" sid="665575943364392" type="skills">
+                                                                            <param id="0" name="Where">0</param>
+                                                                            <param id="1" name="Value">tokenat(fullExercises.At(loopindex(&quot;exe&quot;)) , 7  , &quot;,&quot;)</param>
+                                                                            <param id="2" name="Axis">0</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <comment>Grab number of the Questions of the  Selected Lesson</comment>
+                                                <event-block sid="450648027373108">
+                                                    <conditions>
+                                                        <condition id="-10" name="For" sid="392848911982106" type="System">
+                                                            <param id="0" name="Name">&quot;size&quot;</param>
+                                                            <param id="1" name="Start index">0</param>
+                                                            <param id="2" name="End index">fullExercises.Width -1 </param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="644661109231841">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="422775870589628" type="System">
+                                                                    <param id="0" name="First value">int(tokenat(fullExercises.At(loopindex(&quot;size&quot;)) ,0 ,&quot;,&quot; ))</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Second value">Function.Param(0)</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Add to" sid="683979164202448" type="System">
+                                                                    <param id="0" name="Variable">selLesQuesCount</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block disabled="1" sid="747620003120867">
+                                                    <conditions />
+                                                    <actions>
+                                                        <action id="0" name="Alert" sid="609277461336689" type="Browser">
+                                                            <param id="0" name="Message">selLesQuesCount</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="224611850026792">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="194387370272072" type="System">
+                                            <param id="0" name="First value">tokenat(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) , 0 , &quot;:&quot;)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;&quot;&quot;Story&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="449162559566005" type="selectedLessonArr">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">replace(replace(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) &amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,2 , &quot;,&quot;)&amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,3 , &quot;,&quot;)    , &quot;&quot;&quot;&quot;,&quot;&quot;) , &quot;]&quot; , &quot;&quot;)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="228343071700931">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="171241839435473" type="System">
+                                            <param id="0" name="First value">trim(tokenat(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) , 0 , &quot;:&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;&quot;&quot;Writing&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="666016581937523" type="selectedLessonArr">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">replace(replace(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) &amp;&quot;,&quot;&amp; tokenat(finishedExercises.At(loopindex) ,2 , &quot;,&quot;)  &amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,3 , &quot;,&quot;)  &amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,4 , &quot;,&quot;)    , &quot;&quot;&quot;&quot;,&quot;&quot;) , &quot;]&quot; , &quot;&quot;)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="518164805734955">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="151921608105249" type="System">
+                                            <param id="0" name="First value">tokenat(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) , 0 , &quot;:&quot;)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;&quot;&quot;Surprise&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="845671803381863" type="selectedLessonArr">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">replace(replace(tokenat(finishedExercises.At(loopindex) , 1 , &quot;,&quot;) &amp;&quot;,&quot;&amp; tokenat(finishedExercises.At(loopindex) ,2 , &quot;,&quot;)  &amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,3 , &quot;,&quot;)  &amp;&quot;,&quot;&amp;tokenat(finishedExercises.At(loopindex) ,4 , &quot;,&quot;)    , &quot;&quot;&quot;&quot;,&quot;&quot;) , &quot;]&quot; , &quot;&quot;)</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="843962404157758">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="937388091963235" type="System">
+                            <param id="0" name="First value">selectedLessonArr.Width</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="591428605064164" type="noExcersies">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="744709646293397" type="separator">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action disabled="1" id="0" name="Set selection" sid="642774864248023" type="lessonSelection">
+                            <param id="0" name="Index">lessonSelectedIndex-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="953843562708988">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="209873687024502" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="887371425772960" type="Function">
+                            <param id="0" name="Name">&quot;createObj&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block disabled="1" sid="898077463948580">
+                            <conditions>
+                                <condition id="-10" name="For" sid="665115190044033" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">selectedLessonArr.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Alert" sid="777999825244263" type="Browser">
+                                    <param id="0" name="Message">selectedLessonArr.At(loopindex)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="484348815819574">
+            <conditions>
+                <condition id="0" name="On function" sid="147050500734709" type="Function">
+                    <param id="0" name="Name">&quot;createObj&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="179630720494360" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">1500</param>
+                </action>
+                <action id="-9" name="Set value" sid="362044132681598" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">300</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="740627266907340">
+                    <conditions>
+                        <condition id="-10" name="For" sid="490374033895185" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">selectedLessonArr.width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="757960066625298" type="System">
+                            <param id="0" name="Object to create">exerciseTitle</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">xInitial</param>
+                            <param id="3" name="Y">yInitial</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="218797929532265" type="System">
+                            <param id="0" name="Object to create">exerciseDone</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">xInitial -500</param>
+                            <param id="3" name="Y">yInitial+20</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="116120922005042" type="System">
+                            <param id="0" name="Object to create">exerciseAvg</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">xInitial - 1000</param>
+                            <param id="3" name="Y">yInitial + 20</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="225916941569652" type="exerciseTitle">
+                            <param id="0" name="Size (pt)">28</param>
+                        </action>
+                        <action id="2" name="Set font face" sid="912215649435904" type="exerciseTitle">
+                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                            <param id="1" name="Style">0</param>
+                        </action>
+                        <action id="2" name="Set font face" sid="980943296652264" type="exerciseDone">
+                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                            <param id="1" name="Style">0</param>
+                        </action>
+                        <action id="2" name="Set font face" sid="868001577616857" type="exerciseAvg">
+                            <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                            <param id="1" name="Style">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block any="1" sid="122219897654263">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="409075160072711" type="System">
+                                    <param id="0" name="First value">tokenat(selectedLessonArr.At(loopindex) , 0 ,&quot;:&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot; Questions&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="373273532494178" type="System">
+                                    <param id="0" name="First value">selectedLessonArr.At(loopindex)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;My Homeworks&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="529668656541262" type="System">
+                                    <param id="0" name="Object to create">exercisesBtn</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">1600</param>
+                                    <param id="3" name="Y">-1179</param>
+                                </action>
+                                <action id="9" name="Set scale" sid="666614929328207" type="exercisesBtn">
+                                    <param id="0" name="Scale">0.5</param>
+                                </action>
+                                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="995604512233582" type="exercisesBtn">
+                                    <param id="0" name="Tweened property">0</param>
+                                    <param id="1" name="Function">0</param>
+                                    <param id="2" name="Target">str(xInitial + 100 &amp; &quot;,&quot; &amp; yInitial)</param>
+                                    <param id="3" name="Duration">0.5</param>
+                                    <param id="4" name="Enforce mode">1</param>
+                                </action>
+                                <action behavior="LiteTween" id="10" name="Start" sid="830698301920658" type="exercisesBtn">
+                                    <param id="0" name="Start Mode">0</param>
+                                    <param id="1" name="Force use current">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="442017081632130" type="exerciseTitle">
+                                    <param id="0" name="Text">&quot;واجباتي المنزلية&quot;</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="907344607696528" type="exercisesBtn">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="624919776971192">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="716131714212755" type="System">
+                                            <param id="0" name="First value">trim(tokenat(tokenat(selectedLessonArr.At(loopindex) , 1 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;questionsDone&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="725188290935158" type="exercisesBtn">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="9" name="Set scale" sid="491469607447242" type="exercisesBtn">
+                                            <param id="0" name="Scale">0.7</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="210103796022555" type="exerciseAvg">
+                                            <param id="0" name="Text">100 &amp; &quot;%&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="607526912719907">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="130894265311878" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="0" name="Set text" sid="135073964358319" type="exerciseAvg">
+                                            <param id="0" name="Text">int(((tokencount(tokenat(tokenat(tmp, 1 , &quot;:&quot;) , 0, &quot;,&quot;), &quot;;&quot;) -1) / selLesQuesCount) * 100 ) &amp; &quot;%&quot;</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="146846137456275" type="exerciseAvg">
+                                            <param id="0" name="Text">100 &amp; &quot;%&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="140366137292917">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="187098135606846" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="339626467362976" type="exerciseDone">
+                                            <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot;   ثانية&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="528341707288421">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="342931320595656" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="949039374089885" type="exerciseDone">
+                                                    <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))  &amp; &quot; seconds&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="594712726410806">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="649041559695047" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="791917449616874" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="425943457938251" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="249530852904794">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="341605022223496" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="901626826440742" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot; Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="522337921624298">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="556596833566148" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="436658171107661" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">216000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="157755345095673" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  ساعة&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="230513159910052">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="690724483287884" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="672196216759969" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  Hours&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="979069123145454">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="690634995057866" type="System">
+                                    <param id="0" name="First value">tokenat(selectedLessonArr.At(loopindex) , 0 ,&quot;:&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;moeLesson&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="310771495114417" type="System">
+                                    <param id="0" name="First value">selectedLessonArr.At(loopindex)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;moeLesson&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="265155774485446" type="System">
+                                    <param id="0" name="Object to create">moeLesson</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">1600</param>
+                                    <param id="3" name="Y">-134</param>
+                                </action>
+                                <action id="9" name="Set scale" sid="967715000345996" type="moeLesson">
+                                    <param id="0" name="Scale">0.5</param>
+                                </action>
+                                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="745254445024015" type="moeLesson">
+                                    <param id="0" name="Tweened property">0</param>
+                                    <param id="1" name="Function">0</param>
+                                    <param id="2" name="Target">str(xInitial + 100 &amp; &quot;,&quot; &amp; yInitial)</param>
+                                    <param id="3" name="Duration">0.5</param>
+                                    <param id="4" name="Enforce mode">1</param>
+                                </action>
+                                <action behavior="LiteTween" id="10" name="Start" sid="260251377404335" type="moeLesson">
+                                    <param id="0" name="Start Mode">0</param>
+                                    <param id="1" name="Force use current">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="218291073136047" type="exerciseTitle">
+                                    <param id="0" name="Text">&quot;دَرْسُ الْيَوْمِ&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="675607767688353">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="282341767307719" type="System">
+                                            <param id="0" name="First value">trim(tokenat(tokenat(selectedLessonArr.At(loopindex) , 1 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;lessonDone&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="510513898118719" type="moeLesson">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="962100328692189" type="exerciseAvg">
+                                            <param id="0" name="Text">100 &amp; &quot;%&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="870247387882946">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="677229704115986" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="660950083212264" type="exerciseDone">
+                                            <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot;   ثانية&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="709731649247791">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="632261954144294" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="299701386751150" type="exerciseDone">
+                                                    <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot; seconds&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="597304425260250">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="266035014262677" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="837844685352355" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="399273006359909" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="448335930783068">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="402944833287984" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="381928261090362" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot; Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="951068773135213">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="763883230023277" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="294689488601208" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">216000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="305944050758688" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  ساعة&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="918773767597104">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="726452563849698" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="334731515362160" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  Hours&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="394742057109187">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="975107132851176" type="System">
+                                    <param id="0" name="First value">tokenat(selectedLessonArr.At(loopindex) , 0 ,&quot;:&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Story&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="642734213219963" type="System">
+                                    <param id="0" name="First value">selectedLessonArr.At(loopindex)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;My Funny Story&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="282686061427741" type="System">
+                                    <param id="0" name="Object to create">story</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">1600</param>
+                                    <param id="3" name="Y">-874</param>
+                                </action>
+                                <action id="9" name="Set scale" sid="586974683730302" type="story">
+                                    <param id="0" name="Scale">0.5</param>
+                                </action>
+                                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="336769908979981" type="story">
+                                    <param id="0" name="Tweened property">0</param>
+                                    <param id="1" name="Function">0</param>
+                                    <param id="2" name="Target">str(xInitial + 100 &amp; &quot;,&quot; &amp; yInitial)</param>
+                                    <param id="3" name="Duration">0.5</param>
+                                    <param id="4" name="Enforce mode">1</param>
+                                </action>
+                                <action behavior="LiteTween" id="10" name="Start" sid="978834583767245" type="story">
+                                    <param id="0" name="Start Mode">0</param>
+                                    <param id="1" name="Force use current">0</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="876894655268824" type="story">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="0" name="Set text" sid="472627971160653" type="exerciseTitle">
+                                    <param id="0" name="Text">&quot;قصتي المرحة&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="592648119103213">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="308995512158474" type="System">
+                                            <param id="0" name="First value">trim(tokenat(tokenat(selectedLessonArr.At(loopindex) , 1 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;storyDone&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="336526481643482" type="story">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="191027113941660" type="exerciseAvg">
+                                            <param id="0" name="Text">100 &amp; &quot;%&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="792029873236995">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="596205250773120" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="322100337700436" type="exerciseDone">
+                                            <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot;   ثانية&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="146798734235727">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="667860729936257" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="431068731671170" type="exerciseDone">
+                                                    <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot; seconds&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="159231489600611">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="133521520649604" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="349183895928281" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="383942326331770" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="724391849347110">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="258075777662676" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="348777241389961" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot; Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="939270682184226">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="567278590539908" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="969849098283732" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">216000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="539438234122118" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  ساعة&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="357787801943464">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="874665976333076" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="764055152848609" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  Hours&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="650382835926347">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="719448513958274" type="System">
+                                    <param id="0" name="First value">tokenat(selectedLessonArr.At(loopindex) , 0 ,&quot;:&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Writing&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="987000417604198" type="System">
+                                    <param id="0" name="First value">selectedLessonArr.At(loopindex)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Innovative Writing&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="135701121840940" type="System">
+                                    <param id="0" name="Object to create">writing</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">1600</param>
+                                    <param id="3" name="Y">-591</param>
+                                </action>
+                                <action id="9" name="Set scale" sid="220503783255375" type="writing">
+                                    <param id="0" name="Scale">0.5</param>
+                                </action>
+                                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="271502742786987" type="writing">
+                                    <param id="0" name="Tweened property">0</param>
+                                    <param id="1" name="Function">0</param>
+                                    <param id="2" name="Target">str(xInitial + 100 &amp; &quot;,&quot; &amp; yInitial)</param>
+                                    <param id="3" name="Duration">0.5</param>
+                                    <param id="4" name="Enforce mode">1</param>
+                                </action>
+                                <action behavior="LiteTween" id="10" name="Start" sid="980113600955975" type="writing">
+                                    <param id="0" name="Start Mode">0</param>
+                                    <param id="1" name="Force use current">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="916103486927544" type="exerciseTitle">
+                                    <param id="0" name="Text">&quot;كتابتي المبدعة&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="666666698870596" type="System">
+                                    <param id="0" name="Variable">prevOrigSen</param>
+                                    <param id="1" name="Value">tokenat(tokenat(selectedLessonArr.At(loopindex) ,2 ,&quot;:&quot;) , 0 , &quot;,&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="343502304882022" type="System">
+                                    <param id="0" name="Variable">prevWrittenSen</param>
+                                    <param id="1" name="Value">tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="346743254916457">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="746353005977783" type="System">
+                                            <param id="0" name="First value">trim(tokenat(tokenat(selectedLessonArr.At(loopindex) , 1 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;writingDone&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="425746699557904" type="writing">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="268656728206227" type="exerciseAvg">
+                                            <param id="0" name="Text">100 &amp; &quot;%&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="603261649598223">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="153345275012164" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="193738944863736" type="exerciseDone">
+                                            <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot;   ثانية&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="946601155850970">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="214642879716853" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="592222935605641" type="exerciseDone">
+                                                    <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot; seconds&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="366591545956605">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="321813134247901" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="914399490735943" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="693517405115709" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="171400955369624">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="777018975543515" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="404605468726119" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 )  &amp; &quot; Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="691203804866215">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="136721722753311" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="866228833691287" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">216000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="754628005275302" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  ساعة&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="448447971809837">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="334648034741483" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="110736671946724" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  Hours&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="309033663901250">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="155537333870663" type="System">
+                                    <param id="0" name="First value">tokenat(selectedLessonArr.At(loopindex) , 0 ,&quot;:&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Surprise&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="663906071884526" type="System">
+                                    <param id="0" name="First value">selectedLessonArr.At(loopindex)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Surprise Room&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="764248860072201" type="System">
+                                    <param id="0" name="Object to create">surprise</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">1600</param>
+                                    <param id="3" name="Y">-343</param>
+                                </action>
+                                <action id="9" name="Set scale" sid="493971982658093" type="surprise">
+                                    <param id="0" name="Scale">0.5</param>
+                                </action>
+                                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="375464003541971" type="surprise">
+                                    <param id="0" name="Tweened property">0</param>
+                                    <param id="1" name="Function">0</param>
+                                    <param id="2" name="Target">str(xInitial + 100&amp; &quot;,&quot; &amp; yInitial)</param>
+                                    <param id="3" name="Duration">0.5</param>
+                                    <param id="4" name="Enforce mode">1</param>
+                                </action>
+                                <action behavior="LiteTween" id="10" name="Start" sid="552657571834057" type="surprise">
+                                    <param id="0" name="Start Mode">0</param>
+                                    <param id="1" name="Force use current">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="971613164712375" type="exerciseTitle">
+                                    <param id="0" name="Text">&quot;غرفة المفاجآت&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="102444076922777" type="System">
+                                    <param id="0" name="Variable">prevWritStoryAnal</param>
+                                    <param id="1" name="Value">tokenat(tokenat(selectedLessonArr.At(loopindex) ,3 ,&quot;:&quot;) , 0 , &quot;,&quot;)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="667608448667243">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="257300397237720" type="System">
+                                            <param id="0" name="First value">trim(tokenat(tokenat(selectedLessonArr.At(loopindex) , 1 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;surpriseDone&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="489017429667695" type="surprise">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="903830996485153" type="exerciseAvg">
+                                            <param id="0" name="Text">100 &amp; &quot;%&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="333288136750682">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="518057452051678" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="556948108454526" type="exerciseDone">
+                                            <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) &amp; &quot;   ثانية&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="193748688037226">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="400503357301658" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="652848965739895" type="exerciseDone">
+                                                    <param id="0" name="Text">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))  &amp; &quot; seconds&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="577949093374131">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="869490200659843" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">60</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="448757192488592" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="253303513431065" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 ) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="381235604547024">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="523147713959805" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="701504833736696" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 )&amp; &quot; Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="220485778483925">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="538935827936674" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">3600</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="173314303646615" type="System">
+                                            <param id="0" name="First value">int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">216000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="273902888738396" type="exerciseDone">
+                                            <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  ساعة&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  دقيقة&quot;</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="680326935860036">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="209038026178313" type="System">
+                                                    <param id="0" name="Variable">Lang</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;En&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="672860946083458" type="exerciseDone">
+                                                    <param id="0" name="Text">round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;)) / 60 /60 ) &amp;  &quot;  Hours&quot; &amp; round(int(tokenat(tokenat(selectedLessonArr.At(loopindex) ,4 ,&quot;:&quot;) , 0 , &quot;,&quot;))/60) &amp; &quot;  Minutes&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="585924081405106">
+                            <conditions />
+                            <actions>
+                                <action id="-10" name="Add to" sid="938774563853702" type="System">
+                                    <param id="0" name="Variable">yInitial</param>
+                                    <param id="1" name="Value">170</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="798533264043517">
+            <conditions>
+                <condition id="0" name="On completed" sid="721257931816186" type="AJAX">
+                    <param id="0" name="Tag">&quot;userLiveProgress&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="911429214761541" type="finishedExercises" />
+                <action id="1" name="Set size" sid="335193275483414" type="finishedExercises">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="292851134704454">
+                    <conditions>
+                        <condition id="-10" name="For" sid="917291808332542" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">tokencount(AJAX.LastData , &quot;]&quot;)-3</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="563299251584713">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="936744630572111" type="System">
+                                    <param id="0" name="First value">tokenat(AJAX.LastData , loopindex , &quot;]&quot;)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">&quot;,[null&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="553880378106484" type="finishedExercises">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">tokenat(AJAX.LastData , loopindex , &quot;],&quot;) &amp; &quot;]&quot;</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action disabled="1" id="14" name="Log" sid="822623287548762" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">finishedExercises.Back</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="649139662994980">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Call function" sid="415236988337250" type="Function">
+                            <param id="0" name="Name">&quot;beginAnalysis&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action disabled="1" id="0" name="Call function" sid="227490699371509" type="Function">
+                            <param id="0" name="Name">&quot;onSelectLesson&quot;</param>
+                            <param id="1" name="Parameter {n}">lessonSelection.SelectedIndex+1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="277071346511540">
+            <conditions>
+                <condition id="0" name="On function" sid="434736446838220" type="Function">
+                    <param id="0" name="Name">&quot;destroyObj&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="174310991979901" type="exerciseTitle" />
+                <action id="-9" name="Destroy" sid="536247993701533" type="exerciseDone" />
+                <action id="-9" name="Destroy" sid="974016122204513" type="exerciseAvg" />
+                <action id="-9" name="Destroy" sid="878386700572866" type="exercisesBtn" />
+                <action id="-9" name="Destroy" sid="217381201411449" type="writing" />
+                <action id="-9" name="Destroy" sid="429426666649924" type="surprise" />
+                <action id="-9" name="Destroy" sid="673213725423695" type="story" />
+                <action id="-9" name="Destroy" sid="804964274772596" type="moeLesson" />
+            </actions>
+        </event-block>
+        <event-block sid="854343964760584">
+            <conditions>
+                <condition id="0" name="On function" sid="825970341322519" type="Function">
+                    <param id="0" name="Name">&quot;beginAnalysis&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="293720165242906">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="860339811897518" type="System">
+                            <param id="0" name="First value">finishedExercises.Width</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="11" name="Clear" sid="227849095894066" type="lessonSelection" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="499591665897883">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="530531330287205" type="System">
+                                    <param id="0" name="Variable">user_type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;hstudent&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="139558603935668">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="637342222681278" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">lessonTitle2.Width-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="8" name="Add item at" sid="904864044191937" type="lessonSelection">
+                                            <param id="0" name="Index">loopindex</param>
+                                            <param id="1" name="Text">lessonTitle2.At(loopindex)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="961728318391793">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="439577254341366" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">lessonTitle.Width-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="8" name="Add item at" sid="865563450867066" type="lessonSelection">
+                                            <param id="0" name="Index">loopindex</param>
+                                            <param id="1" name="Text">lessonTitle.At(loopindex)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block disabled="1" sid="296453430468954">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Call function" sid="378624119151317" type="Function">
+                                            <param id="0" name="Name">&quot;addSemester&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="615270717691675">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="227541593183041" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="111528815955391">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="959859135378877" type="System">
+                                            <param id="0" name="Variable">semester</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="192996602313214">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="841663199874297" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">0</param>
+                                                    <param id="2" name="End index">lessonTitle.Width-2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="8" name="Add item at" sid="201317557653484" type="lessonSelection">
+                                                    <param id="0" name="Index">loopindex</param>
+                                                    <param id="1" name="Text">lessonTitle.At(loopindex)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="798420421685308">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="188552061286318" type="System" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="223194082333838">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="469038909873251" type="System">
+                                                    <param id="0" name="Name">&quot;&quot;</param>
+                                                    <param id="1" name="Start index">0</param>
+                                                    <param id="2" name="End index">lessonTitle.Width-2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="8" name="Add item at" sid="638374527557569" type="lessonSelection">
+                                                    <param id="0" name="Index">loopindex</param>
+                                                    <param id="1" name="Text">lessonTitle.At(loopindex)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="377889268656210">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="612124169937612" type="System">
+                                    <param id="0" name="Variable">lessonSelectedIndex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set selection" sid="858699730378192" type="lessonSelection">
+                                    <param id="0" name="Index">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="725711826323945">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="487315746591815" type="System">
+                                            <param id="0" name="Variable">lessonSelectedIndex</param>
+                                            <param id="1" name="Value">currLessonIndex</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="100425031207681" type="Function">
+                                            <param id="0" name="Name">&quot;onSelectLesson&quot;</param>
+                                            <param id="1" name="Parameter {n}">lessonSelectedIndex</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="805395212046628" type="Function">
+                                            <param id="0" name="Name">&quot;anmatAdding&quot;</param>
+                                            <param id="1" name="Parameter {n}">lessonSelectedIndex</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="583310982878339">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="992470479783596" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set selection" sid="482931721806396" type="lessonSelection">
+                                    <param id="0" name="Index">lessonSelectedIndex</param>
+                                </action>
+                                <action id="0" name="Call function" sid="225469061988893" type="Function">
+                                    <param id="0" name="Name">&quot;onSelectLesson&quot;</param>
+                                    <param id="1" name="Parameter {n}">currLessonIndex</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="184255181426562">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="612381842498265" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="684933757225643" type="channels">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="732071602608065" type="duration">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="532171881705836" type="avg">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="111506509422283" type="warn">
+                            <param id="0" name="Text">&quot;قم بحل المهمات التي لديك لترى تحليل الأداء الخاص بك &quot;</param>
+                        </action>
+                        <action disabled="1" id="-15" name="Set visible" sid="433660402161362" type="warn">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="142134080744533" type="warn">
+                            <param id="0" name="Size (pt)">48</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="716772664144036" type="separator">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1" sid="344032629738697">
+            <conditions>
+                <condition id="0" name="On function" sid="153432480768415" type="Function">
+                    <param id="0" name="Name">&quot;addSemester&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block disabled="1" sid="440884995627783">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="769885737232705" type="System">
+                            <param id="0" name="First value">int(semester)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="425224571534288" type="System">
+                            <param id="0" name="Variable">semesterAdded</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block disabled="1" sid="970199751316737">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="962905403704092" type="System">
+                                    <param id="0" name="First value">int(classID)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="962984580106169" type="System">
+                                    <param id="0" name="Variable">currLessonIndex</param>
+                                    <param id="1" name="Value">7</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="276714623716206" type="System">
+                                    <param id="0" name="Variable">semesterAdded</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block disabled="1" sid="947393262526026">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="971576757771947" type="System">
+                                    <param id="0" name="First value">int(classID)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="833831928466278" type="System">
+                                    <param id="0" name="Variable">currLessonIndex</param>
+                                    <param id="1" name="Value">8</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="619113676102574" type="System">
+                                    <param id="0" name="Variable">semesterAdded</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block disabled="1" sid="350298575275100">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="896094579176985" type="System">
+                                    <param id="0" name="First value">int(classID)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="650056269058042" type="System">
+                                    <param id="0" name="Variable">currLessonIndex</param>
+                                    <param id="1" name="Value">8</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="662341264189431" type="System">
+                                    <param id="0" name="Variable">semesterAdded</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

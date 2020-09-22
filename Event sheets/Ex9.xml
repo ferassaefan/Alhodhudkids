@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Ex9</name>
+    <events>
+        <include>LetterEvents</include>
+        <include>menuEvents</include>
+        <include>sessions</include>
+        <variable constant="0" name="firstTime" sid="491552338250069" static="0" type="number">0</variable>
+        <variable constant="0" name="lastFrame" sid="725859386707102" static="0" type="number">0</variable>
+        <variable constant="0" name="clickCounter" sid="946278232170767" static="0" type="number">0</variable>
+        <variable constant="0" name="curArr" sid="216778480198777" static="0" type="number">0</variable>
+        <variable constant="0" name="shapeLevel" sid="812862201324051" static="0" type="number">1</variable>
+        <variable constant="0" name="imageCounter" sid="198175760578933" static="0" type="number">0</variable>
+        <variable constant="0" name="CurrentShap" sid="640398811913932" static="0" type="text">L1</variable>
+        <variable constant="0" name="shapeScore" sid="846227859187237" static="0" type="number">0</variable>
+        <variable constant="0" name="shapeCounter" sid="872811378166152" static="0" type="number">4</variable>
+        <variable constant="0" name="foundLetter" sid="501568668843938" static="0" type="number">0</variable>
+        <event-group description="" sid="960052282626668" title="Game :">
+            <sub-events>
+                <event-block sid="129288761105536">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="549591593805674" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="249774517695531" type="System">
+                            <param id="0" name="Variable">canClick</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Set value" sid="413310166601413" type="System">
+                            <param id="0" name="Variable">CurrentShap</param>
+                            <param id="1" name="Value">shapesSet.At(shapeLevel)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="289246077855261" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">565</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="868261836422973" type="System">
+                            <param id="0" name="Variable">clickCounter</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="1" name="Append text" sid="691607254673321" type="Text">
+                            <param id="0" name="Text">newline&amp;&quot;shapeLevel&quot;&amp;shapeLevel&amp;newline</param>
+                        </action>
+                        <action id="1" name="Append text" sid="956190770215445" type="Text">
+                            <param id="0" name="Text">&quot;Shape_Array width&quot;&amp;Shape_Array.width&amp;newline</param>
+                        </action>
+                        <action behavior="MoveTo" id="4" name="Move to XY" sid="639533759712528" type="bigLetter">
+                            <param id="0" name="X">343</param>
+                            <param id="1" name="Y">255</param>
+                        </action>
+                        <action id="0" name="Call function" sid="127709959575252" type="Function">
+                            <param id="0" name="Name">&quot;get Letters&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Track Event" sid="557243595943015" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;app&quot;</param>
+                            <param id="1" name="Name">&quot;shape&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="608326309268563" type="Audio">
+                            <param id="0" name="Audio file">أين شكلي</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action behavior="Rotate" id="0" name="Set speed" sid="495520161422614" type="stars">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="203103070077547" type="stars">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="871259581774475">
+                    <conditions>
+                        <condition id="0" name="On function" sid="617546623341230" type="Function">
+                            <param id="0" name="Name">&quot;createShape&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="598798717900470">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="372890108835996" type="System">
+                                    <param id="0" name="Object to create">LettersIdol</param>
+                                    <param id="1" name="Layer">&quot;Layer 3&quot;</param>
+                                    <param id="2" name="X">random(782,1372)</param>
+                                    <param id="3" name="Y">random(200,797)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="976153259244032" type="LettersIdol">
+                                    <param id="0" name="Frame number">lastFrame</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="766526175144198" type="LettersIdol">
+                                    <param id="0" name="Speed">random(-100,100)</param>
+                                </action>
+                                <action behavior="Sine" id="2" name="Set magnitude" sid="117887149680915" type="LettersIdol">
+                                    <param id="0" name="Magnitude">random(100,250)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="548645195065995" type="LettersIdol">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="325145446567252" type="LettersIdol">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Sine" id="0" name="Set active" sid="700084688331031" type="LettersIdol">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="810600302718188">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="862526251640074" type="LettersIdol">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">782</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="911913100898631" type="LettersIdol">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="982834305235245" type="LettersIdol">
+                            <param id="0" name="X">782</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="245204839276986" type="LettersIdol">
+                            <param id="0" name="Speed">LettersIdol.Bullet.Speed*-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="135597339491722">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="994111674312843" type="LettersIdol">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">1372</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="368340756096021" type="LettersIdol">
+                            <param id="0" name="X">1372</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="189182878656061" type="LettersIdol">
+                            <param id="0" name="Speed">LettersIdol.Bullet.Speed*-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="195178166822945">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="418744419105579" type="Touch">
+                            <param id="0" name="Object">LettersIdol</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="223695604084381">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="852990441417041" type="LettersIdol">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="718935439753662" type="System">
+                                    <param id="0" name="Variable">shapeScore</param>
+                                    <param id="1" name="Value">15</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="152125821025731" type="System">
+                                    <param id="0" name="Variable">foundLetter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="950369393660968" type="System">
+                                    <param id="0" name="Variable">clickCounter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="688450366170104" type="System">
+                                    <param id="0" name="Object to create">Particles</param>
+                                    <param id="1" name="Layer">&quot;Layer 1&quot;</param>
+                                    <param id="2" name="X">LettersIdol.X</param>
+                                    <param id="3" name="Y">LettersIdol.Y</param>
+                                </action>
+                                <action id="7" name="Play (by name)" sid="868214983617777" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">myLetter&amp;&quot;_&quot;&amp;CurrentShap</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;done&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="778258077960021">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="991815870198899" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="148934117088233" type="System">
+                                    <param id="0" name="Variable">shapeScore</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="0" name="Play" sid="888292524526089" type="Audio">
+                                    <param id="0" name="Audio file">هيا ساعدوني</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="476841239273020">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="230055796330706" type="Function">
+                                    <param id="0" name="Name">&quot;removeAll&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="603087645462610">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="899681425573043" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="400745857786890" type="memoryScoreTxt">
+                            <param id="0" name="Text">shapeScore</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="803608420475950">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="638843937496624" type="LettersIdol" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="340877815474054" type="System">
+                            <param id="0" name="Variable">lastFrame</param>
+                            <param id="1" name="Value">LettersIdol.AnimationFrame</param>
+                        </action>
+                        <action id="0" name="Call function" sid="271243803136068" type="Function">
+                            <param id="0" name="Name">&quot;createShape&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="814486288675563">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="756946097328977" type="System">
+                            <param id="0" name="Variable">imageCounter</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="517872369088093" type="System">
+                            <param id="0" name="Variable">canClick</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="167560867968197" type="System">
+                            <param id="0" name="Variable">imageCounter</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="929231233003258">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="823064794117075" type="System">
+                                    <param id="0" name="Variable">firstTime</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="830421764053174" type="Audio">
+                                    <param id="0" name="Audio file">أين شكلي</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="832174096677117" type="System">
+                                    <param id="0" name="Variable">firstTime</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="753415696688876">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="677328048446679" type="System">
+                                    <param id="0" name="Object">LettersIdol</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="714367777735111">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="396201533323305" type="LettersIdol">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="125110685300106" type="LettersIdol" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="394885358080988">
+                    <conditions>
+                        <condition id="10" name="On image URL loaded" sid="343171075167658" type="LettersIdol" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="565156139795084" type="System">
+                            <param id="0" name="Variable">imageCounter</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="822392848032786">
+                    <conditions>
+                        <condition id="10" name="On image URL loaded" sid="682548890957805" type="bigLetter" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="403824399831862" type="System">
+                            <param id="0" name="Variable">imageCounter</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="581022828484264" title="Game Functions">
+            <sub-events>
+                <event-block sid="624145256986984">
+                    <conditions>
+                        <condition id="0" name="On function" sid="545827102458007" type="Function">
+                            <param id="0" name="Name">&quot;get Letters&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="440266615908920" type="Text">
+                            <param id="0" name="Text">myLetter&amp;&quot;/&quot;&amp;CurrentShap&amp;&quot;.png&quot;&amp;newline</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="257503043689612">
+                            <conditions />
+                            <actions>
+                                <action id="1" name="Set size" sid="664514373799837" type="range">
+                                    <param id="0" name="Width">tokencount(Shape_Array.At(shapeLevel),&quot;;&quot;)-1</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                                <action id="1" name="Append text" sid="848910444868589" type="Text">
+                                    <param id="0" name="Text">&quot;range&quot;&amp;range.Width&amp;newline</param>
+                                </action>
+                                <action id="1" name="Append text" sid="875326657342685" type="Text">
+                                    <param id="0" name="Text">&quot;range&quot;&amp;range.Width&amp;newline</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="278339291975629">
+                            <conditions>
+                                <condition id="-10" name="For" sid="969920661603716" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">range.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="217816061318993" type="range">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">tokenat(Shape_Array.At(shapeLevel),loopindex,&quot;;&quot;)</param>
+                                </action>
+                                <action id="1" name="Append text" sid="867851309356635" type="Text">
+                                    <param id="0" name="Text">Shape_Array.At(loopindex)&amp;newline</param>
+                                </action>
+                                <action disabled="1" id="0" name="Alert" sid="584434675284893" type="Browser">
+                                    <param id="0" name="Message">range.At(loopindex)&amp;&quot; &quot;&amp;CurrentShap</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="340475928249389">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="228349920571139" type="System">
+                                    <param id="0" name="Variable">CurrentShap</param>
+                                    <param id="1" name="Value">range.At(0)</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Set value" sid="838376479946325" type="System">
+                                    <param id="0" name="Variable">CurrentShap</param>
+                                    <param id="1" name="Value">shapesSet.At(shapeLevel)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="631107110169137">
+                            <conditions />
+                            <actions>
+                                <action id="10" name="Load image from URL" sid="300526581583159" type="bigLetter">
+                                    <param id="0" name="URI">globalPath&amp;&quot;/letters/&quot;&amp;myLetter&amp;&quot;/&quot;&amp;CurrentShap&amp;&quot;.png&quot;</param>
+                                    <param id="1" name="Size">1</param>
+                                    <param id="2" name="Cross-origin">0</param>
+                                </action>
+                                <action id="9" name="Preload (by name)" sid="577317745092479" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">myLetter&amp;&quot;_&quot;&amp;CurrentShap</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="482707203230884">
+                            <conditions>
+                                <condition id="-10" name="For" sid="123973449284351" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">3</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="333951370384319">
+                                    <conditions>
+                                        <condition id="3" name="Compare frame" sid="957395440320113" type="LettersIdol">
+                                            <param id="0" name="Comparison">0</param>
+                                            <param id="1" name="Number">0</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="561916404102972" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="485179684142455" type="LettersIdol">
+                                            <param id="0" name="URI">globalPath&amp;&quot;/letters/&quot;&amp;myLetter&amp;&quot;/&quot;&amp;CurrentShap&amp;&quot;.png&quot;</param>
+                                            <param id="1" name="Size">1</param>
+                                            <param id="2" name="Cross-origin">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="463648955535261">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="541230103423034" type="System" />
+                                        <condition id="3" name="Compare frame" sid="746023947786750" type="LettersIdol">
+                                            <param id="0" name="Comparison">0</param>
+                                            <param id="1" name="Number">loopindex</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="142166617009306" type="LettersIdol">
+                                            <param id="0" name="URI">globalPath&amp;&quot;/letters/&quot;&amp;range.At(floor(random(1,range.Width)))&amp;&quot;/&quot;&amp;CurrentShap&amp;&quot;.png&quot;</param>
+                                            <param id="1" name="Size">1</param>
+                                            <param id="2" name="Cross-origin">0</param>
+                                        </action>
+                                        <action id="1" name="Append text" sid="136050158432173" type="Text">
+                                            <param id="0" name="Text">range.At(loopindex)&amp;&quot;/&quot;&amp;CurrentShap&amp;&quot;.png&quot;&amp;newline</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="284082298701313">
+                    <conditions>
+                        <condition id="0" name="On function" sid="101119083304272" type="Function">
+                            <param id="0" name="Name">&quot;removeAll&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="485785150823080">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="763236835233547" type="System">
+                                    <param id="0" name="Object">LettersIdol</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="605690509737539" type="LettersIdol" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="223959958403176" title="check Won">
+            <sub-events>
+                <event-block sid="230956980245100">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="713336338333988" type="System">
+                            <param id="0" name="Variable">clickCounter</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="297571159406822" type="System">
+                            <param id="0" name="Variable">shapeLevel</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action disabled="1" id="0" name="Alert" sid="459004478565656" type="Browser">
+                            <param id="0" name="Message">shapeLevel&amp;&quot;  :  &quot;&amp;Shape_Array.Width-1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="822988979655169">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="458125515672618" type="System">
+                                    <param id="0" name="Variable">shapeLevel</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">Shape_Array.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="622312464417218" type="Function">
+                                    <param id="0" name="Name">&quot;flow_logs&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="896156180281331" type="System">
+                                    <param id="0" name="Variable">shapeLevel</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="270515603896880" type="System">
+                                    <param id="0" name="Variable">shapeScore</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="374244374506649" type="System">
+                                    <param id="0" name="Variable">LayoutId</param>
+                                    <param id="1" name="Value">layout_sort.At(layout_sort.IndexOf(LayoutId)+1)</param>
+                                </action>
+                                <action id="-25" name="Go to layout (by name)" sid="817186407248424" type="System">
+                                    <param id="0" name="Layout">&quot;Ex&quot;&amp;LayoutId</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="741653238835223">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="686778487835323" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-26" name="Restart layout" sid="341651497420058" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="385157073324729" title="check Time" />
+        <event-group description="" sid="844122143126903" title="Time3">
+            <sub-events>
+                <event-block sid="354516335238734">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="714099457607362" type="System" />
+                        <condition id="-14" name="Compare variable" sid="110497393536078" type="System">
+                            <param id="0" name="Variable">canClick</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="198959703105653" type="Times">
+                            <param id="0" name="Width">TimeGame</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="970065421191635">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="445567924227450" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="755069312203486" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="986484048823873" type="System">
+                            <param id="0" name="Variable">canClick</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="412712886023930" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="113201102944700" title="Time_Game3">
+            <sub-events>
+                <event-block sid="904355677821840">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="647614089834885" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">565</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="499310741161846" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">565</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="333285032784830">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="353361104635098" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="469717329480579" type="System">
+                            <param id="0" name="Variable">TimeGame</param>
+                            <param id="1" name="Value">555</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="829568605557289" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="875962941268888">
+            <conditions>
+                <condition id="0" name="On ended" sid="846670626209316" type="Audio">
+                    <param id="0" name="Tag">&quot;done&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Play (by name)" sid="542308670643278" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;GreatJob&quot;&amp;int(random(1,5))</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="216744721825132">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="801546007198204" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="507747173345936">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="542478686311147" type="System">
+                            <param id="0" name="Object">stars</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="136153190803382">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="610056639726256" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">shapeLevel-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="260629700727715" type="stars">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="789404227067655">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="433450641228776" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="582621404713835" type="stars">
+                                    <param id="0" name="Opacity">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="392211229988661">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="554219809186724" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">Shape_Array.Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="436177356777288" type="stars">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="689775700860475">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="183459461735346" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="961908291227343" type="stars">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

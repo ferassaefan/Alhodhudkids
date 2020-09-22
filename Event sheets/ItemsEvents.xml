@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ItemsEvents</name>
+    <events>
+        <event-block sid="243210284736629">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="208378189487083" type="System" />
+                <condition id="3" name="Compare frame" sid="962929414220281" type="Animal">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="10" name="Load image from URL" sid="424302479557819" type="Animal">
+                    <param id="0" name="URI">&quot;http://alhodhud.com/alhodhud_webservice/App/App/iimages&quot;&amp;image1</param>
+                    <param id="1" name="Size">0</param>
+                    <param id="2" name="Cross-origin">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="862581443544209">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="992292795357749" type="System" />
+                <condition id="3" name="Compare frame" sid="161579961645440" type="Animal">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="10" name="Load image from URL" sid="771454675955627" type="Animal">
+                    <param id="0" name="URI">&quot;http://alhodhud.com/alhodhud_webservice/App/App/iimages&quot;&amp;image2</param>
+                    <param id="1" name="Size">0</param>
+                    <param id="2" name="Cross-origin">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

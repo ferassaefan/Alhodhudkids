@@ -1,0 +1,88 @@
+#progress {
+  color: #F2DC5E;
+  font-size: .6em;
+  line-height: 1.5em;
+  text-indent: .5em;
+  width: 15em;
+  height: 1.8em;
+  border: 1px solid #F2DC5E;
+  background: #fff;
+  direction: rtl;
+  
+  width:80%;
+  padding: 2px;
+		box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+#progress::-moz-progress-bar { background: 	#F2DC5E; }
+#progress::-webkit-progress-value { background:  #F2DC5E; }
+#progress2{
+	color: #ED1C24;
+	width: 15em;
+	height: 1.8em;
+	border: 3px solid #F2DC5E;
+	background: #BDBEBE;
+	direction: rtl;
+}
+#progress2::-moz-progress-bar { background: 	#ED1C24; }
+#progress2::-webkit-progress-value { background:  #ED1C24; }
+#loginBtn{
+  background-color: #F2DC5E;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius : 25px;
+  text-align:center;
+}
+#surpriseBtn{
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius : 25px;
+  text-align:center;
+}
+@media only screen and (max-device-width: 480px){
+  background-color: #F2DC5E;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius : 25px;
+  font-size : 2em;
+}
+#lists :selection {
+	background : #C1D46A;
+	
+}
+
+#editText:selection {
+	background : #C1D46A;
+	color : #FFFFFF;
+}
+#editText:hover{
+	border-color : #C1D46A;
+	border-top-color :  #C1D46A;
+}
+#editText:focus{
+	border-color : #C1D46A;
+	border-top-color :  #C1D46A;
+}
+
+#preloader6 {
+   color:#ffffff;
+   width:50px;
+   height:50px;
+   display:inline-block;
+   padding:0px;
+   opacity:0.5;
+   background:#000000;
+   -webkit-animation: preloader6 1.5s ease-in-out infinite alternate;
+   animation: preloader6 1.5s ease-in-out infinite alternate;
+}
+#keyframes preloader6 {
+   from {transform: rotate(0deg) scale(1,1);border-radius:0px;}
+   to {transform: rotate(720deg) scale(0.5, 0.5);border-radius:25px;}
+}
+#-webkit-keyframes preloader6 {
+   from {-webkit-transform: rotate(0deg) scale(1, 1);border-radius:0px;}
+   to {-webkit-transform: rotate(720deg) scale(0.5, 0.5);border-radius:25px;}
+}

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Global</name>
+    <events>
+        <variable constant="0" name="gFirstTimer" sid="778631813114820" static="0" type="number">1</variable>
+        <variable constant="0" name="gScoreOffset" sid="118144931610107" static="0" type="number">150</variable>
+        <variable constant="0" name="score2" sid="807286762490356" static="0" type="number">0</variable>
+        <variable constant="0" name="HighScore" sid="208816782595436" static="0" type="number">0</variable>
+        <comment>You can change these initial values to adjust how many times the cards are &quot;shuffled&quot; or the delay between turns or games.</comment>
+        <variable comment="Number of times to swap cards when shuffling the decks." constant="0" name="gNumberShuffleSwaps" sid="949373754357163" static="0" type="number">50</variable>
+        <variable comment="Seconds to wait before flipping cards face down. Also used for other delays." constant="0" name="gCardResetDelay" sid="414366740103735" static="0" type="number">1</variable>
+        <variable comment="Seconds to wait before starting a new game after a win." constant="0" name="gGameResetDelay" sid="382011774968226" static="0" type="number">5</variable>
+        <comment>Do not change these initial values unless you know what you are doing!</comment>
+        <variable comment="The number of cards in the tableau." constant="0" name="gNumberCards" sid="731541385528118" static="0" type="number">0</variable>
+        <variable comment="The number of rows in the tableau" constant="0" name="gNumberRows" sid="866623956208240" static="0" type="number">2</variable>
+        <variable comment="The number of columns in the tableau." constant="0" name="gNumberColumns" sid="371815710519451" static="0" type="number">3</variable>
+        <variable comment="Space between each row or column of cards." constant="0" name="gSpaceBetweenCards" sid="995344236489576" static="0" type="number">15</variable>
+        <comment>Do not change these initial values or testing for matches will break.</comment>
+        <variable comment="The CardFaceFrame for the first card picked during a turn." constant="0" name="gFirstCardFrame" sid="554386018213607" static="0" type="number">-1</variable>
+        <variable comment="The CardFaceFrame for the second card picked during a turn." constant="0" name="gSecondCardFrame" sid="621316728251511" static="0" type="number">-1</variable>
+        <comment>Changing these initial values has no effect.</comment>
+        <variable comment="Space between top of game window and first row of cards" constant="0" name="gMarginTop" sid="439199265465255" static="0" type="number">0</variable>
+        <variable comment="Space between left side of window and first column of cards." constant="0" name="gMarginLeft" sid="622337759783089" static="0" type="number">0</variable>
+        <variable comment="Calculated height of cards based on window size." constant="0" name="gCardHeight" sid="105127955622511" static="0" type="number">0</variable>
+        <variable comment="Calculated width of cards based on window size." constant="0" name="gCardWidth" sid="675803620025752" static="0" type="number">0</variable>
+        <variable comment="Counter to track number of cards currently face up." constant="0" name="gCountCardsPicked" sid="102402163302373" static="0" type="number">0</variable>
+        <variable comment="Accumulates the number of turns taken during the game." constant="0" name="gTurns" sid="867817255265861" static="0" type="number">0</variable>
+        <variable comment="Accumulates the number of pairs of cards matched in the game." constant="0" name="gMatches" sid="398219507710789" static="0" type="number">0</variable>
+        <comment>Other Globals</comment>
+        <variable constant="1" name="MAXROWS" sid="176372956585491" static="0" type="number">6</variable>
+        <variable constant="1" name="MAXCOLS" sid="218803334187449" static="0" type="number">6</variable>
+        <variable constant="0" name="gComeByGame" sid="146255433305474" static="0" type="number">0</variable>
+        <variable constant="0" name="flipShift2" sid="649110623977340" static="0" type="number">0</variable>
+    </events>
+</c2eventsheet>

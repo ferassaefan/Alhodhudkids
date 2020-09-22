@@ -1,0 +1,1331 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>surprise</name>
+    <events>
+        <variable constant="0" name="writStoryText" sid="475083081440385" static="0" type="text"></variable>
+        <include>logs</include>
+        <variable constant="0" name="surpriseTime" sid="509838380725393" static="0" type="number">0</variable>
+        <variable constant="0" name="tempStoryVar" sid="524351615336185" static="0" type="number">0</variable>
+        <variable constant="0" name="storySpacing" sid="381880857033773" static="0" type="number">0</variable>
+        <variable constant="0" name="space" sid="374136976063875" static="0" type="number">0</variable>
+        <variable constant="0" name="tempFontSz" sid="301891268076334" static="0" type="number">48</variable>
+        <variable constant="0" name="action" sid="637557234532255" static="0" type="text">&quot;recording&quot;</variable>
+        <variable constant="0" name="hitY" sid="767548688716781" static="0" type="number">0</variable>
+        <variable constant="0" name="hitX" sid="782199068784061" static="0" type="number">0</variable>
+        <variable constant="0" name="keyBoard" sid="965981517651121" static="0" type="number">0</variable>
+        <variable constant="0" name="xInitial" sid="541573337735706" static="0" type="number">1200</variable>
+        <variable constant="0" name="yInitial" sid="998756560486510" static="0" type="number">630</variable>
+        <include>globalSheet</include>
+        <event-block sid="411266431944817">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="403317120709221" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="415931254044203" type="System">
+                    <param id="0" name="Variable">globalAction</param>
+                    <param id="1" name="Value">&quot;غُرْفَةُ المُفاجآتِ&quot;</param>
+                </action>
+                <action id="5" name="Set frame" sid="803682870865440" type="bucket">
+                    <param id="0" name="Frame number">2</param>
+                </action>
+                <action id="0" name="Set text" sid="880094615768824" type="questionsNumber">
+                    <param id="0" name="Text">&quot;1/1&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="481891451589013" type="tasks">
+                    <param id="0" name="Text">&quot;مهمة&quot; </param>
+                </action>
+                <action id="0" name="Set text" sid="100214533726892" type="memoryScoreTxt">
+                    <param id="0" name="Text">globalScore </param>
+                </action>
+                <action id="5" name="Set frame" sid="625104777291999" type="readBtn">
+                    <param id="0" name="Frame number">2</param>
+                </action>
+                <action id="-9" name="Set value" sid="759895765877590" type="System">
+                    <param id="0" name="Variable">activeAreaWidth</param>
+                    <param id="1" name="Value">1380</param>
+                </action>
+                <action id="-9" name="Set value" sid="940694660812699" type="System">
+                    <param id="0" name="Variable">activeAreaHeight</param>
+                    <param id="1" name="Value">880</param>
+                </action>
+                <action id="-15" name="Set visible" sid="712103497719125" type="wave">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="818021348532107" type="listen">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="893702210165230" type="listenTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="459666194329190" type="writeSur">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="404267032949382" type="writeSurTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="439655550757921" type="share">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="411192097159330" type="shareTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="523470899182324" type="linestory">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="753104693961149" type="spaceTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="177177167979082" type="erase">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="152793977866905" type="letTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="695733772385677" type="Sprite13">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="4" name="Set font color" sid="596935466538037" type="letTxt">
+                    <param id="0" name="Color">rgb(0, 0, 0)</param>
+                </action>
+                <action id="-15" name="Set visible" sid="912850614322359" type="txtPunc">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="240028544127091" type="System">
+                    <param id="0" name="Variable">action</param>
+                    <param id="1" name="Value">&quot;recording&quot;</param>
+                </action>
+                <action id="-2" name="Set Y" sid="954097359618449" type="writeSur">
+                    <param id="0" name="Y">-2000</param>
+                </action>
+                <action id="5" name="Set frame" sid="774253588642474" type="Sprite13">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="842251053562928" type="spacing">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="0" name="Set text" sid="136891560613700" type="objectText1">
+                    <param id="0" name="Text">surpriseObjects.At(0)</param>
+                </action>
+                <action id="0" name="Set text" sid="763880645956521" type="objectText2">
+                    <param id="0" name="Text">surpriseObjects.At(1)</param>
+                </action>
+                <action id="0" name="Set text" sid="628060164597165" type="objectText3">
+                    <param id="0" name="Text">surpriseObjects.At(2)</param>
+                </action>
+                <action id="2" name="Set font face" sid="172099603285735" type="Texts">
+                    <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                    <param id="1" name="Style">0</param>
+                </action>
+                <action id="2" name="Set font face" sid="508189020815656" type="letTxt">
+                    <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                    <param id="1" name="Style">0</param>
+                </action>
+                <action id="1" name="Append text" sid="892138379118945" type="sessionData">
+                    <param id="0" name="Text">&quot;_C&quot;&amp;LayoutId</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="234550045250082">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="223886199475833" type="System">
+                            <param id="0" name="Variable">action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;writing&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="690686703451087" type="System">
+                            <param id="0" name="Variable">keyBoard</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="533754956615223" type="System">
+                            <param id="0" name="Variable">requestMedia</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="437809593677763" type="warn">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action behavior="DragDrop" id="0" name="Set enabled" sid="650205348679154" type="letTxt">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="127492304508876" type="Function">
+                            <param id="0" name="Name">&quot;createKeyBoard&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="442244573522890">
+                    <conditions>
+                        <condition id="7" name="Compare size" sid="671780860235450" type="writtenStoryArr">
+                            <param id="0" name="Axis">0</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="689546394812122" type="System">
+                            <param id="0" name="Variable">writStoryText</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="508801609009670" type="System">
+                            <param id="0" name="First value">prevWritStory</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="988623433870193" type="curtain">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="855073860434174" type="writtenStory">
+                            <param id="0" name="Text">writStoryText</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="827264432217689" type="objectText1">
+                            <param id="0" name="X">1650</param>
+                            <param id="1" name="Y">250</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="977786362769722" type="objectText2">
+                            <param id="0" name="X">1650</param>
+                            <param id="1" name="Y">350</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="448922537445608" type="objectText3">
+                            <param id="0" name="X">1650</param>
+                            <param id="1" name="Y">450</param>
+                        </action>
+                        <action id="0" name="Call function" sid="857236826770654" type="Function">
+                            <param id="0" name="Name">&quot;startTyping&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="114798686091400">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="433838366827100" type="System">
+                                    <param id="0" name="First value">prevWritStory</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="678499599293634" type="writtenStory">
+                                    <param id="0" name="Text">prevWritStory</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="519664029246309">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="922580738666150" type="System">
+                            <param id="0" name="Variable">loginLogs</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="999518945652903" type="Function">
+                            <param id="0" name="Name">&quot;date_fun&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="638851765061888" type="System">
+                            <param id="0" name="Variable">log_data</param>
+                            <param id="1" name="Value">&quot;;login,&quot;&amp;fullyear&amp;&quot;,&quot;&amp;clock &amp; &quot;,&quot;&amp; currLesson</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="408740528924792" type="System">
+                            <param id="0" name="Variable">log_data4</param>
+                            <param id="1" name="Value">&quot;;login,&quot;&amp;fullyear&amp;&quot;,&quot;&amp;clock &amp; &quot;,&quot;&amp; currLesson</param>
+                        </action>
+                        <action id="0" name="Call function" sid="333272188996453" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="340846965063858" type="System">
+                            <param id="0" name="Variable">loginLogs</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="719693252235136" type="System">
+                            <param id="0" name="Variable">log_data</param>
+                            <param id="1" name="Value">&quot;:C:3:&quot; &amp; clock </param>
+                        </action>
+                        <action id="0" name="Call function" sid="257968693027274" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="596731157862245" type="System">
+                            <param id="0" name="Variable">log_data4</param>
+                            <param id="1" name="Value">&quot;_C&quot;&amp;LayoutId</param>
+                        </action>
+                        <action id="0" name="Call function" sid="132765963420670" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs2&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="553226946238123">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="138445229851378" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="325953665926552" type="Function">
+                            <param id="0" name="Name">&quot;date_fun&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="368702500623158" type="System">
+                            <param id="0" name="Variable">log_data</param>
+                            <param id="1" name="Value">&quot;:C:3:&quot; &amp; clock </param>
+                        </action>
+                        <action id="0" name="Call function" sid="155098245068514" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="453902560851536" type="System">
+                            <param id="0" name="Variable">log_data4</param>
+                            <param id="1" name="Value">&quot;_C&quot;&amp;LayoutId</param>
+                        </action>
+                        <action id="0" name="Call function" sid="273090610308836" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs2&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="759720219489051">
+            <conditions>
+                <condition id="3" name="On touched object" sid="582334144785318" type="Touch">
+                    <param id="0" name="Object">curtain</param>
+                </condition>
+                <condition disabled="1" id="-2" name="Compare Y" sid="701597685672990" type="curtain">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">-160</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="946123405165761" type="System">
+                    <param id="0" name="Variable">openCurtain</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="337836404970673">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="426048123964530" type="System">
+                    <param id="0" name="Variable">openCurtain</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="626346690709254" type="curtain">
+                    <param id="0" name="Y">curtain.Y-10</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="771020575087568" title="Drag Objects :2">
+            <sub-events>
+                <event-block sid="190390324035903">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="610329117578393" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="829970584235343">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="181988849087960" type="drag">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="X co-ordinate">drag.ImageWidth/2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="566161136972841" type="drag">
+                                    <param id="0" name="X">drag.ImageWidth/2+1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="806431096784024">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="726355409437710" type="drag">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">activeAreaWidth-drag.ImageWidth/2-20</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="553198745966073" type="drag">
+                                    <param id="0" name="X">activeAreaWidth-drag.ImageWidth/2-20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="985355567827228">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="323395588430364" type="drag">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">drag.ImageHeight/2+195</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="949584478995647" type="drag">
+                                    <param id="0" name="Y">drag.ImageHeight/2+195</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="642694795771718">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="386065970460826" type="drag">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">activeAreaHeight-drag.ImageHeight/2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="146925332200813" type="drag">
+                                    <param id="0" name="Y">activeAreaHeight-drag.ImageHeight/2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="727943279191686">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="291163914689115" type="Touch">
+                            <param id="0" name="Object">drag</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="374863552374476" type="System">
+                            <param id="0" name="Variable">isDraged</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="812245643537536">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="146072833895168" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="732463428747454" type="System">
+                            <param id="0" name="Variable">isDraged</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="345627421708797">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="338837211903532" type="Touch">
+                            <param id="0" name="Object">drag</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="723264813188322" type="System">
+                            <param id="0" name="Variable">isDraged</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="825974693129401" type="drag">
+                            <param id="0" name="X">lerp(self.X,mouse.X,0.5)</param>
+                            <param id="1" name="Y">lerp(self.y,mouse.y,0.5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="129893655521091">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="194754491391897" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="607984901849080" type="drag">
+                            <param id="0" name="Scale">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="583111801282789">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="971516770862711" type="drag" />
+                        <condition id="-9" name="Is visible" sid="915701844816707" type="drag" />
+                        <condition id="-14" name="Compare variable" sid="157001866523240" type="System">
+                            <param id="0" name="Variable">openCurtain</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="33" name="Stop all" sid="525028200326705" type="Audio" />
+                        <action id="7" name="Play (by name)" sid="267867258162659" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">room_sounds.At(drag.AnimationFrame)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="854948082660450">
+            <conditions>
+                <condition id="3" name="On touched object" sid="921535619211599" type="Touch">
+                    <param id="0" name="Object">readBtn</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="387502235223067" type="System">
+                    <param id="0" name="Variable">action</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;recording&quot;</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="133931460917167" type="System">
+                    <param id="0" name="Variable">requestMedia</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">-1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="825432790407222" type="System">
+                    <param id="0" name="Variable">openCurtain</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="797894056953859" type="System">
+                    <param id="0" name="Variable">keyBoard</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Call function" sid="513557320949592" type="Function">
+                    <param id="0" name="Name">&quot;startTyping&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="573167640481255" title="Typing">
+            <sub-events>
+                <event-block sid="541958254400844">
+                    <conditions>
+                        <condition behavior="DragDrop" id="1" name="On drag start" sid="715039109539517" type="letTxt" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="354371973389728" type="System">
+                            <param id="0" name="Variable">hitX</param>
+                            <param id="1" name="Value">letTxt.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="996168469068098" type="System">
+                            <param id="0" name="Variable">hitY</param>
+                            <param id="1" name="Value">letTxt.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="840326839673331">
+                    <conditions>
+                        <condition behavior="DragDrop" id="1" name="On drag start" sid="972702429374106" type="txtPunc" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="581547690319062" type="System">
+                            <param id="0" name="Variable">hitX</param>
+                            <param id="1" name="Value">txtPunc.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="771135659862304" type="System">
+                            <param id="0" name="Variable">hitY</param>
+                            <param id="1" name="Value">txtPunc.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="788258887369279">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="655582154237301" type="letTxt" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Track Event" sid="935149376861299" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;Channel&quot;</param>
+                            <param id="1" name="Name">globalAction</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="917899608991455">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="922251778625611" type="letTxt">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">150</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="453411128577495" type="letTxt">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">520</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="773800440445763" type="letTxt">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">100</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="637080763903635" type="letTxt">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">1300</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="837564781188928" type="warn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="754147736513720" type="letTxt">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                                <action id="1" name="Append text" sid="798300741956494" type="writtenStory">
+                                    <param id="0" name="Text">letTxt.Text</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="959231204090152" type="letTxt">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="405447211602193" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="348715456665216" type="System">
+                                    <param id="0" name="Variable">space</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="715355175566539">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="130881636757137" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set font size" sid="230263437054932" type="letTxt">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="815173289261459" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="121618465638414" type="letTxt">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="430711242583161">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="313535242051885" type="txtPunc" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Track Event" sid="194218991567490" type="GoogleAnalytics">
+                            <param id="0" name="Category">&quot;Channel&quot;</param>
+                            <param id="1" name="Name">globalAction</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="563217842862679">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="433322214522838" type="txtPunc">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">150</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="172526846333323" type="txtPunc">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">520</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="964507520325399" type="txtPunc">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">100</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="951773214870603" type="txtPunc">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">1300</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="559298914864246" type="txtPunc">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                                <action id="1" name="Append text" sid="937828064349093" type="writtenStory">
+                                    <param id="0" name="Text">txtPunc.Text</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="528064854095646" type="txtPunc">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="349599643953818" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="241845677385831" type="System">
+                                    <param id="0" name="Variable">space</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="121463000312893">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="863986586029345" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set font size" sid="932258327627828" type="txtPunc">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="132763426505785" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="368398426059587" type="txtPunc">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block disabled="1" sid="999070707582397">
+                    <conditions>
+                        <condition behavior="DragDrop" id="0" name="Is dragging" sid="212030088359968" type="letTxt" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="907029622149838" type="System">
+                            <param id="0" name="Variable">tempFontSz</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="278909407889799" type="letTxt">
+                            <param id="0" name="Size (pt)">tempFontSz</param>
+                        </action>
+                        <action id="-6" name="Set height" sid="338133260231660" type="letTxt">
+                            <param id="0" name="Height">tempFontSz</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="811684282471356">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="653057528181836" type="Touch">
+                            <param id="0" name="Object">erase</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="519033092140475" type="writtenStory">
+                            <param id="0" name="Text">left(writtenStory.Text , len(writtenStory.Text)-1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="935113870286136">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="801922537586950" type="Touch">
+                            <param id="0" name="Object">spacing</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="596677011838924" type="System">
+                            <param id="0" name="Variable">space</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="157244475272648" type="writtenStory">
+                            <param id="0" name="Text">&quot; &quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="559266096169660" type="System">
+                            <param id="0" name="Variable">space</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="345295068688464">
+                    <conditions>
+                        <condition id="18" name="On double-tap object" sid="801874659482617" type="Touch">
+                            <param id="0" name="Object">letTxt</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="691187203367167" type="writtenStory">
+                            <param id="0" name="Text">letTxt.Text</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="368487411252494" type="System">
+                            <param id="0" name="Variable">space</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="489985197240153">
+                    <conditions>
+                        <condition id="18" name="On double-tap object" sid="981958435228341" type="Touch">
+                            <param id="0" name="Object">txtPunc</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="543774583787187" type="writtenStory">
+                            <param id="0" name="Text">txtPunc.Text</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="842749845587292" type="System">
+                            <param id="0" name="Variable">space</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block any="1" sid="543710958532452">
+            <conditions>
+                <condition id="0" name="On clicked" sid="832432531138917" type="saveStory" />
+            </conditions>
+            <actions>
+                <action id="0" name="Track Event" sid="898180224149505" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;Channel&quot;</param>
+                    <param id="1" name="Name">globalAction &amp;&quot;: كتبت قصة&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="669134136629577">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="221830276135396" type="System">
+                            <param id="0" name="First value">len(writtenStory.Text)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">5</param>
+                        </condition>
+                        <condition disabled="1" id="7" name="Compare size" sid="620119534746982" type="writtenStoryArr">
+                            <param id="0" name="Axis">0</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="416156001855018" type="System">
+                            <param id="0" name="First value">tokencount(writtenStory.Text , &quot; &quot;)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="232891882323189" type="Function">
+                            <param id="0" name="Name">&quot;createStSc&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="616324249993881">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="920709881979467" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="185868199111930" type="warn">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="752994398126763" type="warn">
+                            <param id="0" name="Text">&quot;لا يتم حفظ القصة بدون كلمات هيا نكتب قصةَ&quot;</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="417153236750323" type="warn">
+                            <param id="0" name="X">14</param>
+                            <param id="1" name="Y">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="661988299338536">
+            <conditions>
+                <condition id="0" name="On clicked" sid="785380889166950" type="saveStory2" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="979117632031119" type="System">
+                    <param id="0" name="Variable">surpriseDone</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="633973232716260">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="108543163319442" type="System">
+                    <param id="0" name="Variable">surpriseDone</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="427226331156644" type="System" />
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="106301892373107" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
+                <action id="5" name="Push" sid="712106745158545" type="finishedExercises">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">globalAction</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="480557730051954" type="System">
+                    <param id="0" name="Variable">globalScore</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Set value" sid="561325435594911" type="System">
+                    <param id="0" name="Variable">keyBoard</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="833148121806657" type="System">
+                    <param id="0" name="Variable">surpriseTime</param>
+                    <param id="1" name="Value">int(timer)</param>
+                </action>
+                <action id="0" name="Call function" sid="973821139036796" type="Function">
+                    <param id="0" name="Name">&quot;date_fun&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="788799545672712" type="System">
+                    <param id="0" name="Variable">log_data</param>
+                    <param id="1" name="Value">&quot;:&quot; &amp; clock  &amp; &quot;,&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="540892197676865" type="Function">
+                    <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="841322440462228">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="744115803997894" type="System">
+                            <param id="0" name="Variable">user_type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;hstudent&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="187598194917009" type="System">
+                            <param id="0" name="Variable">log_data2</param>
+                            <param id="1" name="Value">&quot;lesson No.:&quot;&amp;moeLessonIndex &amp; &quot;,Surprise: surpriseDone,&quot; &amp; &quot;Letter:&quot;&amp;surLetter &amp;&quot;,Story:&quot; &amp; writtenStory.Text &amp; &quot;,Time:&quot; &amp;int(timer)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="776658863063605">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="198515259522090" type="System">
+                            <param id="0" name="Variable">user_type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;student&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="284360944596288" type="System">
+                            <param id="0" name="Variable">log_data2</param>
+                            <param id="1" name="Value">&quot;lesson No.:&quot;&amp;numberOfLessons &amp; &quot;,Surprise: surpriseDone,&quot; &amp; &quot;Letter:&quot;&amp;surLetter &amp;&quot;,Story:&quot; &amp; writtenStory.Text &amp; &quot;,Time:&quot; &amp;int(timer)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="339707891102523">
+                    <conditions />
+                    <actions>
+                        <action disabled="1" id="0" name="Alert" sid="848116870051732" type="Browser">
+                            <param id="0" name="Message">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/stdProgressNew2.php?name=&quot;&amp;std_id&amp;&quot;_progress.csv&amp;logs=&quot;&amp;log_data2</param>
+                        </action>
+                        <action id="0" name="Request URL" sid="467535564961239" type="AJAX">
+                            <param id="0" name="Tag">&quot;post data&quot;</param>
+                            <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/stdProgressNew2.php?name=&quot;&amp;std_id&amp;&quot;_progress.csv&amp;logs=&quot;&amp;log_data2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="541996970564441">
+            <conditions>
+                <condition id="0" name="On completed" sid="778800199510226" type="AJAX">
+                    <param id="0" name="Tag">&quot;post data&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="473558178783973" type="writtenStory">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="577128444221559" type="System">
+                    <param id="0" name="Layout">loading</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="209916114210554">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="844372039745030" type="System">
+                    <param id="0" name="Variable">Lang</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;En&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="571259751180055" type="storyWrite">
+                    <param id="0" name="Text">&quot;Write down a story&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="377844163247846" type="startRecord">
+                    <param id="0" name="Text">&quot;Start&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="368550378467980" type="writeSurTxt">
+                    <param id="0" name="Text">&quot;Save&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="406653428276754" type="shareTxt">
+                    <param id="0" name="Text">&quot;Edit&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="762410791380087">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="411747920330246" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="936010225059018" type="System">
+                    <param id="0" name="Variable">openCurtain</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="635902014691020">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="542483524727410" type="System">
+                    <param id="0" name="First value">len(writtenStory.Text)</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="104145696851419" type="System">
+                    <param id="0" name="Variable">writStoryText</param>
+                    <param id="1" name="Value">writtenStory.Text</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="385802381128728">
+            <conditions>
+                <condition id="-22" name="Else" sid="454880729957066" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="752646868859827" type="System">
+                    <param id="0" name="Variable">writStoryText</param>
+                    <param id="1" name="Value">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="195991526269985">
+            <conditions>
+                <condition id="0" name="On function" sid="201735221601715" type="Function">
+                    <param id="0" name="Name">&quot;startTyping&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="978088041497991" type="writeSur">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="288860412973692" type="linestory">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="780835517618131" type="listen">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="309102354441853" type="listenTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="614885847796838" type="readBtn">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="214932210881858" type="startRecord">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="132231232271558" type="drag">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="354048039114541" type="grass2">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="642617839496906" type="bookBg">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-2" name="Set Y" sid="567863687615248" type="writeSur">
+                    <param id="0" name="Y">550</param>
+                </action>
+                <action id="-2" name="Set Y" sid="759704219768322" type="writeSurTxt">
+                    <param id="0" name="Y">550</param>
+                </action>
+                <action id="-2" name="Set Y" sid="877536907390121" type="listen">
+                    <param id="0" name="Y">650</param>
+                </action>
+                <action id="-2" name="Set Y" sid="434515747610358" type="listenTxt">
+                    <param id="0" name="Y">650</param>
+                </action>
+                <action id="-5" name="Set width" sid="936321189429986" type="listenTxt">
+                    <param id="0" name="Width">450</param>
+                </action>
+                <action id="0" name="Set text" sid="873963995674776" type="writeSurTxt">
+                    <param id="0" name="Text">&quot;حفظ&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="545758652686868" type="System">
+                    <param id="0" name="Variable">action</param>
+                    <param id="1" name="Value">&quot;writing&quot;</param>
+                </action>
+                <action id="-15" name="Set visible" sid="530343557003406" type="Sprite13">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="323665123992078" type="share">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="209890017519124" type="shareTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="125036871427129" type="writeSurTxt">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="678016806412085" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">1150</param>
+                </action>
+                <action id="-9" name="Set value" sid="520649506848731" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">570</param>
+                </action>
+                <action id="-15" name="Set visible" sid="495641098659342" type="letter">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="366452885968991" type="storyWrite">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="135612120178160" type="objectText1">
+                    <param id="0" name="X">1650</param>
+                    <param id="1" name="Y">250</param>
+                </action>
+                <action id="-3" name="Set position" sid="311467895172080" type="objectText2">
+                    <param id="0" name="X">1650</param>
+                    <param id="1" name="Y">350</param>
+                </action>
+                <action id="-3" name="Set position" sid="402411726138511" type="objectText3">
+                    <param id="0" name="X">1650</param>
+                    <param id="1" name="Y">450</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="468258522758587" type="saveStory">
+                    <param id="0" name="Property name">&quot;font-size&quot;</param>
+                    <param id="1" name="Value">&quot;1.5em&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="351506277692422" type="saveStory">
+                    <param id="0" name="Property name">&quot;font-family&quot;</param>
+                    <param id="1" name="Value">&quot;Microsoft Uighur&quot;</param>
+                </action>
+                <action id="2" name="Set visible" sid="373160675918167" type="saveStory">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="111674070267628">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="604829226202271" type="System">
+                            <param id="0" name="Variable">keyBoard</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition disabled="1" id="0" name="Compare text" sid="567780739671818" type="listenTxt">
+                            <param id="0" name="Text to compare">&quot;إظهار لوحة المفاتيح&quot;</param>
+                            <param id="1" name="Case sensitivity">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="537048196421972" type="warn">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="807588107785648" type="writeSur">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="353422765329945" type="writeSurTxt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action behavior="DragDrop" id="0" name="Set enabled" sid="201365090203036" type="letTxt">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="911707161158061" type="Function">
+                            <param id="0" name="Name">&quot;createKeyBoard&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="685039900574855">
+            <conditions>
+                <condition id="0" name="On function" sid="530923001849142" type="Function">
+                    <param id="0" name="Name">&quot;createStSc&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="504805862104949" type="System">
+                    <param id="0" name="Group name">&quot;Typing&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action behavior="DragDrop" id="0" name="Set enabled" sid="126241497957562" type="letTxt">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="400816668622745" type="System">
+                    <param id="0" name="Time scale">0.0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="237633311662869" type="letTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="203285248754979" type="txtPunc">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="134288632242945" type="spaceTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="752407168350114" type="spacing">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="442507014105339" type="erase">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="940426572958139" type="lettCircle">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="299314110642048" type="drag">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="538018230931943" type="grass2">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="402893376911413" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">1150</param>
+                </action>
+                <action id="-9" name="Set value" sid="156229924712095" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">680</param>
+                </action>
+                <action id="-15" name="Set visible" sid="790916199739955" type="bookBg">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action disabled="1" id="-1" name="Set X" sid="984994131126558" type="linestory">
+                    <param id="0" name="X">900</param>
+                </action>
+                <action id="-9" name="Set value" sid="382186856913927" type="System">
+                    <param id="0" name="Variable">activeAreaWidth</param>
+                    <param id="1" name="Value">600</param>
+                </action>
+                <action id="-9" name="Set value" sid="940315979695648" type="System">
+                    <param id="0" name="Variable">activeAreaHeight</param>
+                    <param id="1" name="Value">880</param>
+                </action>
+                <action id="-9" name="Set value" sid="561822845949846" type="System">
+                    <param id="0" name="Variable">action</param>
+                    <param id="1" name="Value">&quot;reading&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="576778482857076" type="System">
+                    <param id="0" name="Variable">storySpacing</param>
+                    <param id="1" name="Value">tokencount( writtenStory.Text , &quot; &quot;)</param>
+                </action>
+                <action id="-15" name="Set visible" sid="198898513800368" type="Sprite13">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action disabled="1" id="-5" name="Set width" sid="429037231601292" type="linestory">
+                    <param id="0" name="Width">700</param>
+                </action>
+                <action id="-5" name="Set width" sid="853317619044594" type="writtenStory">
+                    <param id="0" name="Width">700</param>
+                </action>
+                <action id="0" name="Set text" sid="625091044833828" type="shareTxt">
+                    <param id="0" name="Text">&quot;تعديل&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="862069682980590" type="tempStoryVar">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-15" name="Set visible" sid="295158683333258" type="writeSur">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="876363350029106" type="writeSurTxt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="645312216322621" type="lettCircle" />
+                <action id="-3" name="Set position" sid="516406317523974" type="saveStory2">
+                    <param id="0" name="X">1550</param>
+                    <param id="1" name="Y">500</param>
+                </action>
+                <action id="-15" name="Set visible" sid="962640388319977" type="linestory">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="382081727383358" type="writtenStory">
+                    <param id="0" name="X">900</param>
+                    <param id="1" name="Y">360</param>
+                </action>
+                <action id="2" name="Set visible" sid="522105023752888" type="editStory">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="624042785602288" type="editStory">
+                    <param id="0" name="X">1550</param>
+                    <param id="1" name="Y">600</param>
+                </action>
+                <action id="-3" name="Set position" sid="686151970698549" type="saveStory">
+                    <param id="0" name="X">-1000</param>
+                    <param id="1" name="Y">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="789498466303216" type="saveImage">
+                    <param id="0" name="X">1550</param>
+                    <param id="1" name="Y">700</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="196729605734298">
+            <conditions>
+                <condition id="0" name="On clicked" sid="289634669658373" type="editStory" />
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="178090814447891" type="System">
+                    <param id="0" name="Group name">&quot;Typing&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="761568043275276" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="367823205757838" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">1150</param>
+                </action>
+                <action id="-9" name="Set value" sid="483673816265550" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">570</param>
+                </action>
+                <action id="-15" name="Set visible" sid="800682637731177" type="warn">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="550537671752350" type="System">
+                    <param id="0" name="Variable">keyBoard</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Call function" sid="568959044258782" type="Function">
+                    <param id="0" name="Name">&quot;startTyping&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-3" name="Set position" sid="560687038346122" type="saveStory">
+                    <param id="0" name="X">20</param>
+                    <param id="1" name="Y">475</param>
+                </action>
+                <action id="-3" name="Set position" sid="237658124932529" type="saveStory2">
+                    <param id="0" name="X">-1000</param>
+                    <param id="1" name="Y">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="423450631542567" type="System">
+                    <param id="0" name="Group name">&quot;Typing&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action behavior="DragDrop" id="0" name="Set enabled" sid="815731251222739" type="letTxt">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="2" name="Set visible" sid="112513185948442" type="editStory">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="801577515490355">
+            <conditions>
+                <condition id="0" name="On clicked" sid="648760420411627" type="saveImage" />
+            </conditions>
+            <actions>
+                <action id="-27" name="Snapshot canvas" sid="162603172195930" type="System">
+                    <param id="0" name="Format">0</param>
+                    <param id="1" name="JPEG quality">75</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="337440254663320">
+            <conditions>
+                <condition id="-26" name="On canvas snapshot" sid="361158957378318" type="System" />
+            </conditions>
+            <actions>
+                <action id="13" name="Invoke download" sid="708243712185061" type="Browser">
+                    <param id="0" name="URL">CanvasSnapshot</param>
+                    <param id="1" name="Filename">&quot;قصة درس &quot; &amp; currLesson</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="531782332435062">
+            <conditions>
+                <condition id="-20" name="Is on mobile device" sid="367634916613333" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set CSS style" sid="297078695173601" type="surpriseBtns">
+                    <param id="0" name="Property name">&quot;font-size&quot;</param>
+                    <param id="1" name="Value">&quot;0.85em&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

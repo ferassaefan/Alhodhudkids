@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sessions</name>
+    <events>
+        <event-block sid="503102651919390">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="225772256042432" type="System">
+                    <param id="0" name="Interval (seconds)">5.0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="291188877103830" type="System">
+                    <param id="0" name="Variable">valid_no</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Request URL" sid="334146151094829" type="AJAX">
+                    <param id="0" name="Tag">&quot;getUserSession&quot;</param>
+                    <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/flash_controller3_jmoe.php?data=operation_type:gtusrsess;user_id:&quot;&amp;std_id</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="361286793061636">
+            <conditions>
+                <condition id="0" name="On completed" sid="903053791137277" type="AJAX">
+                    <param id="0" name="Tag">&quot;getUserSession&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="141282401648083" type="System">
+                    <param id="0" name="Variable">session_Id</param>
+                    <param id="1" name="Value">tokenat(tokenat(AJAX.LastData , 5, &quot;;&quot;), 1 , &quot;:&quot;)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="491753897344576">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="728180618928533" type="System">
+                            <param id="0" name="First value">tokenat(tokenat(AJAx.LastData,2,&quot;;&quot;),1,&quot;:&quot;)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;success&quot;</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="129923233318591" type="System">
+                            <param id="0" name="First value">tokenat(tokenat(AJAX.LastData , 5, &quot;;&quot;), 1 , &quot;:&quot;)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="14" name="Log" sid="957054446414344" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">sessioStore</param>
+                        </action>
+                        <action disabled="1" id="14" name="Log" sid="377590657944194" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">session_Id</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="143658174864002">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="568572478696517" type="System">
+                                    <param id="0" name="Variable">sessioStore</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">session_Id</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="601130230784521" type="System">
+                                    <param id="0" name="Variable">returnLogin</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="488007221306459" type="System">
+                                    <param id="0" name="Layout">login_jmoe</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

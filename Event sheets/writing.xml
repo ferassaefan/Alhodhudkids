@@ -1,0 +1,960 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>writing</name>
+    <events>
+        <variable constant="0" name="charIndex" sid="143638600738121" static="0" type="number">0</variable>
+        <variable constant="0" name="writingChar" sid="508877794538390" static="0" type="text"></variable>
+        <variable constant="0" name="globalChar" sid="182206146780451" static="0" type="text"></variable>
+        <variable constant="0" name="puncCount" sid="788336143362183" static="0" type="number">0</variable>
+        <variable constant="0" name="writingCorrect" sid="389504258840639" static="0" type="number">0</variable>
+        <variable constant="0" name="writingCorrecter" sid="922072881333925" static="0" type="number">0</variable>
+        <variable constant="0" name="prevOrigSen" sid="863424187033877" static="0" type="text"></variable>
+        <variable constant="0" name="prevWrittenSen" sid="524014687786161" static="0" type="text"></variable>
+        <variable constant="0" name="writingTime" sid="960157610510342" static="0" type="number">0</variable>
+        <variable constant="0" name="localSoundF" sid="794151171199871" static="0" type="number">0</variable>
+        <variable constant="0" name="scaleNumber" sid="659634986839547" static="0" type="number">1</variable>
+        <include>logs</include>
+        <include>globalSheet</include>
+        <event-block sid="830099702816148">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="845909660755624" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="103435062630570" type="System">
+                    <param id="0" name="Variable">globalAction</param>
+                    <param id="1" name="Value">&quot;كِتابَتي الْمُبْدِعَةِ&quot;</param>
+                </action>
+                <action id="5" name="Set frame" sid="588767033816930" type="cat">
+                    <param id="0" name="Frame number">2</param>
+                </action>
+                <action id="0" name="Set text" sid="879797922962969" type="questionsNumber">
+                    <param id="0" name="Text">&quot;1/1&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="258523395158565" type="tasks">
+                    <param id="0" name="Text">&quot;مهمة&quot; </param>
+                </action>
+                <action id="-9" name="Set value" sid="852869059816702" type="System">
+                    <param id="0" name="Variable">xInitial</param>
+                    <param id="1" name="Value">1700</param>
+                </action>
+                <action id="-9" name="Set value" sid="625342053912702" type="System">
+                    <param id="0" name="Variable">yInitial</param>
+                    <param id="1" name="Value">485</param>
+                </action>
+                <action id="0" name="Call function" sid="778605469034663" type="Function">
+                    <param id="0" name="Name">&quot;createKeyBoard&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="5" name="Set frame" sid="599016029116768" type="bucket">
+                    <param id="0" name="Frame number">3</param>
+                </action>
+                <action behavior="DragDrop" id="0" name="Set enabled" sid="687534421500048" type="letTxt">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="4" name="Set font color" sid="372133921754376" type="letTxt">
+                    <param id="0" name="Color">rgb(255, 102, 0)</param>
+                </action>
+                <action id="0" name="Set text" sid="858421538611888" type="memoryScoreTxt">
+                    <param id="0" name="Text">globalScore </param>
+                </action>
+                <action id="2" name="Set font face" sid="329839537668643" type="Texts">
+                    <param id="0" name="Font face">&quot;Microsoft Uighur&quot;</param>
+                    <param id="1" name="Style">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="491465974273263" type="System">
+                    <param id="0" name="Variable">puncCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="1" name="Append text" sid="938336984227625" type="sessionData">
+                    <param id="0" name="Text">&quot;_C&quot;&amp;LayoutId</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="randomSoundNo" sid="449233584425414" static="0" type="number">0</variable>
+                <variable constant="0" name="localRandom" sid="938009232288832" static="0" type="number">-1</variable>
+                <event-block sid="925990611033513">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="851772719862838" type="System">
+                            <param id="0" name="Variable">localRandom</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-9" name="Set value" sid="815573083695594" type="System">
+                            <param id="0" name="Variable">localRandom</param>
+                            <param id="1" name="Value">round(random(0,1))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="771759869274524" type="System">
+                            <param id="0" name="Variable">localRandom</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="382679399133553">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="735042798783041" type="System">
+                                    <param id="0" name="Variable">localRandom</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="463567920198182" type="Ask">
+                                    <param id="0" name="Text">&quot;اكْتُبِ الْجُمْلَةَ الّتي تَراها&quot;</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="790597287628182" type="sound1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="849775457830956" type="originalSen">
+                                    <param id="0" name="Text">trim(textExercise.At(random(textExercise.Width)))</param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="456806481765403" type="Function">
+                                    <param id="0" name="Name">&quot;countPunc&quot;</param>
+                                    <param id="1" name="Parameter {n}">originalSen.Text</param>
+                                </action>
+                                <action id="0" name="Call function" sid="295416215203644" type="Function">
+                                    <param id="0" name="Name">&quot;updatCharIndex&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="310343201176121">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="292972928593606" type="System">
+                                            <param id="0" name="Variable">Lang</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;En&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="827837518301725" type="Ask">
+                                            <param id="0" name="Text">&quot;Rewrite the following sentence&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="499320695240621">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="962684200284364" type="System">
+                                    <param id="0" name="Variable">localRandom</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="677511901554081" type="Ask">
+                                    <param id="0" name="Text">&quot;اكتب الجملة التي تسمعها &quot;</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="745162209809558" type="sound1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="577891266429610" type="originalSen">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="370991620412887" type="System">
+                                    <param id="0" name="Variable">randomSoundNo</param>
+                                    <param id="1" name="Value">random(WritingSoundsTexts.Width)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="488726767205137" type="System">
+                                    <param id="0" name="Variable">localSoundF</param>
+                                    <param id="1" name="Value">tokenat(WritingSoundsTexts.At(randomSoundNo) , 1 , &quot;,&quot;)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="797724517615114" type="originalSen">
+                                    <param id="0" name="Text">tokenat(WritingSoundsTexts.At(randomSoundNo) , 0 , &quot;,&quot;)</param>
+                                </action>
+                                <action id="14" name="Log" sid="931246929646797" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">originalSen.Text &amp; &quot; &quot; &amp; len(originalSen.Text)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="812917477568794">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="383400675777624" type="System">
+                                            <param id="0" name="Variable">Lang</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;En&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="847376339088407" type="Ask">
+                                            <param id="0" name="Text">&quot;Write the sentence you hear&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="115748487012568">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="100468784018756" type="System">
+                            <param id="0" name="Variable">loginLogs</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="948300233285595" type="Function">
+                            <param id="0" name="Name">&quot;date_fun&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="245033373172778" type="System">
+                            <param id="0" name="Variable">log_data</param>
+                            <param id="1" name="Value">&quot;;login,&quot;&amp;fullyear&amp;&quot;,&quot;&amp;clock &amp; &quot;,&quot;&amp; currLesson</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="371974720414975" type="System">
+                            <param id="0" name="Variable">log_data4</param>
+                            <param id="1" name="Value">&quot;;login,&quot;&amp;fullyear&amp;&quot;,&quot;&amp;clock &amp; &quot;,&quot;&amp; currLesson</param>
+                        </action>
+                        <action id="0" name="Call function" sid="154269889467291" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="723063918694730" type="System">
+                            <param id="0" name="Variable">loginLogs</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="481833379518419" type="System">
+                            <param id="0" name="Variable">log_data</param>
+                            <param id="1" name="Value">&quot;:C:4:&quot; &amp; clock </param>
+                        </action>
+                        <action id="0" name="Call function" sid="576355660819319" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="413224403313715" type="System">
+                            <param id="0" name="Variable">log_data4</param>
+                            <param id="1" name="Value">&quot;_C&quot;&amp;LayoutId</param>
+                        </action>
+                        <action id="0" name="Call function" sid="899588479541491" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs2&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="150321588413661">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="690255823289915" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="497958852256308" type="Function">
+                            <param id="0" name="Name">&quot;date_fun&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="948614511250066" type="System">
+                            <param id="0" name="Variable">log_data</param>
+                            <param id="1" name="Value">&quot;:C:4:&quot; &amp; clock </param>
+                        </action>
+                        <action id="0" name="Call function" sid="372171266832374" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="255976858097128" type="System">
+                            <param id="0" name="Variable">log_data4</param>
+                            <param id="1" name="Value">&quot;_C&quot;&amp;LayoutId</param>
+                        </action>
+                        <action id="0" name="Call function" sid="145397085783580" type="Function">
+                            <param id="0" name="Name">&quot;upload_logs2&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="810438153263384" title="Typing2">
+            <sub-events>
+                <event-block sid="481189018558624">
+                    <conditions>
+                        <condition behavior="DragDrop" id="1" name="On drag start" sid="226308036616233" type="letTxt" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="216470127691047" type="System">
+                            <param id="0" name="Variable">hitX</param>
+                            <param id="1" name="Value">letTxt.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="600020808722786" type="System">
+                            <param id="0" name="Variable">hitY</param>
+                            <param id="1" name="Value">letTxt.Y</param>
+                        </action>
+                        <action id="0" name="Set cursor style" sid="181241133098749" type="Mouse">
+                            <param id="0" name="Cursor style">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="827758881935160">
+                    <conditions>
+                        <condition behavior="DragDrop" id="1" name="On drag start" sid="457332145854808" type="txtPunc" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="888521174919052" type="System">
+                            <param id="0" name="Variable">hitX</param>
+                            <param id="1" name="Value">txtPunc.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="720633886584766" type="System">
+                            <param id="0" name="Variable">hitY</param>
+                            <param id="1" name="Value">txtPunc.Y</param>
+                        </action>
+                        <action id="0" name="Set cursor style" sid="480637617460094" type="Mouse">
+                            <param id="0" name="Cursor style">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="509381636615991">
+                    <conditions>
+                        <condition id="18" name="On double-tap object" sid="239350333418081" type="Touch">
+                            <param id="0" name="Object">letTxt</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="511390054029845" type="System">
+                            <param id="0" name="Variable">writingChar</param>
+                            <param id="1" name="Value">letTxt.Text</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="265550270713141" type="warn">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="230691507949288" type="letTxt">
+                            <param id="0" name="X">hitX</param>
+                            <param id="1" name="Y">hitY</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="964985346463846" type="letTxt">
+                            <param id="0" name="Size (pt)">42</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="516947847885967" type="System">
+                            <param id="0" name="Variable">tempFontSz</param>
+                            <param id="1" name="Value">42</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="997932607553838" type="System">
+                            <param id="0" name="Variable">space</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Set cursor style" sid="515201297455561" type="Mouse">
+                            <param id="0" name="Cursor style">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="469595924685136" type="Function">
+                            <param id="0" name="Name">&quot;charSpell&quot;</param>
+                            <param id="1" name="Parameter {n}">writingChar</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="104897818732917">
+                    <conditions>
+                        <condition id="18" name="On double-tap object" sid="947749840390248" type="Touch">
+                            <param id="0" name="Object">txtPunc</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="940039750664799" type="System">
+                            <param id="0" name="Variable">writingChar</param>
+                            <param id="1" name="Value">txtPunc.text</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="127467772792157" type="txtPunc">
+                            <param id="0" name="X">hitX</param>
+                            <param id="1" name="Y">hitY</param>
+                        </action>
+                        <action id="3" name="Set font size" sid="746159641079560" type="txtPunc">
+                            <param id="0" name="Size (pt)">42</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="926705208958128" type="System">
+                            <param id="0" name="Variable">tempFontSz</param>
+                            <param id="1" name="Value">42</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="657538971449576" type="System">
+                            <param id="0" name="Variable">space</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Set cursor style" sid="394334150137217" type="Mouse">
+                            <param id="0" name="Cursor style">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="985411392628274" type="Function">
+                            <param id="0" name="Name">&quot;charSpell&quot;</param>
+                            <param id="1" name="Parameter {n}">writingChar</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="947728808248599">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="814453537553364" type="letTxt" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="223008233291433">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="234955306548828" type="letTxt">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">150</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="827754634704881" type="letTxt">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">400</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="995576150670897" type="letTxt">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">750</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="200156271441809" type="letTxt">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">1800</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="457057118051038" type="System">
+                                    <param id="0" name="Variable">writingChar</param>
+                                    <param id="1" name="Value">letTxt.Text</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="424578033110042" type="warn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="242527207086999" type="letTxt">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="545307042703019" type="letTxt">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="446147699189620" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="174945636859626" type="System">
+                                    <param id="0" name="Variable">space</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Set cursor style" sid="484279099173457" type="Mouse">
+                                    <param id="0" name="Cursor style">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="660120261804754" type="Function">
+                                    <param id="0" name="Name">&quot;charSpell&quot;</param>
+                                    <param id="1" name="Parameter {n}">writingChar</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="724274819608334">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="549697658725122" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set font size" sid="659617247626951" type="letTxt">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="286682094215307" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="521585051903458" type="letTxt">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="370604618109194">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="711061051537993" type="txtPunc" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="911166417278800">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="420030924798255" type="txtPunc">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">150</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="750155805118066" type="txtPunc">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">400</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="568296795932716" type="txtPunc">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">750</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="338175962486246" type="txtPunc">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">1800</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="301707814662599" type="System">
+                                    <param id="0" name="Variable">writingChar</param>
+                                    <param id="1" name="Value">txtPunc.text</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="649493603492399" type="txtPunc">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="934251548183761" type="txtPunc">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="627260872023731" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="381650987257575" type="System">
+                                    <param id="0" name="Variable">space</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Set cursor style" sid="510479934595432" type="Mouse">
+                                    <param id="0" name="Cursor style">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="820950422825854" type="Function">
+                                    <param id="0" name="Name">&quot;charSpell&quot;</param>
+                                    <param id="1" name="Parameter {n}">writingChar</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="506888004601616">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="853722835846014" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set font size" sid="322223636933022" type="txtPunc">
+                                    <param id="0" name="Size (pt)">42</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="674276245754197" type="System">
+                                    <param id="0" name="Variable">tempFontSz</param>
+                                    <param id="1" name="Value">42</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="170413348704341" type="txtPunc">
+                                    <param id="0" name="X">hitX</param>
+                                    <param id="1" name="Y">hitY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="361491321443589">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="709841956272042" type="Touch">
+                            <param id="0" name="Object">erase</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="310064304016653" type="System">
+                            <param id="0" name="First value">randSentence.Text</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="626270801364018" type="randSentence">
+                            <param id="0" name="Text">left(randSentence.Text , len(randSentence.Text)-1)</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="759563513316089" type="System">
+                            <param id="0" name="Variable">charIndex</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="287852307540673" type="Function">
+                            <param id="0" name="Name">&quot;updatCharIndex&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="658898390128194">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="140614900376360" type="Touch">
+                            <param id="0" name="Object">spacing</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="392556434406121" type="System">
+                            <param id="0" name="Variable">space</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="778803108131217" type="System">
+                            <param id="0" name="Variable">writingChar</param>
+                            <param id="1" name="Value">&quot; &quot;</param>
+                        </action>
+                        <action id="0" name="Call function" sid="814816319996240" type="Function">
+                            <param id="0" name="Name">&quot;charSpell&quot;</param>
+                            <param id="1" name="Parameter {n}">writingChar</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="860734051145288">
+            <conditions>
+                <condition id="3" name="On touched object" sid="762737086902022" type="Touch">
+                    <param id="0" name="Object">sound1</param>
+                </condition>
+                <condition id="-9" name="Is visible" sid="527130812954853" type="sound1" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="242859045802337" type="Audio" />
+                <action id="7" name="Play (by name)" sid="299713536511971" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">str(localSoundF)</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="14" name="Log" sid="547112411809061" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">localSoundF</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="867146743219400">
+            <conditions>
+                <condition id="0" name="On function" sid="157187366376398" type="Function">
+                    <param id="0" name="Name">&quot;countPunc&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="611737839333256" type="System">
+                    <param id="0" name="Variable">puncCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block disabled="1" sid="254177773967382">
+                    <conditions>
+                        <condition id="-10" name="For" sid="604256912694269" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">len(originalSen.Text) -1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" disabled="1" sid="988628557690457">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="472638727135514" type="System">
+                                    <param id="0" name="First value">tokenat(Function.Param(0) , loopindex , &quot;&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;َ&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="456089785254917" type="System">
+                                    <param id="0" name="First value">tokenat(Function.Param(0) , loopindex , &quot;&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;ً&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="520547375323311" type="System">
+                                    <param id="0" name="First value">tokenat(Function.Param(0) , loopindex , &quot;&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;ُ&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="486981449786231" type="System">
+                                    <param id="0" name="First value">tokenat(Function.Param(0)  , loopindex , &quot;&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;ٌ&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="133879242148368" type="System">
+                                    <param id="0" name="First value">tokenat(Function.Param(0)  , loopindex , &quot;&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;ِ&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="980890067016930" type="System">
+                                    <param id="0" name="First value">tokenat(Function.Param(0)  , loopindex , &quot;&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;ٍ&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="832097913045220" type="System">
+                                    <param id="0" name="First value">tokenat(Function.Param(0)  , loopindex , &quot;&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;ْ&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="737077919552260" type="System">
+                                    <param id="0" name="Variable">puncCount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="333027908276833">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="974314466962823" type="Touch">
+                    <param id="0" name="Object">randSentence</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="577605377246798">
+            <conditions>
+                <condition behavior="LiteTween" id="4" name="On tween end" sid="660988509592664" type="letTxt" />
+            </conditions>
+            <actions>
+                <action behavior="LiteTween" id="10" name="Start" sid="211277753482550" type="originalSen">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="168983220383193">
+            <conditions>
+                <condition id="0" name="On function" sid="200878296006415" type="Function">
+                    <param id="0" name="Name">&quot;updatCharIndex&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="275565714383260" type="System">
+                    <param id="0" name="Variable">globalChar</param>
+                    <param id="1" name="Value">tokenat(originalSen.Text , charIndex , &quot;&quot;)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="275999159487807">
+            <conditions>
+                <condition id="0" name="On function" sid="680269209693015" type="Function">
+                    <param id="0" name="Name">&quot;charSpell&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Alert" sid="679423011281240" type="Browser">
+                    <param id="0" name="Message">globalChar</param>
+                </action>
+                <action disabled="1" id="0" name="Alert" sid="432441445922867" type="Browser">
+                    <param id="0" name="Message">writingChar</param>
+                </action>
+                <action id="0" name="Track Event" sid="556841971691451" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;Channel&quot;</param>
+                    <param id="1" name="Name">globalAction</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="387429792693437">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="232257763278306" type="System">
+                            <param id="0" name="Variable">globalChar</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">writingChar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="262782396204727" type="randSentence">
+                            <param id="0" name="Text">Function.Param(0)</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="277816167223609" type="Audio" />
+                        <action id="7" name="Play (by name)" sid="878592791035217" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">&quot;GreatJob&quot;&amp;round(random(1,5))</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="591157065367364" type="System">
+                            <param id="0" name="Variable">charIndex</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="808402044819064" type="Function">
+                            <param id="0" name="Name">&quot;updatCharIndex&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="754082812430721">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="684252801420115" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot; &quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="196256990145359" type="System">
+                                    <param id="0" name="Variable">space</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="998770035398774">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="580182332484834" type="System">
+                                    <param id="0" name="First value">len(originalSen.Text)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">len(randSentence.Text)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="351078246915025" type="System">
+                                    <param id="0" name="Variable">writingTime</param>
+                                    <param id="1" name="Value">int(timer)</param>
+                                </action>
+                                <action id="0" name="Track Event" sid="909452115661469" type="GoogleAnalytics">
+                                    <param id="0" name="Category">&quot;Channel&quot;</param>
+                                    <param id="1" name="Name">globalAction &amp;&quot;: كتبت جملة&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="560756437967051" type="Function">
+                                    <param id="0" name="Name">&quot;date_fun&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="334656973152349" type="System">
+                                    <param id="0" name="Variable">log_data</param>
+                                    <param id="1" name="Value">&quot;:&quot; &amp; clock  &amp; &quot;,&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="919336625048831" type="Function">
+                                    <param id="0" name="Name">&quot;upload_logs&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="706257293484576">
+                                    <conditions>
+                                        <condition id="-9" inverted="1" name="Is visible" sid="788595543408612" type="sound1" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="373935964765950">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="861562895480372" type="System">
+                                                    <param id="0" name="Variable">user_type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;hstudent&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="370757303222447" type="System">
+                                                    <param id="0" name="Variable">log_data2</param>
+                                                    <param id="1" name="Value">&quot;lesson No.:&quot;&amp;moeLessonIndex &amp; &quot;,Writing: writingDone ,&quot;&amp;&quot;original Sentence:&quot; &amp; originalSen.Text &amp;&quot;,written Sentence:&quot; &amp; randSentence.Text&amp; &quot;,Time:&quot; &amp; writingTime</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="371500027348401">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="228590098563699" type="System">
+                                                    <param id="0" name="Variable">user_type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;student&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="616366805011629" type="System">
+                                                    <param id="0" name="Variable">log_data2</param>
+                                                    <param id="1" name="Value">&quot;lesson No.:&quot;&amp;numberOfLessons &amp; &quot;,Writing: writingDone ,&quot;&amp;&quot;original Sentence:&quot; &amp; originalSen.Text &amp;&quot;,written Sentence:&quot; &amp; randSentence.Text&amp; &quot;,Time:&quot; &amp; writingTime</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="310804886365857">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="325015090765600" type="System" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="602098798617615">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="649536097293489" type="System">
+                                                    <param id="0" name="Variable">user_type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;hstudent&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="580230536258459" type="System">
+                                                    <param id="0" name="Variable">log_data2</param>
+                                                    <param id="1" name="Value">&quot;lesson No.:&quot;&amp;moeLessonIndex &amp; &quot;,Writing: writingDone ,&quot;&amp;&quot;original Sentence:&quot; &amp;  str(localSoundF)&amp; &quot;.ogg&quot;&amp;&quot;,written Sentence:&quot; &amp; randSentence.Text&amp; &quot;,Time:&quot; &amp; writingTime&#x0D;&#x0A;&#x0D;&#x0A;&#x0D;&#x0A;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="844606646217629">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="707883512562060" type="System">
+                                                    <param id="0" name="Variable">user_type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;student&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="286604591119177" type="System">
+                                                    <param id="0" name="Variable">log_data2</param>
+                                                    <param id="1" name="Value">&quot;lesson No.:&quot;&amp;numberOfLessons &amp; &quot;,Writing: writingDone ,&quot;&amp;&quot;original Sentence:&quot; &amp;  str(localSoundF)&amp; &quot;.ogg&quot;&amp;&quot;,written Sentence:&quot; &amp; randSentence.Text&amp; &quot;,Time:&quot; &amp; writingTime&#x0D;&#x0A;&#x0D;&#x0A;&#x0D;&#x0A;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="731496826796686">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Request URL" sid="392043319560534" type="AJAX">
+                                            <param id="0" name="Tag">&quot;post data&quot;</param>
+                                            <param id="1" name="URL">&quot;https://alhodhudkids.com/alhodhud_webservice/data/uploads/STD_logs/new/stdProgressNew2.php?name=&quot;&amp;std_id&amp;&quot;_progress.csv&amp;logs=&quot;&amp;log_data2</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="905476908665879" type="System">
+                                            <param id="0" name="Variable">globalScore</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="641415730154417" type="System">
+                                            <param id="0" name="Variable">writingDone</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="848258041809162">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="367378642301029" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Alert" sid="573403651899999" type="Browser">
+                            <param id="0" name="Message">globalChar</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="512721552396948" type="Audio" />
+                        <action id="0" name="Play" sid="273679174405931" type="Audio">
+                            <param id="0" name="Audio file">هيا ساعدوني</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="782859823720326">
+            <conditions>
+                <condition id="0" name="On completed" sid="289052581837477" type="AJAX">
+                    <param id="0" name="Tag">&quot;post data&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="266261160537719">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="415298841493583" type="System">
+                            <param id="0" name="Variable">writingDone</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="998003933597332">
+                            <conditions />
+                            <actions>
+                                <action id="5" name="Push" sid="380159902444272" type="finishedExercises">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">globalAction</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="261176335058967" type="System">
+                                    <param id="0" name="Layout">loading</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="716613348153449">
+            <conditions>
+                <condition id="0" name="On function" sid="371917622102986" type="Function">
+                    <param id="0" name="Name">&quot;typingFunction&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>

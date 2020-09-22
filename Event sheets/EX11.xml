@@ -1,0 +1,1961 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>EX11</name>
+    <events>
+        <variable constant="0" name="let_width2" sid="141284942808443" static="0" type="number">0</variable>
+        <variable constant="0" name="let_height2" sid="354042112804499" static="0" type="number">0</variable>
+        <variable constant="0" name="shape2" sid="459679951042778" static="0" type="number">1</variable>
+        <variable constant="0" name="enable2" sid="506666701294460" static="0" type="number">0</variable>
+        <variable constant="0" name="start2" sid="671163009682778" static="0" type="number">0</variable>
+        <include>menuEvents</include>
+        <include>sessions</include>
+        <event-block sid="895528658702764">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="284405979926914" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="687016582487342" type="System">
+                    <param id="0" name="Object to create">Video2</param>
+                    <param id="1" name="Layer">3</param>
+                    <param id="2" name="X">250</param>
+                    <param id="3" name="Y">150</param>
+                </action>
+                <action id="0" name="Set source" sid="247367633234566" type="Video2">
+                    <param id="0" name="WebM source">&quot;&quot;</param>
+                    <param id="1" name="Ogg Theora source">&quot;&quot;</param>
+                    <param id="2" name="H.264 source">&quot;https://alhodhudkids.com/let_vid/&quot;&amp;myLetter&amp;&quot;1&quot;&amp;shape&amp;&quot;.mp4&quot;</param>
+                </action>
+                <action id="-15" name="Set visible" sid="599962056078692" type="Video2">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="6" name="Play" sid="657946480247327" type="Video2" />
+                <action id="-9" name="Set value" sid="663971954512887" type="System">
+                    <param id="0" name="Variable">enable</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="423011245182132" type="System">
+                    <param id="0" name="Layer">4</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action behavior="Rotate" id="0" name="Set speed" sid="782234057570306" type="stars">
+                    <param id="0" name="Speed">0</param>
+                </action>
+                <action behavior="Sine" id="0" name="Set active" sid="192572215595352" type="stars">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="573249659949188" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">565</param>
+                </action>
+                <action id="-15" name="Set visible" sid="876616851722872" type="Sprite3">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="756170166878150" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="914352615075204" type="System">
+                    <param id="0" name="Layer">1</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="371108790398631" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Clear" sid="676061277481539" type="x_map" />
+                <action id="1" name="Set size" sid="452630768593950" type="x_map">
+                    <param id="0" name="Width">73</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="0" name="Clear" sid="938649117002683" type="y_map" />
+                <action id="1" name="Set size" sid="168541756606854" type="y_map">
+                    <param id="0" name="Width">73</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="227275137410056" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">myLetter&amp;&quot;_L1&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;done&quot;</param>
+                </action>
+                <action id="0" name="Clear" sid="258629212738722" type="let_path2" />
+                <action id="0" name="Set text" sid="762218282652957" type="memoryScoreTxt">
+                    <param id="0" name="Text">(shape-1)*10</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="781057683613380" type="System">
+                    <param id="0" name="Layer">4</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="0" name="Track Event" sid="947928817167337" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;app&quot;</param>
+                    <param id="1" name="Name">&quot;رسم الحروف&quot;</param>
+                </action>
+                <action id="1" name="Track Extended Event" sid="904624811528306" type="GoogleAnalytics">
+                    <param id="0" name="Category">&quot;app&quot;</param>
+                    <param id="1" name="Name">&quot;رسم الحروف&quot;</param>
+                    <param id="2" name="Label">&quot;level&quot;</param>
+                    <param id="3" name="Value">classID</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="376239234055943">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="519594841107391" type="System">
+                            <param id="0" name="Object">stars</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="449573100054886">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="879816800685077" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">shape-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="145657744916109" type="stars">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="942896811826648">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="960281118454327" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="330885614725850" type="stars">
+                                    <param id="0" name="Opacity">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="464952980243698">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="255907077176248" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">tokencount(write_Array.At(Letters.IndexOf(mainLetter)),&quot;;&quot;)-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="170608354025126" type="stars">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="566921380121545">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="702987916531532" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="535163183953068" type="stars">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="669008387304713">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="170410027266386" type="System">
+                            <param id="0" name="Variable">shape</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="965354762115897" type="let_path" />
+                        <action id="1" name="Set size" sid="596403221192948" type="let_path">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),0,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="281099100254076" type="crop_path1" />
+                        <action id="1" name="Set size" sid="254524043499198" type="crop_path1">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),1,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="345429178291204" type="crop_path2" />
+                        <action id="1" name="Set size" sid="363495729883067" type="crop_path2">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),2,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="696320909096281" type="crop_path3" />
+                        <action id="1" name="Set size" sid="219454041601383" type="crop_path3">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),3,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="150908145365871" type="crop_path4" />
+                        <action id="1" name="Set size" sid="826620622332046" type="crop_path4">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),4,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="742461786184958" type="crop_path5" />
+                        <action id="1" name="Set size" sid="817657734277746" type="crop_path5">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),5,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="497052390283919" type="crop_path6" />
+                        <action id="1" name="Set size" sid="925014533737434" type="crop_path6">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),6,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="842629714245108" type="crop_path7" />
+                        <action id="1" name="Set size" sid="147849567371186" type="crop_path7">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),7,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="778434554347026" type="crop_path8" />
+                        <action id="1" name="Set size" sid="421258909685090" type="crop_path8">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),8,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="340862632217279">
+                            <conditions>
+                                <condition id="-10" name="For" sid="647944643424541" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">let_path.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="569135463385971" type="let_path">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),0,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="497946798153785">
+                            <conditions>
+                                <condition id="-10" name="For" sid="201206303189376" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path1.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="616440383675881" type="crop_path1">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),1,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="708483218150665">
+                            <conditions>
+                                <condition id="-10" name="For" sid="404989495200875" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path2.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="582062365934753" type="crop_path2">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),2,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="526809449820179">
+                            <conditions>
+                                <condition id="-10" name="For" sid="448956021518320" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path3.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="279107409012979" type="crop_path3">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),3,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="411856211501712">
+                            <conditions>
+                                <condition id="-10" name="For" sid="717033445016483" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path4.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="463122350920184" type="crop_path4">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),4,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="698155813713084">
+                            <conditions>
+                                <condition id="-10" name="For" sid="103110935688009" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path5.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="413718049929424" type="crop_path5">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),5,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="826953848293580">
+                            <conditions>
+                                <condition id="-10" name="For" sid="397031017058217" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path6.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="541380623489944" type="crop_path6">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),6,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="759091785255082">
+                            <conditions>
+                                <condition id="-10" name="For" sid="714712719424117" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path7.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="336560637837632" type="crop_path7">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),7,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="924232110708220">
+                            <conditions>
+                                <condition id="-10" name="For" sid="397714429853285" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path8.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="220812709369785" type="crop_path8">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape,&quot;;&quot;),8,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="502415652281050">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="749271076554657" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Clear" sid="642197492075348" type="let_path" />
+                        <action id="1" name="Set size" sid="431861287968289" type="let_path">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),0,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="569822060814393" type="crop_path1" />
+                        <action id="1" name="Set size" sid="306521275411752" type="crop_path1">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),1,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="202027213380914" type="crop_path2" />
+                        <action id="1" name="Set size" sid="585151609272532" type="crop_path2">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),2,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="247025192957103" type="crop_path3" />
+                        <action id="1" name="Set size" sid="963199640096007" type="crop_path3">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),3,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="537012222893521" type="crop_path4" />
+                        <action id="1" name="Set size" sid="496473875465290" type="crop_path4">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),4,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="251369082801729" type="crop_path5" />
+                        <action id="1" name="Set size" sid="433672174122556" type="crop_path5">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),5,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="507474471508933" type="crop_path6" />
+                        <action id="1" name="Set size" sid="620383943941928" type="crop_path6">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),6,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="788549728772823" type="crop_path7" />
+                        <action id="1" name="Set size" sid="818006708191021" type="crop_path7">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),7,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                        <action id="0" name="Clear" sid="799630276323642" type="crop_path8" />
+                        <action id="1" name="Set size" sid="393026415385219" type="crop_path8">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),8,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="634060512565595">
+                            <conditions>
+                                <condition id="-10" name="For" sid="547208821848689" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">let_path.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="997570273466419" type="let_path">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),0,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="175121945948201">
+                            <conditions>
+                                <condition id="-10" name="For" sid="534420901603302" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path1.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="345334120308123" type="crop_path1">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),1,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="403092165194939">
+                            <conditions>
+                                <condition id="-10" name="For" sid="711973682803209" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path2.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="620845928044151" type="crop_path2">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),2,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="861393520216217">
+                            <conditions>
+                                <condition id="-10" name="For" sid="839330790578958" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path3.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="420188020759109" type="crop_path3">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),3,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="198247111259776">
+                            <conditions>
+                                <condition id="-10" name="For" sid="260701003039311" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path4.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="625102064374306" type="crop_path4">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),4,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="684688347741327">
+                            <conditions>
+                                <condition id="-10" name="For" sid="581490821671941" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path5.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="161263804538659" type="crop_path5">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),5,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="218595000000972">
+                            <conditions>
+                                <condition id="-10" name="For" sid="333120176518144" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path6.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="768443453705477" type="crop_path6">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),6,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="387475460584896">
+                            <conditions>
+                                <condition id="-10" name="For" sid="119578606126711" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path7.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="440118322489932" type="crop_path7">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),7,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="925329361150163">
+                            <conditions>
+                                <condition id="-10" name="For" sid="485564148559686" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">crop_path8.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="968532767341469" type="crop_path8">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)),1,&quot;;&quot;),8,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="552032613501247">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="411050261082821" type="System">
+                            <param id="0" name="Variable">y_val</param>
+                            <param id="1" name="Value">254</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="340172063536329" type="System">
+                            <param id="0" name="Variable">x_val</param>
+                            <param id="1" name="Value">1159.6</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="658277309724628">
+                            <conditions>
+                                <condition id="-10" name="For" sid="912204373510324" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">71</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="859011398305128" type="System">
+                                    <param id="0" name="Variable">x_val</param>
+                                    <param id="1" name="Value">x_val+17.4</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="455696307033233">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="147877503071210" type="System">
+                                            <param id="0" name="First value">let_path.IndexOf(loopindex)</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="602535712882160" type="System">
+                                            <param id="0" name="Object to create">block2</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">x_val</param>
+                                            <param id="3" name="Y">y_val</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block any="1" sid="888023350673469">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="175388982918185" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">8</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="418946948159057" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">17</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="984857055910977" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">26</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="991194350303501" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">35</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="671358878791654" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">44</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="898322457875240" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">53</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="118416934195194" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">62</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="739299063543994" type="System">
+                                            <param id="0" name="Variable">y_val</param>
+                                            <param id="1" name="Value">y_val+17.4</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="290027438213907" type="System">
+                                            <param id="0" name="Variable">x_val</param>
+                                            <param id="1" name="Value">1159.6</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="262615400744378">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="611789180543752" type="System">
+                            <param id="0" name="First value">shape+1</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">tokencount(write_Array.At(Letters.IndexOf(mainLetter)),&quot;;&quot;)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set size" sid="147075768243280" type="let_path2">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape+1,&quot;;&quot;),0,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="618291846379329">
+                            <conditions>
+                                <condition id="-10" name="For" sid="568077715929018" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">let_path2.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="416045827968555" type="let_path2">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),shape+1,&quot;;&quot;),0,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="940540271010717">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="534266786723802" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set size" sid="154609492871141" type="let_path2">
+                            <param id="0" name="Width">tokencount(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),1,&quot;;&quot;),0,&quot;_&quot;),&quot;,&quot;)</param>
+                            <param id="1" name="Height">1</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="387982336295201">
+                            <conditions>
+                                <condition id="-10" name="For" sid="964895005065888" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">let_path2.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="624569043921983" type="let_path2">
+                                    <param id="0" name="X">loopindex</param>
+                                    <param id="1" name="Value">int(tokenat(tokenat(tokenat(write_Array.At(Letters.IndexOf(mainLetter)+97),1,&quot;;&quot;),0,&quot;_&quot;),loopindex,&quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="458263949844078">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="454944037755578" type="System">
+                            <param id="0" name="Variable">y_val</param>
+                            <param id="1" name="Value">280</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="353348065188786" type="System">
+                            <param id="0" name="Variable">x_val</param>
+                            <param id="1" name="Value">1382.6</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="373276969443979">
+                            <conditions>
+                                <condition id="-10" name="For" sid="839504545244424" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">71</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="804444929259940" type="System">
+                                    <param id="0" name="Variable">x_val</param>
+                                    <param id="1" name="Value">x_val+17.4</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="127103016380112">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="112077334724937" type="System">
+                                            <param id="0" name="First value">let_path2.IndexOf(loopindex)</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="868266537055234" type="System">
+                                            <param id="0" name="Object to create">block2</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">x_val</param>
+                                            <param id="3" name="Y">y_val</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="160105612691304" type="block2">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block any="1" sid="934375225260945">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="705244128579794" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">8</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="236673013413067" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">17</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="806324043992573" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">26</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="615595035551732" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">35</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="762603551876411" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">44</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="609158748558048" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">53</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="123505642691270" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">62</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="671790250726777" type="System">
+                                            <param id="0" name="Variable">y_val</param>
+                                            <param id="1" name="Value">y_val+17.4</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="411220547847627" type="System">
+                                            <param id="0" name="Variable">x_val</param>
+                                            <param id="1" name="Value">1382.6</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="499814036744099">
+            <conditions>
+                <condition id="2" name="Has ended" sid="362210062805071" type="Video2" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="574425171224139" type="Video2" />
+            </actions>
+            <sub-events>
+                <event-block sid="730935799069689">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="361596062578836" type="System">
+                            <param id="0" name="Variable">enable</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="863692935624772" type="System">
+                            <param id="0" name="Variable">x_val</param>
+                            <param id="1" name="Value">355-74</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="497277471629387" type="System">
+                            <param id="0" name="Variable">y_val</param>
+                            <param id="1" name="Value">242-1.5</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="257157725558581">
+                            <conditions>
+                                <condition id="-10" name="For" sid="284045944157743" type="System">
+                                    <param id="0" name="Name">&quot;blockloop1&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">71</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="926400226298794" type="System">
+                                    <param id="0" name="Variable">x_val</param>
+                                    <param id="1" name="Value">x_val+74</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="351862956997446" type="System">
+                                    <param id="0" name="Object to create">block</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">x_val</param>
+                                    <param id="3" name="Y">y_val</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="916679217155457" type="block">
+                                    <param id="0" name="Opacity">0</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="108112948710754" type="block">
+                                    <param id="0" name="Width">73</param>
+                                    <param id="1" name="Height">73</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="641004078514476">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="384415803834200" type="System">
+                                            <param id="0" name="First value">let_path.At(0)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">loopindex</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="866421183058798" type="w_path">
+                                            <param id="0" name="X">x_val</param>
+                                            <param id="1" name="Y">y_val</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block any="1" sid="726417605741223">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="418876240243376" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">8</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="156214550845362" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">17</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="227700580234770" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">26</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="187223742932877" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">35</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="551258886504783" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">44</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="976192669359078" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">53</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="160481676617187" type="System">
+                                            <param id="0" name="First value">loopindex</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">62</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="217753035935862" type="System">
+                                            <param id="0" name="Variable">y_val</param>
+                                            <param id="1" name="Value">y_val+74</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="896050218456754" type="System">
+                                            <param id="0" name="Variable">x_val</param>
+                                            <param id="1" name="Value">355-74</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="442060510819812">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="660805837342581" type="System">
+                                            <param id="0" name="First value">let_path.IndexOf(loopindex)</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="333392664635071" type="block">
+                                            <param id="0" name="Frame number">2</param>
+                                        </action>
+                                        <action id="2" name="Set at X" sid="701420751857284" type="x_map">
+                                            <param id="0" name="X">loopindex</param>
+                                            <param id="1" name="Value">block.X</param>
+                                        </action>
+                                        <action id="2" name="Set at X" sid="160207225937112" type="y_map">
+                                            <param id="0" name="X">loopindex</param>
+                                            <param id="1" name="Value">block.Y</param>
+                                        </action>
+                                        <action id="-16" name="Set opacity" sid="254862796904116" type="block">
+                                            <param id="0" name="Opacity">100</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="393857232034041">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="463473376242600" type="System">
+                                                    <param id="0" name="First value">crop_path1.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="690069460329103" type="block">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="551698608795181">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="654679661089591" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="759065334651848" type="System">
+                                                    <param id="0" name="First value">crop_path2.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="872409628011202" type="block">
+                                                    <param id="0" name="Frame number">4</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="851921567471887">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="456584016720512" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="829702902086834" type="System">
+                                                    <param id="0" name="First value">crop_path3.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="575005657808563" type="block">
+                                                    <param id="0" name="Frame number">5</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="497818713370387">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="157443043623405" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="455026606956837" type="System">
+                                                    <param id="0" name="First value">crop_path4.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="531537842970110" type="block">
+                                                    <param id="0" name="Frame number">6</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="628732759985108">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="149924959593131" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="652662437228282" type="System">
+                                                    <param id="0" name="First value">crop_path5.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="240487392886119" type="block">
+                                                    <param id="0" name="Frame number">7</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="684606776475446">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="250231528873235" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="433098819107481" type="System">
+                                                    <param id="0" name="First value">crop_path6.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="132515931875552" type="block">
+                                                    <param id="0" name="Frame number">8</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="604514664140633">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="768148313523955" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="228798627346509" type="System">
+                                                    <param id="0" name="First value">crop_path7.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="732674756694838" type="block">
+                                                    <param id="0" name="Frame number">9</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="286742650408964">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="111180145099470" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="377876921803758" type="System">
+                                                    <param id="0" name="First value">crop_path8.IndexOf(loopindex)</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="987683464552180" type="block">
+                                                    <param id="0" name="Frame number">10</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="883497605473115">
+                            <conditions />
+                            <actions />
+                            <sub-events>
+                                <event-block sid="225712000270873">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="844773466039056" type="System">
+                                            <param id="0" name="First value">x_map.At(start)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">x_map.At(start+1)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="732383737630093" type="w_path">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="769585551217675">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="441427875094145" type="System">
+                                                    <param id="0" name="First value">y_map.At(start)</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">y_map.At(start+1)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="141008798230795" type="w_path">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="280340361724345">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="429571087922734" type="System" />
+                                        <condition id="-8" name="Compare two values" sid="142695456675828" type="System">
+                                            <param id="0" name="First value">y_map.At(start)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">y_map.At(start+1)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="426915559944143" type="w_path">
+                                            <param id="0" name="Frame number">3</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="498537558062891">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="664198574810616" type="System">
+                                                    <param id="0" name="First value">x_map.At(start)</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">x_map.At(start+1)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="811369610268796" type="w_path">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="783369402167049">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="712191588216079" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="465831735750454" type="w_path">
+                                            <param id="0" name="Frame number">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="153815584885093">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="368021169573933" type="System">
+                                                    <param id="0" name="First value">x_map.At(start)</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">x_map.At(start+1)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="388471551394286" type="w_path">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="870847020086984">
+                            <conditions />
+                            <actions />
+                            <sub-events>
+                                <event-block sid="794984717206509">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="129027780257924" type="System">
+                                            <param id="0" name="First value">round(x_map.At(let_path.At(0)))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">round(x_map.At(let_path.At(1)))</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="195662246952609">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="294488581963008" type="System">
+                                                    <param id="0" name="First value">round(y_map.At(let_path.At(0)))</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">round(y_map.At(let_path.At(1)))</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="463363894214679" type="w_path">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="137095536910169">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="916123861331812" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="680575807904129" type="w_path">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="547910921721211">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="520496541495600" type="System" />
+                                        <condition id="-8" name="Compare two values" sid="540860661606545" type="System">
+                                            <param id="0" name="First value">y_map.At(let_path.At(0))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">y_map.At(let_path.At(1))</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="680328254969437" type="w_path">
+                                            <param id="0" name="Frame number">2</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="279743797233688">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="734570170574254" type="System">
+                                                    <param id="0" name="First value">x_map.At(let_path.At(0))</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">x_map.At(let_path.At(1))</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="956773300288738" type="w_path">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="764006246509013">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="316777353394255" type="Touch">
+                    <param id="0" name="Object">block</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="827526002077100" type="System">
+                    <param id="0" name="First value">block.IID-1</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">let_path.At(start)</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="648486234195881" type="System">
+                    <param id="0" name="First value">start</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Second value">let_path.Width</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="692905158390314" type="block">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="361845466967402" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Value">start+1</param>
+                </action>
+                <action id="0" name="Play" sid="104263849367876" type="Audio">
+                    <param id="0" name="Audio file">Drag</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-3" name="Set position" sid="612263248863053" type="w_path">
+                    <param id="0" name="X">x_map.At(let_path.At(start))</param>
+                    <param id="1" name="Y">y_map.At(let_path.At(start))</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="832528420245414">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="807896594530017" type="System">
+                            <param id="0" name="First value">crop_path1.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="546098846690807" type="block">
+                            <param id="0" name="Frame number">11</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="544585883381208">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="397426021594538" type="System" />
+                        <condition id="-8" name="Compare two values" sid="222149306516738" type="System">
+                            <param id="0" name="First value">crop_path2.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="213521336303480" type="block">
+                            <param id="0" name="Frame number">12</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="359019833999589">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="209341048638284" type="System" />
+                        <condition id="-8" name="Compare two values" sid="230517531650141" type="System">
+                            <param id="0" name="First value">crop_path3.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="814957333984901" type="block">
+                            <param id="0" name="Frame number">13</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="695131396041391">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="441945991637332" type="System" />
+                        <condition id="-8" name="Compare two values" sid="923572170489561" type="System">
+                            <param id="0" name="First value">crop_path4.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="218663213619073" type="block">
+                            <param id="0" name="Frame number">14</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="376559553033158">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="202370882412122" type="System" />
+                        <condition id="-8" name="Compare two values" sid="687095549351671" type="System">
+                            <param id="0" name="First value">crop_path5.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="991302786651295" type="block">
+                            <param id="0" name="Frame number">15</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="475471866974351">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="582263118413654" type="System" />
+                        <condition id="-8" name="Compare two values" sid="777823544682595" type="System">
+                            <param id="0" name="First value">crop_path6.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="537724337099998" type="block">
+                            <param id="0" name="Frame number">16</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="796622447179250">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="878373303975539" type="System" />
+                        <condition id="-8" name="Compare two values" sid="501172302604222" type="System">
+                            <param id="0" name="First value">crop_path7.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="600002550106192" type="block">
+                            <param id="0" name="Frame number">17</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="235683669688494">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="814654406781792" type="System" />
+                        <condition id="-8" name="Compare two values" sid="733641230773935" type="System">
+                            <param id="0" name="First value">crop_path8.IndexOf(block.IID-1)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="722917333648705" type="block">
+                            <param id="0" name="Frame number">18</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="909913872559370">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="928750624846156" type="System">
+                            <param id="0" name="First value">abs(y_map.At(let_path.At(start-1))-y_map.At(let_path.At(start)))</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">89</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="959030055351746" type="System">
+                            <param id="0" name="First value">abs(x_map.At(let_path.At(start-1))-x_map.At(let_path.At(start)))</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">89</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="516990632501753">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="946780950467028" type="System">
+                                    <param id="0" name="First value">x_map.At(let_path.At(start-1))</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">x_map.At(let_path.At(start))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="761916736406891" type="System">
+                                    <param id="0" name="Object to create">dr_line</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">(x_map.At(let_path.At(start-1))+x_map.At(let_path.At(start)))/2</param>
+                                    <param id="3" name="Y">(y_map.At(let_path.At(start-1))+y_map.At(let_path.At(start)))/2</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="416649493239631" type="dr_line">
+                                    <param id="0" name="Angle">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="552090932678395">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="181475168612211" type="System">
+                                    <param id="0" name="First value">y_map.At(let_path.At(start-1))</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">y_map.At(let_path.At(start))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="369774335085289" type="System">
+                                    <param id="0" name="Object to create">dr_line</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">(x_map.At(let_path.At(start-1))+x_map.At(let_path.At(start)))/2</param>
+                                    <param id="3" name="Y">(y_map.At(let_path.At(start-1))+y_map.At(let_path.At(start)))/2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="720618522243092">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="351776529872523" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="425976305971745" type="System">
+                                    <param id="0" name="Object to create">dr_line</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">x_map.At(let_path.At(start-1))</param>
+                                    <param id="3" name="Y">y_map.At(let_path.At(start-1))</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="739657827352319" type="dr_line">
+                                    <param id="0" name="Width">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="954952990336578">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="554660692026141" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="187937545035857" type="System">
+                            <param id="0" name="Object to create">dr_line</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">x_map.At(let_path.At(start-1))</param>
+                            <param id="3" name="Y">y_map.At(let_path.At(start-1))</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="233427308237397" type="dr_line">
+                            <param id="0" name="Width">20</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="812277939917707">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="899660487927946" type="System">
+                            <param id="0" name="First value">start</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">let_path.Width</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="996259115032959" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="312076640473033" type="Function">
+                            <param id="0" name="Name">&quot;lev_fun&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="927446046581030">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="394519764194002" type="System">
+                            <param id="0" name="First value">x_map.At(let_path.At(start))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">x_map.At(let_path.At(start+1))</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="492573356779271" type="w_path">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="229532157518044">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="901898300383618" type="System">
+                                    <param id="0" name="First value">y_map.At(let_path.At(start))</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">y_map.At(let_path.At(start+1))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="525644710229257" type="w_path">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="637627415245411">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="166890779675815" type="System" />
+                        <condition id="-8" name="Compare two values" sid="919863543667901" type="System">
+                            <param id="0" name="First value">y_map.At(let_path.At(start))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">y_map.At(let_path.At(start+1))</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="960750620616815" type="w_path">
+                            <param id="0" name="Frame number">2</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="416774123451905">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="712006341817900" type="System">
+                                    <param id="0" name="First value">x_map.At(let_path.At(start))</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">x_map.At(let_path.At(start+1))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="771927551587709" type="w_path">
+                                    <param id="0" name="Frame number">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="808847154231605">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="836989049471444" type="System" />
+                        <condition id="-8" name="Compare two values" sid="356216987979841" type="System">
+                            <param id="0" name="First value">start</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">let_path.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="413904672649880" type="w_path">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="495230473624781">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="798914815654527" type="System">
+                                    <param id="0" name="First value">x_map.At(let_path.At(start))</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">x_map.At(let_path.At(start+1))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="175599647359687" type="w_path">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="950386274863549">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="778927883289072" type="System">
+                            <param id="0" name="First value">start</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">let_path.Width-1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="817549107515111" type="System">
+                            <param id="0" name="First value">abs(x_map.At(let_path.At(start))-x_map.At(let_path.At(start+1)))</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">89</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="282190297131859" type="System">
+                            <param id="0" name="First value">abs(y_map.At(let_path.At(start))-y_map.At(let_path.At(start+1)))</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">89</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="287506456230359" type="w_path">
+                            <param id="0" name="Frame number">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="345529060669979">
+            <conditions>
+                <condition id="3" name="On touched object" sid="866812677954027" type="Touch">
+                    <param id="0" name="Object">let_ch2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="848177562536552" type="System" />
+                <action id="7" name="Play (by name)" sid="476207733424977" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">myLetter&amp;&quot;_L1&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;done&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="771395654342023">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="380612937901447" type="System">
+                    <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="266648203857593" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="120761810608425" type="System">
+                    <param id="0" name="First value">enable</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="856015812302287" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="856936157211805">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="112595232853933" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="960201945929567" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="263554241973363" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="186816152831425">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="642969381584792" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">565</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="790159299485797" type="System">
+                    <param id="0" name="Variable">TimeGame</param>
+                    <param id="1" name="Value">565</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="843545101414361">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="579819073718316" type="System" />
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="814481366184208" type="Times">
+                    <param id="0" name="Width">TimeGame</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="325756221926235">
+            <conditions>
+                <condition id="0" name="On function" sid="484902717743076" type="Function">
+                    <param id="0" name="Name">&quot;lev_fun&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="726348526846735" type="System">
+                    <param id="0" name="Variable">enable</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="992974825052921" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="368229172831412" type="System">
+                    <param id="0" name="Layer">1</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="907134461136548" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;GreatJob&quot;&amp;int(random(1,5))</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="134664660085639" type="memoryScoreTxt">
+                    <param id="0" name="Text">int(memoryScoreTxt.Text)+10</param>
+                </action>
+                <action id="-9" name="Set value" sid="529001531169659" type="System">
+                    <param id="0" name="Variable">shape</param>
+                    <param id="1" name="Value">shape+1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="640044882154046">
+                    <conditions>
+                        <condition id="-10" name="For" sid="492610799835664" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="943762216525349" type="System">
+                            <param id="0" name="Object to create">stars</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">500</param>
+                            <param id="3" name="Y">500</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="536653966092722" type="stars">
+                            <param id="0" name="Width">123.117</param>
+                            <param id="1" name="Height">116.962</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="710649677015847" type="stars">
+                            <param id="0" name="Frame number">loopindex-1</param>
+                        </action>
+                        <action behavior="Rotate" id="1" name="Set acceleration" sid="248835277698284" type="stars">
+                            <param id="0" name="Acceleration">1</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="885028431148333" type="stars">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="815398399167848">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="545075908592556" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="929566313272710" type="stars">
+                                    <param id="0" name="X">1100</param>
+                                    <param id="1" name="Y">320</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="846943448237899">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="112034050024169" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="787135461159319" type="stars">
+                                    <param id="0" name="X">1000</param>
+                                    <param id="1" name="Y">700</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="305301553118809">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="668247425990139" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="486370357465696" type="stars">
+                                    <param id="0" name="X">700</param>
+                                    <param id="1" name="Y">350</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="864369157472036">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="863333523582594" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="341362426709977" type="stars">
+                                    <param id="0" name="X">600</param>
+                                    <param id="1" name="Y">750</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="427373905497478">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="872381276284567" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="343800815832671" type="stars">
+                                    <param id="0" name="X">400</param>
+                                    <param id="1" name="Y">340</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="250358470041517">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="709015937470128" type="System">
+                            <param id="0" name="Object">stars</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="797556774568508">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="879208131283320" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">shape-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="767948346452537" type="stars">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="494204610875347">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="655877209769728" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="332051273213092" type="stars">
+                                    <param id="0" name="Opacity">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="477396774510519">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="743785577994040" type="stars">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Number">tokencount(write_Array.At(Letters.IndexOf(mainLetter)),&quot;;&quot;)-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="819799201657666" type="stars">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="792165090924531">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="321882850694196" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="964238522651799" type="stars">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="886083766744841">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="836832397690784" type="System">
+                            <param id="0" name="First value">shape</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">tokencount(write_Array.At(Letters.IndexOf(mainLetter)+97),&quot;;&quot;)-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="511537144500286" type="Function">
+                            <param id="0" name="Name">&quot;flow_logs&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="334691502428317" type="System">
+                            <param id="0" name="Variable">shape</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="581178780518533" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="267307240880872" type="System">
+                            <param id="0" name="Variable">LayoutId</param>
+                            <param id="1" name="Value">layout_sort.At(layout_sort.IndexOf(LayoutId)+1)</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="399761502649421" type="System">
+                            <param id="0" name="Layout">&quot;Ex&quot;&amp;LayoutId</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="758453054267684">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="874369452356182" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="360502420277092" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action disabled="1" id="-25" name="Go to layout (by name)" sid="831810275350219" type="System">
+                            <param id="0" name="Layout">&quot;Game&quot; &amp; selectGame.id</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="880861092220843" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

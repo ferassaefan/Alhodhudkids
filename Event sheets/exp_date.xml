@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>exp_date</name>
+    <events>
+        <event-block sid="736574018368336">
+            <conditions>
+                <condition id="0" name="On clicked" sid="489253861804627" type="activateAccount" />
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" sid="483538518348340" type="Browser">
+                    <param id="0" name="URL">&quot;http://alhodhud.com/product/alhodhud-at-home/&quot;</param>
+                    <param id="1" name="Tag">&quot;activate account&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="551270215303931" type="Buttons">
+                    <param id="0" name="Property name">&quot;font-size&quot;</param>
+                    <param id="1" name="Value">&quot;1.5em&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="617198302312111" type="Buttons">
+                    <param id="0" name="Property name">&quot;font-family&quot;</param>
+                    <param id="1" name="Value">&quot;Microsoft Uighur&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
