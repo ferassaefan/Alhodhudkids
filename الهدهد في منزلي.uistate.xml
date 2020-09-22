@@ -11,9 +11,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="1">login</layout>
-        <layout active="1" order="3">Ex11</layout>
+        <layout order="3">Ex11</layout>
         <layout order="6">Ex8</layout>
-        <event-sheet order="0">login</event-sheet>
+        <event-sheet active="1" order="0">login</event-sheet>
         <event-sheet order="2">main_let</event-sheet>
         <event-sheet order="4">EX11</event-sheet>
         <event-sheet order="5">Ex8</event-sheet>
