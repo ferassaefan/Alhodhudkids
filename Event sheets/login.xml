@@ -228,8 +228,8 @@
                                     <param id="0" name="Property name">&quot;font-family&quot;</param>
                                     <param id="1" name="Value">&quot;Microsoft Uighur&quot;</param>
                                 </action>
-                                <action id="0" name="Alert" sid="982821834947721" type="Browser">
-                                    <param id="0" name="Message">&quot;&quot;</param>
+                                <action id="0" name="Alert" sid="511504945506502" type="Browser">
+                                    <param id="0" name="Message">&quot;Ammar&quot;</param>
                                 </action>
                             </actions>
                             <sub-events>
