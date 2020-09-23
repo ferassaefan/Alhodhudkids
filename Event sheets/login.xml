@@ -100,6 +100,9 @@
                                 <condition id="-2" name="On start of layout" sid="116510642209411" type="System" />
                             </conditions>
                             <actions>
+                                <action id="0" name="Alert" sid="814486879124180" type="Browser">
+                                    <param id="0" name="Message">&quot;feras&quot;</param>
+                                </action>
                                 <action id="5" name="Check item exists" sid="538882988170319" type="LocalStorage">
                                     <param id="0" name="Key">&quot;remember&quot;</param>
                                 </action>
@@ -228,8 +231,8 @@
                                     <param id="0" name="Property name">&quot;font-family&quot;</param>
                                     <param id="1" name="Value">&quot;Microsoft Uighur&quot;</param>
                                 </action>
-                                <action id="0" name="Alert" sid="511504945506502" type="Browser">
-                                    <param id="0" name="Message">&quot;Ammar&quot;</param>
+                                <action id="0" name="Alert" sid="982821834947721" type="Browser">
+                                    <param id="0" name="Message">&quot;&quot;</param>
                                 </action>
                             </actions>
                             <sub-events>
